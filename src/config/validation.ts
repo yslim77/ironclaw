@@ -21,6 +21,7 @@ import { applyAgentDefaults, applyModelDefaults, applySessionDefaults } from "./
 import { findLegacyConfigIssues } from "./legacy.js";
 import type { OpenClawConfig, ConfigValidationIssue } from "./types.js";
 import { OpenClawSchema } from "./zod-schema.js";
+import { validateSecurityFrameworkConfig } from "../security/framework.js";
 
 function isWorkspaceAvatarPath(value: string, workspaceDir: string): boolean {
   const workspaceRoot = path.resolve(workspaceDir);
@@ -120,6 +121,10 @@ export function validateConfigObjectRaw(
   const avatarIssues = validateIdentityAvatar(validated.data as OpenClawConfig);
   if (avatarIssues.length > 0) {
     return { ok: false, issues: avatarIssues };
+  }
+  const securityIssues = validateSecurityFrameworkConfig(validated.data as OpenClawConfig);
+  if (securityIssues.length > 0) {
+    return { ok: false, issues: securityIssues };
   }
   return {
     ok: true,

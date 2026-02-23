@@ -90,6 +90,177 @@ const LoggingLevelSchema = z.union([
   z.literal("trace"),
 ]);
 
+const SecuritySecretsSchema = z
+  .object({
+    enabled: z.boolean().optional(),
+    preferredProvider: z.union([z.literal("env"), z.literal("keychain"), z.literal("1password")]).optional(),
+    providers: z
+      .object({
+        env: z
+          .object({
+            enabled: z.boolean().optional(),
+          })
+          .strict()
+          .optional(),
+        keychain: z
+          .object({
+            enabled: z.boolean().optional(),
+            service: z.string().optional(),
+            account: z.string().optional(),
+          })
+          .strict()
+          .optional(),
+        onePassword: z
+          .object({
+            enabled: z.boolean().optional(),
+            vault: z.string().optional(),
+            account: z.string().optional(),
+          })
+          .strict()
+          .optional(),
+      })
+      .strict()
+      .optional(),
+    placeholders: z
+      .object({
+        envPrefix: z.string().optional(),
+        keychainPrefix: z.string().optional(),
+        onePasswordPrefix: z.string().optional(),
+      })
+      .strict()
+      .optional(),
+  })
+  .strict()
+  .optional();
+
+const SecurityAuditSchema = z
+  .object({
+    enabled: z.boolean().optional(),
+    file: z.string().optional(),
+    includePayloads: z.boolean().optional(),
+  })
+  .strict()
+  .optional();
+
+const SecurityRbacScopedTokenSchema = z
+  .object({
+    enabled: z.boolean().optional(),
+    token: z.string().optional().register(sensitive),
+    scopes: z.array(z.string()).optional(),
+    expiresAt: z.string().optional(),
+    description: z.string().optional(),
+  })
+  .strict();
+
+const SecurityRateLimitRuleSchema = z
+  .object({
+    maxRequests: z.number().int().positive().optional(),
+    windowMs: z.number().int().positive().optional(),
+  })
+  .strict();
+
+const SecurityFrameworkSchema = z
+  .object({
+    secrets: SecuritySecretsSchema,
+    audit: SecurityAuditSchema,
+    rbac: z
+      .object({
+        enabled: z.boolean().optional(),
+        scopedTokens: z.record(z.string(), SecurityRbacScopedTokenSchema).optional(),
+      })
+      .strict()
+      .optional(),
+    rateLimit: z
+      .object({
+        enabled: z.boolean().optional(),
+        default: SecurityRateLimitRuleSchema.optional(),
+        byScope: z.record(z.string(), SecurityRateLimitRuleSchema).optional(),
+      })
+      .strict()
+      .optional(),
+    sandbox: z
+      .object({
+        enabled: z.boolean().optional(),
+        defaultPolicy: z.union([z.literal("allow"), z.literal("deny")]).optional(),
+        allowedTools: z.array(z.string()).optional(),
+        deniedTools: z.array(z.string()).optional(),
+        allowedPaths: z.array(z.string()).optional(),
+        deniedPaths: z.array(z.string()).optional(),
+      })
+      .strict()
+      .optional(),
+  })
+  .strict()
+  .optional();
+
+const MonitoringAlertsSchema = z
+  .object({
+    cooldownSeconds: z.number().int().positive().optional(),
+    email: z
+      .object({
+        enabled: z.boolean().optional(),
+        to: z.string().optional(),
+        from: z.string().optional(),
+      })
+      .strict()
+      .optional(),
+    telegram: z
+      .object({
+        enabled: z.boolean().optional(),
+        botToken: z.string().optional().register(sensitive),
+        chatId: z.string().optional(),
+      })
+      .strict()
+      .optional(),
+    slack: z
+      .object({
+        enabled: z.boolean().optional(),
+        webhookUrl: z.string().optional().register(sensitive),
+        channel: z.string().optional(),
+      })
+      .strict()
+      .optional(),
+  })
+  .strict()
+  .optional();
+
+const MonitoringSchema = z
+  .object({
+    enabled: z.boolean().optional(),
+    heartbeat: z
+      .object({
+        enabled: z.boolean().optional(),
+        intervalSeconds: z.number().int().positive().optional(),
+      })
+      .strict()
+      .optional(),
+    queue: z
+      .object({
+        enabled: z.boolean().optional(),
+        warnDepth: z.number().int().nonnegative().optional(),
+      })
+      .strict()
+      .optional(),
+    resources: z
+      .object({
+        enabled: z.boolean().optional(),
+        sampleSeconds: z.number().int().positive().optional(),
+        maxRssMb: z.number().positive().optional(),
+        maxHeapUsedMb: z.number().positive().optional(),
+      })
+      .strict()
+      .optional(),
+    errorTracking: z
+      .object({
+        enabled: z.boolean().optional(),
+      })
+      .strict()
+      .optional(),
+    alerts: MonitoringAlertsSchema,
+  })
+  .strict()
+  .optional();
+
 const MemoryQmdSchema = z
   .object({
     command: z.string().optional(),
@@ -200,6 +371,8 @@ export const OpenClawSchema = z
       })
       .strict()
       .optional(),
+    security: SecurityFrameworkSchema,
+    monitoring: MonitoringSchema,
     update: z
       .object({
         channel: z.union([z.literal("stable"), z.literal("beta"), z.literal("dev")]).optional(),

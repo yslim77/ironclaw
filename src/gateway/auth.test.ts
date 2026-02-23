@@ -1,4 +1,5 @@
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
+import * as configModule from "../config/config.js";
 import type { AuthRateLimiter } from "./auth-rate-limit.js";
 import {
   authorizeGatewayConnect,
@@ -46,6 +47,9 @@ function createTailscaleWhois() {
 }
 
 describe("gateway auth", () => {
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
   async function expectTokenMismatchWithLimiter(params: {
     reqHeaders: Record<string, string>;
     allowRealIpFallback?: boolean;
@@ -200,6 +204,27 @@ describe("gateway auth", () => {
     });
     expect(res.ok).toBe(false);
     expect(res.reason).toBe("token_missing_config");
+  });
+
+  it("accepts scoped RBAC token with gateway.connect scope", async () => {
+    vi.spyOn(configModule, "loadConfig").mockReturnValue({
+      security: {
+        rbac: {
+          scopedTokens: {
+            test: {
+              token: "scoped-token",
+              scopes: ["gateway.connect"],
+            },
+          },
+        },
+      },
+    });
+    const res = await authorizeGatewayConnect({
+      auth: { mode: "token", allowTailscale: false },
+      connectAuth: { token: "scoped-token" },
+    });
+    expect(res.ok).toBe(true);
+    expect(res.method).toBe("token");
   });
 
   it("allows explicit auth mode none", async () => {

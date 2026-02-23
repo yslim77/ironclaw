@@ -26,6 +26,8 @@ const GROUP_LABELS: Record<string, string> = {
   update: "Update",
   diagnostics: "Diagnostics",
   logging: "Logging",
+  security: "Security",
+  monitoring: "Monitoring",
   gateway: "Gateway",
   nodeHost: "Node Host",
   agents: "Agents",
@@ -75,6 +77,8 @@ const GROUP_ORDER: Record<string, number> = {
   presence: 220,
   voicewake: 230,
   logging: 900,
+  security: 905,
+  monitoring: 910,
 };
 
 const FIELD_PLACEHOLDERS: Record<string, string> = {

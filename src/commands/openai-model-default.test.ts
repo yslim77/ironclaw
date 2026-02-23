@@ -12,6 +12,7 @@ import {
 } from "./openai-codex-model-default.js";
 import {
   applyOpenAIConfig,
+  OPENAI_DEFAULT_FALLBACK_MODEL,
   applyOpenAIProviderConfig,
   OPENAI_DEFAULT_MODEL,
 } from "./openai-model-default.js";
@@ -36,9 +37,12 @@ function makePrompter(): WizardPrompter {
 function expectPrimaryModelChanged(
   applied: { changed: boolean; next: OpenClawConfig },
   primary: string,
+  fallbacks?: string[],
 ) {
   expect(applied.changed).toBe(true);
-  expect(applied.next.agents?.defaults?.model).toEqual({ primary });
+  expect(applied.next.agents?.defaults?.model).toEqual(
+    fallbacks !== undefined ? { primary, fallbacks } : { primary },
+  );
 }
 
 function expectConfigUnchanged(
@@ -164,9 +168,10 @@ describe("shared default model behavior", () => {
 });
 
 describe("applyOpenAIProviderConfig", () => {
-  it("adds allowlist entry for default model", () => {
+  it("adds allowlist entries for default and fallback models", () => {
     const next = applyOpenAIProviderConfig({});
     expect(Object.keys(next.agents?.defaults?.models ?? {})).toContain(OPENAI_DEFAULT_MODEL);
+    expect(Object.keys(next.agents?.defaults?.models ?? {})).toContain(OPENAI_DEFAULT_FALLBACK_MODEL);
   });
 
   it("preserves existing alias for default model", () => {
@@ -186,14 +191,20 @@ describe("applyOpenAIProviderConfig", () => {
 describe("applyOpenAIConfig", () => {
   it("sets default when model is unset", () => {
     const next = applyOpenAIConfig({});
-    expect(next.agents?.defaults?.model).toEqual({ primary: OPENAI_DEFAULT_MODEL });
+    expect(next.agents?.defaults?.model).toEqual({
+      primary: OPENAI_DEFAULT_MODEL,
+      fallbacks: [OPENAI_DEFAULT_FALLBACK_MODEL],
+    });
   });
 
   it("overrides model.primary when model object already exists", () => {
     const next = applyOpenAIConfig({
       agents: { defaults: { model: { primary: "anthropic/claude-opus-4-6", fallbacks: [] } } },
     });
-    expect(next.agents?.defaults?.model).toEqual({ primary: OPENAI_DEFAULT_MODEL, fallbacks: [] });
+    expect(next.agents?.defaults?.model).toEqual({
+      primary: OPENAI_DEFAULT_MODEL,
+      fallbacks: [OPENAI_DEFAULT_FALLBACK_MODEL],
+    });
   });
 });
 
@@ -201,7 +212,7 @@ describe("applyOpenAICodexModelDefault", () => {
   it("sets openai-codex default when model is unset", () => {
     const cfg: OpenClawConfig = { agents: { defaults: {} } };
     const applied = applyOpenAICodexModelDefault(cfg);
-    expectPrimaryModelChanged(applied, OPENAI_CODEX_DEFAULT_MODEL);
+    expectPrimaryModelChanged(applied, OPENAI_CODEX_DEFAULT_MODEL, [OPENAI_DEFAULT_FALLBACK_MODEL]);
   });
 
   it("sets openai-codex default when model is openai/*", () => {
@@ -209,7 +220,7 @@ describe("applyOpenAICodexModelDefault", () => {
       agents: { defaults: { model: { primary: OPENAI_DEFAULT_MODEL } } },
     };
     const applied = applyOpenAICodexModelDefault(cfg);
-    expectPrimaryModelChanged(applied, OPENAI_CODEX_DEFAULT_MODEL);
+    expectPrimaryModelChanged(applied, OPENAI_CODEX_DEFAULT_MODEL, [OPENAI_DEFAULT_FALLBACK_MODEL]);
   });
 
   it("does not override openai-codex/*", () => {

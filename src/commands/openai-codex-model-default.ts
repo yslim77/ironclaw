@@ -1,5 +1,6 @@
 import type { OpenClawConfig } from "../config/config.js";
 import type { AgentModelListConfig } from "../config/types.js";
+import { OPENAI_DEFAULT_FALLBACK_MODEL } from "./openai-model-default.js";
 
 export const OPENAI_CODEX_DEFAULT_MODEL = "openai-codex/gpt-5.3-codex";
 
@@ -28,6 +29,16 @@ function resolvePrimaryModel(model?: AgentModelListConfig | string): string | un
   return undefined;
 }
 
+function ensureFallbackModelList(fallbacks: string[] | undefined): string[] {
+  const normalized = Array.isArray(fallbacks)
+    ? fallbacks.map((entry) => String(entry).trim()).filter(Boolean)
+    : [];
+  if (!normalized.includes(OPENAI_DEFAULT_FALLBACK_MODEL)) {
+    normalized.push(OPENAI_DEFAULT_FALLBACK_MODEL);
+  }
+  return normalized;
+}
+
 export function applyOpenAICodexModelDefault(cfg: OpenClawConfig): {
   next: OpenClawConfig;
   changed: boolean;
@@ -36,6 +47,10 @@ export function applyOpenAICodexModelDefault(cfg: OpenClawConfig): {
   if (!shouldSetOpenAICodexModel(current)) {
     return { next: cfg, changed: false };
   }
+  const modelConfig = cfg.agents?.defaults?.model;
+  const existingFallbacks =
+    modelConfig && typeof modelConfig === "object" ? modelConfig.fallbacks : undefined;
+  const fallbackList = ensureFallbackModelList(existingFallbacks);
   return {
     next: {
       ...cfg,
@@ -43,13 +58,11 @@ export function applyOpenAICodexModelDefault(cfg: OpenClawConfig): {
         ...cfg.agents,
         defaults: {
           ...cfg.agents?.defaults,
-          model:
-            cfg.agents?.defaults?.model && typeof cfg.agents.defaults.model === "object"
-              ? {
-                  ...cfg.agents.defaults.model,
-                  primary: OPENAI_CODEX_DEFAULT_MODEL,
-                }
-              : { primary: OPENAI_CODEX_DEFAULT_MODEL },
+          model: {
+            ...(modelConfig && typeof modelConfig === "object" ? modelConfig : {}),
+            primary: OPENAI_CODEX_DEFAULT_MODEL,
+            fallbacks: fallbackList,
+          },
         },
       },
     },

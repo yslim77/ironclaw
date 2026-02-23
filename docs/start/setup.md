@@ -40,6 +40,8 @@ Bootstrap once:
 openclaw setup
 ```
 
+This also seeds baseline `security` + `monitoring` config blocks used by the always-on gateway daemon.
+
 From inside this repo, use the local CLI entry:
 
 ```bash

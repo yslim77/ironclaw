@@ -29,7 +29,14 @@ openclaw onboard --openai-api-key "$OPENAI_API_KEY"
 ```json5
 {
   env: { OPENAI_API_KEY: "sk-..." },
-  agents: { defaults: { model: { primary: "openai/gpt-5.1-codex" } } },
+  agents: {
+    defaults: {
+      model: {
+        primary: "openai/gpt-5.1-codex",
+        fallbacks: ["openai/gpt-5.2-codex"],
+      },
+    },
+  },
 }
 ```
 
@@ -52,7 +59,14 @@ openclaw models auth login --provider openai-codex
 
 ```json5
 {
-  agents: { defaults: { model: { primary: "openai-codex/gpt-5.3-codex" } } },
+  agents: {
+    defaults: {
+      model: {
+        primary: "openai-codex/gpt-5.3-codex",
+        fallbacks: ["openai/gpt-5.2-codex"],
+      },
+    },
+  },
 }
 ```
 

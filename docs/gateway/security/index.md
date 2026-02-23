@@ -67,6 +67,54 @@ Use this baseline first, then selectively re-enable tools per trusted agent:
 
 This keeps the Gateway local-only, isolates DMs, and disables control-plane/runtime tools by default.
 
+## Security and Monitoring Framework
+
+OpenClaw now includes a built-in framework for hardening + monitoring long-running gateway deployments.
+
+Core config sections:
+
+- `security.secrets`: managed secret hooks (`env:` + `keychain:` + `op://` placeholders)
+- `security.audit`: JSONL security audit log output
+- `security.rbac.scopedTokens`: scoped tokens (for example `gateway.connect`)
+- `security.rateLimit`: scope-aware request budgets
+- `security.sandbox`: tool/path permission gates for sandbox bind checks
+- `monitoring`: always-on daemon telemetry for heartbeat health, queue depth, resource usage, and error tracking
+- `monitoring.alerts`: email/telegram/slack alert transport stubs (wire your own delivery integrations)
+
+Example:
+
+```json5
+{
+  security: {
+    audit: { enabled: true, file: "~/.openclaw/logs/security-audit.jsonl" },
+    rbac: {
+      scopedTokens: {
+        ciBot: {
+          enabled: true,
+          token: "replace-me",
+          scopes: ["gateway.connect", "operator.read"],
+        },
+      },
+    },
+    sandbox: {
+      enabled: true,
+      defaultPolicy: "deny",
+      allowedPaths: ["/home/user/workspace"],
+      deniedPaths: ["/etc", "/var/run"],
+    },
+  },
+  monitoring: {
+    enabled: true,
+    queue: { warnDepth: 25 },
+    resources: { maxRssMb: 1536, maxHeapUsedMb: 1024 },
+    alerts: {
+      slack: { enabled: true, webhookUrl: "env:OPENCLAW_ALERT_SLACK_WEBHOOK" },
+      telegram: { enabled: true, botToken: "env:OPENCLAW_ALERT_TELEGRAM_BOT_TOKEN" },
+    },
+  },
+}
+```
+
 ## Shared inbox quick rule
 
 If more than one person can DM your bot:

@@ -6,6 +6,7 @@ import { formatConfigPath, logConfigUpdated } from "../config/logging.js";
 import { resolveSessionTranscriptsDir } from "../config/sessions.js";
 import type { RuntimeEnv } from "../runtime.js";
 import { defaultRuntime } from "../runtime.js";
+import { applySecurityMonitoringDefaults } from "../security/framework.js";
 import { shortenHomePath } from "../utils.js";
 
 async function readConfigFileRaw(configPath: string): Promise<{
@@ -41,7 +42,7 @@ export async function setupCommand(
 
   const workspace = desiredWorkspace ?? defaults.workspace ?? DEFAULT_AGENT_WORKSPACE_DIR;
 
-  const next: OpenClawConfig = {
+  const next = applySecurityMonitoringDefaults({
     ...cfg,
     agents: {
       ...cfg.agents,
@@ -50,7 +51,7 @@ export async function setupCommand(
         workspace,
       },
     },
-  };
+  });
 
   if (!existingRaw.exists || defaults.workspace !== workspace) {
     await writeConfigFile(next);

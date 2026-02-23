@@ -45,6 +45,7 @@ import { createEmptyPluginRegistry } from "../plugins/registry.js";
 import type { PluginServicesHandle } from "../plugins/services.js";
 import { getTotalQueueSize } from "../process/command-queue.js";
 import type { RuntimeEnv } from "../runtime.js";
+import { startSecurityMonitoringDaemon, writeSecurityAuditEvent } from "../security/framework.js";
 import { runOnboardingWizard } from "../wizard/onboarding.js";
 import { createAuthRateLimiter, type AuthRateLimiter } from "./auth-rate-limit.js";
 import { startChannelHealthMonitor } from "./channel-health-monitor.js";
@@ -253,6 +254,23 @@ export async function startGatewayServer(
       );
     }
   }
+  void writeSecurityAuditEvent({
+    config: cfgAtStart,
+    event: "gateway.start",
+    payload: {
+      port,
+      bind: opts.bind ?? cfgAtStart.gateway?.bind ?? "loopback",
+    },
+  }).catch((err) => log.warn(`failed to write security audit startup event: ${String(err)}`));
+  const securityMonitor = startSecurityMonitoringDaemon({ config: cfgAtStart });
+  const unhandledRejectionListener = (reason: unknown) => {
+    void securityMonitor.trackError(reason, { source: "unhandledRejection" });
+  };
+  const uncaughtExceptionListener = (error: unknown) => {
+    void securityMonitor.trackError(error, { source: "uncaughtException" });
+  };
+  process.on("unhandledRejection", unhandledRejectionListener);
+  process.on("uncaughtExceptionMonitor", uncaughtExceptionListener);
   const diagnosticsEnabled = isDiagnosticsEnabled(cfgAtStart);
   if (diagnosticsEnabled) {
     startDiagnosticHeartbeat();
@@ -773,9 +791,19 @@ export async function startGatewayServer(
         clearTimeout(skillsRefreshTimer);
         skillsRefreshTimer = null;
       }
+      void writeSecurityAuditEvent({
+        config: loadConfig(),
+        event: "gateway.stop",
+        payload: {
+          reason: opts?.reason ?? "gateway stopping",
+        },
+      }).catch((err) => log.warn(`failed to write security audit shutdown event: ${String(err)}`));
       skillsChangeUnsub();
       authRateLimiter?.dispose();
       channelHealthMonitor?.stop();
+      securityMonitor.stop();
+      process.off("unhandledRejection", unhandledRejectionListener);
+      process.off("uncaughtExceptionMonitor", uncaughtExceptionListener);
       await close(opts);
     },
   };

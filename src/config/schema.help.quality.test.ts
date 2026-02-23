@@ -8,6 +8,8 @@ const ROOT_SECTIONS = [
   "wizard",
   "diagnostics",
   "logging",
+  "security",
+  "monitoring",
   "update",
   "browser",
   "ui",

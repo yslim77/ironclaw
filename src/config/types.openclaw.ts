@@ -13,6 +13,7 @@ import type {
 } from "./types.gateway.js";
 import type { HooksConfig } from "./types.hooks.js";
 import type { MemoryConfig } from "./types.memory.js";
+import type { MonitoringConfig } from "./types.monitoring.js";
 import type {
   AudioConfig,
   BroadcastConfig,
@@ -22,6 +23,7 @@ import type {
 import type { ModelsConfig } from "./types.models.js";
 import type { NodeHostConfig } from "./types.node-host.js";
 import type { PluginsConfig } from "./types.plugins.js";
+import type { SecurityFrameworkConfig } from "./types.security.js";
 import type { SkillsConfig } from "./types.skills.js";
 import type { ToolsConfig } from "./types.tools.js";
 
@@ -58,6 +60,8 @@ export type OpenClawConfig = {
   };
   diagnostics?: DiagnosticsConfig;
   logging?: LoggingConfig;
+  security?: SecurityFrameworkConfig;
+  monitoring?: MonitoringConfig;
   update?: {
     /** Update channel for git + npm installs ("stable", "beta", or "dev"). */
     channel?: "stable" | "beta" | "dev";

@@ -14,6 +14,7 @@ import {
 } from "../config/config.js";
 import type { RuntimeEnv } from "../runtime.js";
 import { defaultRuntime } from "../runtime.js";
+import { applySecurityMonitoringDefaults } from "../security/framework.js";
 import { resolveUserPath } from "../utils.js";
 import type { QuickstartGatewayDefaults, WizardFlow } from "./onboarding.types.js";
 import { WizardCancelledError, type WizardPrompter } from "./prompts.js";
@@ -315,6 +316,7 @@ export async function runOnboardingWizard(
     const { promptRemoteGatewayConfig } = await import("../commands/onboard-remote.js");
     const { logConfigUpdated } = await import("../config/logging.js");
     let nextConfig = await promptRemoteGatewayConfig(baseConfig, prompter);
+    nextConfig = applySecurityMonitoringDefaults(nextConfig);
     nextConfig = onboardHelpers.applyWizardMetadata(nextConfig, { command: "onboard", mode });
     await writeConfigFile(nextConfig);
     logConfigUpdated(runtime);
@@ -334,7 +336,9 @@ export async function runOnboardingWizard(
   const workspaceDir = resolveUserPath(workspaceInput.trim() || onboardHelpers.DEFAULT_WORKSPACE);
 
   const { applyOnboardingLocalWorkspaceConfig } = await import("../commands/onboard-config.js");
-  let nextConfig: OpenClawConfig = applyOnboardingLocalWorkspaceConfig(baseConfig, workspaceDir);
+  let nextConfig: OpenClawConfig = applySecurityMonitoringDefaults(
+    applyOnboardingLocalWorkspaceConfig(baseConfig, workspaceDir),
+  );
 
   const { ensureAuthProfileStore } = await import("../agents/auth-profiles.js");
   const { promptAuthChoiceGrouped } = await import("../commands/auth-choice-prompt.js");
@@ -429,6 +433,7 @@ export async function runOnboardingWizard(
     });
   }
 
+  nextConfig = applySecurityMonitoringDefaults(nextConfig);
   await writeConfigFile(nextConfig);
   const { logConfigUpdated } = await import("../config/logging.js");
   logConfigUpdated(runtime);
@@ -447,6 +452,7 @@ export async function runOnboardingWizard(
   const { setupInternalHooks } = await import("../commands/onboard-hooks.js");
   nextConfig = await setupInternalHooks(nextConfig, runtime, prompter);
 
+  nextConfig = applySecurityMonitoringDefaults(nextConfig);
   nextConfig = onboardHelpers.applyWizardMetadata(nextConfig, { command: "onboard", mode });
   await writeConfigFile(nextConfig);
 

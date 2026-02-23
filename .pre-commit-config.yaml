@@ -88,6 +88,13 @@ repos:
         pass_filenames: false
         types_or: [javascript, jsx, ts, tsx]
 
+      # Lightweight staged secret pattern scan (defense-in-depth).
+      - id: secret-scan-staged
+        name: secret-scan-staged
+        entry: scripts/pre-commit/secret-scan.sh
+        language: system
+        pass_filenames: false
+
       # swiftlint (same as CI)
       - id: swiftlint
         name: swiftlint

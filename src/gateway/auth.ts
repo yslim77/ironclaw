@@ -4,7 +4,9 @@ import type {
   GatewayTailscaleMode,
   GatewayTrustedProxyConfig,
 } from "../config/config.js";
+import { loadConfig } from "../config/config.js";
 import { readTailscaleWhoisIdentity, type TailscaleWhoisIdentity } from "../infra/tailscale.js";
+import { authorizeScopedToken } from "../security/framework.js";
 import { safeEqualSecret } from "../security/secret-equal.js";
 import {
   AUTH_RATE_LIMIT_SCOPE_SHARED_SECRET,
@@ -432,19 +434,32 @@ export async function authorizeGatewayConnect(
   }
 
   if (auth.mode === "token") {
-    if (!auth.token) {
-      return { ok: false, reason: "token_missing_config" };
-    }
     if (!connectAuth?.token) {
       limiter?.recordFailure(ip, rateLimitScope);
       return { ok: false, reason: "token_missing" };
+    }
+
+    const scoped = authorizeScopedToken({
+      config: loadConfig(),
+      token: connectAuth.token,
+      requiredScope: "gateway.connect",
+    });
+
+    if (auth.token && safeEqualSecret(connectAuth.token, auth.token)) {
+      limiter?.reset(ip, rateLimitScope);
+      return { ok: true, method: "token" };
+    }
+    if (scoped.ok) {
+      limiter?.reset(ip, rateLimitScope);
+      return { ok: true, method: "token", user: `scoped:${scoped.tokenId}` };
+    }
+    if (!auth.token) {
+      return { ok: false, reason: "token_missing_config" };
     }
     if (!safeEqualSecret(connectAuth.token, auth.token)) {
       limiter?.recordFailure(ip, rateLimitScope);
       return { ok: false, reason: "token_mismatch" };
     }
-    limiter?.reset(ip, rateLimitScope);
-    return { ok: true, method: "token" };
   }
 
   if (auth.mode === "password") {

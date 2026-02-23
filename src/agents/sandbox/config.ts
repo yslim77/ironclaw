@@ -1,5 +1,7 @@
 import type { OpenClawConfig } from "../../config/config.js";
+import { enforceSandboxPermissionGate } from "../../security/framework.js";
 import { resolveAgentConfig } from "../agent-scope.js";
+import { parseBindSourcePath } from "./validate-sandbox-security.js";
 import {
   DEFAULT_SANDBOX_BROWSER_AUTOSTART_TIMEOUT_MS,
   DEFAULT_SANDBOX_BROWSER_CDP_PORT,
@@ -166,22 +168,45 @@ export function resolveSandboxConfigForAgent(
 
   const toolPolicy = resolveSandboxToolPolicyForAgent(cfg, agentId);
 
+  const docker = resolveSandboxDockerConfig({
+    scope,
+    globalDocker: agent?.docker,
+    agentDocker: agentSandbox?.docker,
+  });
+  const browser = resolveSandboxBrowserConfig({
+    scope,
+    globalBrowser: agent?.browser,
+    agentBrowser: agentSandbox?.browser,
+  });
+
+  if (cfg?.security?.sandbox?.enabled !== false) {
+    const checkBind = (bind: string, toolName: string) => {
+      const sourcePath = parseBindSourcePath(bind);
+      const decision = enforceSandboxPermissionGate({
+        config: cfg,
+        toolName,
+        targetPath: sourcePath,
+      });
+      if (!decision.ok) {
+        throw new Error(`Sandbox permission gate rejected bind "${bind}": ${decision.reason}`);
+      }
+    };
+    for (const bind of docker.binds ?? []) {
+      checkBind(bind, "sandbox.bind");
+    }
+    for (const bind of browser.binds ?? []) {
+      checkBind(bind, "sandbox.browser.bind");
+    }
+  }
+
   return {
     mode: agentSandbox?.mode ?? agent?.mode ?? "off",
     scope,
     workspaceAccess: agentSandbox?.workspaceAccess ?? agent?.workspaceAccess ?? "none",
     workspaceRoot:
       agentSandbox?.workspaceRoot ?? agent?.workspaceRoot ?? DEFAULT_SANDBOX_WORKSPACE_ROOT,
-    docker: resolveSandboxDockerConfig({
-      scope,
-      globalDocker: agent?.docker,
-      agentDocker: agentSandbox?.docker,
-    }),
-    browser: resolveSandboxBrowserConfig({
-      scope,
-      globalBrowser: agent?.browser,
-      agentBrowser: agentSandbox?.browser,
-    }),
+    docker,
+    browser,
     tools: {
       allow: toolPolicy.allow,
       deny: toolPolicy.deny,

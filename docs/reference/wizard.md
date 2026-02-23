@@ -33,8 +33,11 @@ For a high-level overview, see [Onboarding Wizard](/start/wizard).
     - **Anthropic token (paste setup-token)**: run `claude setup-token` on any machine, then paste the token (you can name it; blank = default).
     - **OpenAI Code (Codex) subscription (Codex CLI)**: if `~/.codex/auth.json` exists, the wizard can reuse it.
     - **OpenAI Code (Codex) subscription (OAuth)**: browser flow; paste the `code#state`.
-      - Sets `agents.defaults.model` to `openai-codex/gpt-5.2` when model is unset or `openai/*`.
+      - Sets `agents.defaults.model.primary` to `openai-codex/gpt-5.3-codex` when model is unset or `openai/*`.
+      - Ensures `agents.defaults.model.fallbacks` includes `openai/gpt-5.2-codex`.
     - **OpenAI API key**: uses `OPENAI_API_KEY` if present or prompts for a key, then saves it to `~/.openclaw/.env` so launchd can read it.
+      - Sets `agents.defaults.model.primary` to `openai/gpt-5.1-codex` when model is unset, `openai/*`, or `openai-codex/*`.
+      - Ensures `agents.defaults.model.fallbacks` includes `openai/gpt-5.2-codex`.
     - **xAI (Grok) API key**: prompts for `XAI_API_KEY` and configures xAI as a model provider.
     - **OpenCode Zen (multi-model proxy)**: prompts for `OPENCODE_API_KEY` (or `OPENCODE_ZEN_API_KEY`, get it at https://opencode.ai/auth).
     - **API key**: stores the key for you.
