@@ -500,6 +500,56 @@ Run multiple accounts per channel (each with its own `accountId`):
 - Base channel settings apply to all accounts unless overridden per account.
 - Use `bindings[].match.accountId` to route each account to a different agent.
 
+### Security and monitoring
+
+```json5
+{
+  security: {
+    secrets: {
+      providers: {
+        keychain: { enabled: true, service: "openclaw", account: "main", command: "security" },
+        onePassword: { enabled: true, account: "my.1password.com", command: "op" },
+      },
+    },
+  },
+  monitoring: {
+    metrics: { enabled: true, path: "/metrics" },
+    alerts: {
+      email: {
+        enabled: true,
+        to: "ops@example.com",
+        hookEnabled: true,
+        hookCommand: "/usr/local/bin/openclaw-alert-hook",
+      },
+      telegram: {
+        enabled: true,
+        botToken: "env:OPENCLAW_ALERT_TELEGRAM_BOT_TOKEN",
+        chatId: "-1001234567890",
+      },
+      slack: {
+        enabled: true,
+        channel: "#ops-alerts",
+        botToken: "env:OPENCLAW_ALERT_SLACK_BOT_TOKEN",
+      },
+    },
+  },
+}
+```
+
+- Secret placeholders:
+  - `env:NAME`
+  - `keychain:service/account`
+  - `op://vault/item/field`
+- Optional command hooks:
+  - `security.secrets.providers.keychain.command`
+  - `security.secrets.providers.onePassword.command`
+- Monitoring alert hooks:
+  - `monitoring.alerts.email.hookEnabled` + `hookCommand`
+  - `monitoring.alerts.telegram.hookEnabled` + `hookCommand`
+  - `monitoring.alerts.slack.hookEnabled` + `hookCommand`
+- Metrics endpoint requires standard gateway auth and exposes queue/resource/heartbeat plus alert/error counters.
+- Security deep dive: [Security](/gateway/security)
+
 ### Group chat mention gating
 
 Group messages default to **require mention** (metadata mention or regex patterns). Applies to WhatsApp, Telegram, Discord, Google Chat, and iMessage group chats.

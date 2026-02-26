@@ -93,7 +93,9 @@ const LoggingLevelSchema = z.union([
 const SecuritySecretsSchema = z
   .object({
     enabled: z.boolean().optional(),
-    preferredProvider: z.union([z.literal("env"), z.literal("keychain"), z.literal("1password")]).optional(),
+    preferredProvider: z
+      .union([z.literal("env"), z.literal("keychain"), z.literal("1password")])
+      .optional(),
     providers: z
       .object({
         env: z
@@ -107,6 +109,7 @@ const SecuritySecretsSchema = z
             enabled: z.boolean().optional(),
             service: z.string().optional(),
             account: z.string().optional(),
+            command: z.string().optional(),
           })
           .strict()
           .optional(),
@@ -115,6 +118,7 @@ const SecuritySecretsSchema = z
             enabled: z.boolean().optional(),
             vault: z.string().optional(),
             account: z.string().optional(),
+            command: z.string().optional(),
           })
           .strict()
           .optional(),
@@ -201,6 +205,9 @@ const MonitoringAlertsSchema = z
         enabled: z.boolean().optional(),
         to: z.string().optional(),
         from: z.string().optional(),
+        subjectPrefix: z.string().optional(),
+        hookEnabled: z.boolean().optional(),
+        hookCommand: z.string().optional(),
       })
       .strict()
       .optional(),
@@ -209,14 +216,21 @@ const MonitoringAlertsSchema = z
         enabled: z.boolean().optional(),
         botToken: z.string().optional().register(sensitive),
         chatId: z.string().optional(),
+        accountId: z.string().optional(),
+        hookEnabled: z.boolean().optional(),
+        hookCommand: z.string().optional(),
       })
       .strict()
       .optional(),
     slack: z
       .object({
         enabled: z.boolean().optional(),
+        botToken: z.string().optional().register(sensitive),
         webhookUrl: z.string().optional().register(sensitive),
         channel: z.string().optional(),
+        accountId: z.string().optional(),
+        hookEnabled: z.boolean().optional(),
+        hookCommand: z.string().optional(),
       })
       .strict()
       .optional(),
@@ -253,6 +267,13 @@ const MonitoringSchema = z
     errorTracking: z
       .object({
         enabled: z.boolean().optional(),
+      })
+      .strict()
+      .optional(),
+    metrics: z
+      .object({
+        enabled: z.boolean().optional(),
+        path: z.string().optional(),
       })
       .strict()
       .optional(),

@@ -37,7 +37,7 @@ openclaw setup --wizard
 - scoped RBAC token map (`security.rbac.scopedTokens`)
 - security-side rate-limit policy (`security.rateLimit`)
 - sandbox permission gates (`security.sandbox`)
-- daemon monitoring settings for heartbeat, queue pressure, resources, and alert stubs (`monitoring.*`)
+- daemon monitoring settings for heartbeat, queue pressure, resources, metrics endpoint, and alert delivery (`monitoring.*`)
 
 After setup, review the generated config:
 

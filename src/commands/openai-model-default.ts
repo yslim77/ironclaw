@@ -3,6 +3,8 @@ import { ensureModelAllowlistEntry } from "./model-allowlist.js";
 
 export const OPENAI_DEFAULT_MODEL = "openai/gpt-5.1-codex";
 export const OPENAI_DEFAULT_FALLBACK_MODEL = "openai/gpt-5.2-codex";
+export const OPENAI_SECOND_FALLBACK_MODEL = "ollama/qwen3.5";
+export const OPENAI_THIRD_FALLBACK_MODEL = "ollama/minimax-m2.5";
 
 function ensureFallbackModelList(fallbacks: string[] | undefined): string[] {
   const normalized = Array.isArray(fallbacks)
@@ -10,6 +12,12 @@ function ensureFallbackModelList(fallbacks: string[] | undefined): string[] {
     : [];
   if (!normalized.includes(OPENAI_DEFAULT_FALLBACK_MODEL)) {
     normalized.push(OPENAI_DEFAULT_FALLBACK_MODEL);
+  }
+  if (!normalized.includes(OPENAI_SECOND_FALLBACK_MODEL)) {
+    normalized.push(OPENAI_SECOND_FALLBACK_MODEL);
+  }
+  if (!normalized.includes(OPENAI_THIRD_FALLBACK_MODEL)) {
+    normalized.push(OPENAI_THIRD_FALLBACK_MODEL);
   }
   return normalized;
 }
@@ -19,9 +27,17 @@ export function applyOpenAIProviderConfig(cfg: OpenClawConfig): OpenClawConfig {
     cfg,
     modelRef: OPENAI_DEFAULT_MODEL,
   });
-  const next = ensureModelAllowlistEntry({
+  const withFallback = ensureModelAllowlistEntry({
     cfg: withPrimary,
     modelRef: OPENAI_DEFAULT_FALLBACK_MODEL,
+  });
+  const withSecondFallback = ensureModelAllowlistEntry({
+    cfg: withFallback,
+    modelRef: OPENAI_SECOND_FALLBACK_MODEL,
+  });
+  const next = ensureModelAllowlistEntry({
+    cfg: withSecondFallback,
+    modelRef: OPENAI_THIRD_FALLBACK_MODEL,
   });
   const models = { ...next.agents?.defaults?.models };
   models[OPENAI_DEFAULT_MODEL] = {
@@ -31,6 +47,14 @@ export function applyOpenAIProviderConfig(cfg: OpenClawConfig): OpenClawConfig {
   models[OPENAI_DEFAULT_FALLBACK_MODEL] = {
     ...models[OPENAI_DEFAULT_FALLBACK_MODEL],
     alias: models[OPENAI_DEFAULT_FALLBACK_MODEL]?.alias ?? "GPT Codex Fallback",
+  };
+  models[OPENAI_SECOND_FALLBACK_MODEL] = {
+    ...models[OPENAI_SECOND_FALLBACK_MODEL],
+    alias: models[OPENAI_SECOND_FALLBACK_MODEL]?.alias ?? "Qwen3.5 (Ollama)",
+  };
+  models[OPENAI_THIRD_FALLBACK_MODEL] = {
+    ...models[OPENAI_THIRD_FALLBACK_MODEL],
+    alias: models[OPENAI_THIRD_FALLBACK_MODEL]?.alias ?? "MiniMax-M2.5 (Ollama)",
   };
 
   return {

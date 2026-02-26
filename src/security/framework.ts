@@ -1,27 +1,35 @@
+import { execFile as execFileCallback } from "node:child_process";
 import fs from "node:fs/promises";
 import path from "node:path";
+import { promisify } from "node:util";
 import { resolveDefaultAgentId } from "../agents/agent-scope.js";
+import { createDefaultDeps } from "../cli/deps.js";
 import { type OpenClawConfig, loadConfig } from "../config/config.js";
 import { resolveStateDir } from "../config/paths.js";
-import { resolveHeartbeatSummaryForAgent } from "../infra/heartbeat-runner.js";
+import type { MonitoringConfig, SecurityFrameworkConfig } from "../config/types.js";
 import { createFixedWindowRateLimiter } from "../infra/fixed-window-rate-limit.js";
+import { resolveHeartbeatSummaryForAgent } from "../infra/heartbeat-runner.js";
 import { createSubsystemLogger } from "../logging/subsystem.js";
 import { getActiveTaskCount, getTotalQueueSize } from "../process/command-queue.js";
-import type { MonitoringConfig, SecurityFrameworkConfig } from "../config/types.js";
 import { isPathWithinRoot } from "../shared/avatar-policy.js";
 
+const execFile = promisify(execFileCallback);
 const log = createSubsystemLogger("security/framework");
 
 const DEFAULT_AUDIT_FILE = path.join(resolveStateDir(process.env), "logs", "security-audit.jsonl");
 
 const DEFAULT_MONITORING: Required<
-  Pick<MonitoringConfig, "enabled" | "heartbeat" | "queue" | "resources" | "errorTracking">
+  Pick<
+    MonitoringConfig,
+    "enabled" | "heartbeat" | "queue" | "resources" | "errorTracking" | "metrics"
+  >
 > = {
   enabled: true,
   heartbeat: { enabled: true, intervalSeconds: 30 },
   queue: { enabled: true, warnDepth: 25 },
   resources: { enabled: true, sampleSeconds: 30, maxRssMb: 1536, maxHeapUsedMb: 1024 },
   errorTracking: { enabled: true },
+  metrics: { enabled: true, path: "/metrics" },
 };
 
 const DEFAULT_SECURITY: Required<
@@ -84,7 +92,7 @@ type ScopedTokenAuthResult =
   | { ok: false; reason: "missing" | "expired" | "scope_denied" | "mismatch" };
 
 type SecretResolutionResult =
-  | { ok: true; value: string; provider: "env" | "literal" }
+  | { ok: true; value: string; provider: "env" | "literal" | "keychain" | "1password" }
   | { ok: false; provider: "keychain" | "1password" | "unknown"; reason: string };
 
 type AlertSink = "email" | "telegram" | "slack";
@@ -96,6 +104,29 @@ type FrameworkMonitorMetrics = {
   heapUsedMb: number;
   heartbeatEnabled: boolean;
   heartbeatEveryMs: number | null;
+  alertsDeliveredTotal: number;
+  alertsFailedTotal: number;
+  errorsTrackedTotal: number;
+};
+
+type SecretCommandRunner = (params: {
+  file: string;
+  args: string[];
+  env?: NodeJS.ProcessEnv;
+}) => Promise<{ stdout: string; stderr: string }>;
+
+const defaultSecretCommandRunner: SecretCommandRunner = async (params) => {
+  return await execFile(params.file, params.args, {
+    env: params.env,
+    timeout: 10_000,
+    maxBuffer: 1024 * 1024,
+  });
+};
+
+const monitoringCounters = {
+  alertsDeliveredTotal: 0,
+  alertsFailedTotal: 0,
+  errorsTrackedTotal: 0,
 };
 
 export function applySecurityMonitoringDefaults(config: OpenClawConfig): OpenClawConfig {
@@ -176,6 +207,10 @@ export function applySecurityMonitoringDefaults(config: OpenClawConfig): OpenCla
         ...DEFAULT_MONITORING.errorTracking,
         ...config.monitoring?.errorTracking,
       },
+      metrics: {
+        ...DEFAULT_MONITORING.metrics,
+        ...config.monitoring?.metrics,
+      },
       alerts: config.monitoring?.alerts,
     },
   };
@@ -238,15 +273,58 @@ export function validateSecurityFrameworkConfig(config: OpenClawConfig): Array<{
   return issues;
 }
 
-export function resolveManagedSecret(params: {
+function normalizeOnePasswordRef(params: {
+  placeholder: string;
+  prefix: string;
+  defaultVault?: string;
+}): string {
+  const trimmed = params.placeholder.trim();
+  if (trimmed.startsWith("op://")) {
+    return trimmed;
+  }
+  const raw = trimmed.startsWith(params.prefix)
+    ? trimmed.slice(params.prefix.length).trim()
+    : trimmed;
+  const normalized = raw.startsWith("op://") ? raw : `op://${raw.replace(/^\/+/, "")}`;
+  const vault = params.defaultVault?.trim();
+  if (!vault) {
+    return normalized;
+  }
+  const body = normalized.slice("op://".length).replace(/^\/+/, "");
+  const parts = body.split("/").filter(Boolean);
+  if (parts.length >= 3) {
+    return normalized;
+  }
+  return `op://${vault}/${parts.join("/")}`;
+}
+
+function parseKeychainSelector(params: {
+  selector: string;
+  defaultService?: string;
+  defaultAccount?: string;
+}): { service?: string; account?: string } {
+  const selector = params.selector.trim();
+  const [servicePart, accountPart] = selector.split("/", 2);
+  const service = (servicePart?.trim() || params.defaultService || "").trim();
+  const account = (accountPart?.trim() || params.defaultAccount || "").trim();
+  return {
+    ...(service ? { service } : {}),
+    ...(account ? { account } : {}),
+  };
+}
+
+export async function resolveManagedSecret(params: {
   config: OpenClawConfig;
   value?: string;
   env?: NodeJS.ProcessEnv;
-}): SecretResolutionResult {
+  platform?: NodeJS.Platform;
+  commandRunner?: SecretCommandRunner;
+}): Promise<SecretResolutionResult> {
   const value = params.value?.trim();
   if (!value) {
     return { ok: true, value: "", provider: "literal" };
   }
+
   const cfg = applySecurityMonitoringDefaults(params.config);
   const envPrefix = cfg.security?.secrets?.placeholders?.envPrefix ?? "env:";
   const keychainPrefix = cfg.security?.secrets?.placeholders?.keychainPrefix ?? "keychain:";
@@ -254,23 +332,102 @@ export function resolveManagedSecret(params: {
   const env = params.env ?? process.env;
 
   if (value.startsWith(envPrefix)) {
+    const envProvider = cfg.security?.secrets?.providers?.env;
+    if (envProvider?.enabled === false) {
+      return {
+        ok: false,
+        provider: "unknown",
+        reason: "env secret provider is disabled",
+      };
+    }
     const name = value.slice(envPrefix.length).trim();
     return { ok: true, value: (name ? env[name] : "") ?? "", provider: "env" };
   }
+
+  const commandRunner = params.commandRunner ?? defaultSecretCommandRunner;
+
   if (value.startsWith(keychainPrefix)) {
-    return {
-      ok: false,
-      provider: "keychain",
-      reason: "keychain placeholders are configured as integration stubs",
-    };
+    const keychainProvider = cfg.security?.secrets?.providers?.keychain;
+    if (keychainProvider?.enabled !== true) {
+      return {
+        ok: false,
+        provider: "keychain",
+        reason: "keychain provider is disabled",
+      };
+    }
+    if ((params.platform ?? process.platform) !== "darwin") {
+      return {
+        ok: false,
+        provider: "keychain",
+        reason: "keychain provider is only supported on macOS",
+      };
+    }
+
+    const selector = value.slice(keychainPrefix.length).trim();
+    const parsed = parseKeychainSelector({
+      selector,
+      defaultService: keychainProvider.service,
+      defaultAccount: keychainProvider.account,
+    });
+    if (!parsed.service || !parsed.account) {
+      return {
+        ok: false,
+        provider: "keychain",
+        reason: "keychain placeholder must include service/account or provider defaults",
+      };
+    }
+
+    try {
+      const keychainCommand = keychainProvider.command?.trim() || "security";
+      const { stdout } = await commandRunner({
+        file: keychainCommand,
+        args: ["find-generic-password", "-w", "-s", parsed.service, "-a", parsed.account],
+      });
+      return { ok: true, provider: "keychain", value: stdout.trim() };
+    } catch (err) {
+      return {
+        ok: false,
+        provider: "keychain",
+        reason: `failed to resolve macOS keychain secret: ${String(err)}`,
+      };
+    }
   }
+
   if (value.startsWith(opPrefix)) {
-    return {
-      ok: false,
-      provider: "1password",
-      reason: "1Password placeholders are configured as integration stubs",
-    };
+    const onePasswordProvider = cfg.security?.secrets?.providers?.onePassword;
+    if (onePasswordProvider?.enabled !== true) {
+      return {
+        ok: false,
+        provider: "1password",
+        reason: "1Password provider is disabled",
+      };
+    }
+
+    const secretRef = normalizeOnePasswordRef({
+      placeholder: value,
+      prefix: opPrefix,
+      defaultVault: onePasswordProvider.vault,
+    });
+    const account = onePasswordProvider.account?.trim();
+    const args = ["read", secretRef, ...(account ? ["--account", account] : [])];
+
+    try {
+      const onePasswordCommand = onePasswordProvider.command?.trim() || "op";
+      const { stdout } = await commandRunner({
+        file: onePasswordCommand,
+        args,
+        env: account ? { ...env, OP_ACCOUNT: account } : env,
+      });
+      return { ok: true, provider: "1password", value: stdout.trim() };
+    } catch (err) {
+      return {
+        ok: false,
+        provider: "1password",
+        reason: `failed to resolve 1Password secret via op: ${String(err)}`,
+      };
+    }
   }
+
   return { ok: true, value, provider: "literal" };
 }
 
@@ -285,7 +442,8 @@ export function authorizeScopedToken(params: {
     return { ok: false, reason: "missing" };
   }
   const nowMs = params.now?.() ?? Date.now();
-  const scopedTokens = applySecurityMonitoringDefaults(params.config).security?.rbac?.scopedTokens ?? {};
+  const scopedTokens =
+    applySecurityMonitoringDefaults(params.config).security?.rbac?.scopedTokens ?? {};
   for (const [tokenId, entry] of Object.entries(scopedTokens)) {
     if (!entry || entry.enabled === false || !entry.token || entry.token.trim() !== token) {
       continue;
@@ -395,48 +553,6 @@ export function enforceSandboxPermissionGate(params: {
   return { ok: true };
 }
 
-async function emitAlertStub(params: {
-  config: OpenClawConfig;
-  sink: AlertSink;
-  subject: string;
-  body: string;
-}) {
-  const alerts = applySecurityMonitoringDefaults(params.config).monitoring?.alerts;
-  if (!alerts) {
-    return;
-  }
-  if (params.sink === "email" && alerts.email?.enabled) {
-    log.warn(`alert stub email to=${alerts.email.to ?? "unset"} subject="${params.subject}"`);
-    log.warn(params.body);
-  }
-  if (params.sink === "telegram" && alerts.telegram?.enabled) {
-    const token = resolveManagedSecret({
-      config: params.config,
-      value: alerts.telegram.botToken,
-    });
-    log.warn(
-      `alert stub telegram chatId=${alerts.telegram.chatId ?? "unset"} subject="${params.subject}"`,
-    );
-    if (!token.ok) {
-      log.warn(`alert stub telegram token resolver: ${token.reason}`);
-    }
-    log.warn(params.body);
-  }
-  if (params.sink === "slack" && alerts.slack?.enabled) {
-    const webhook = resolveManagedSecret({
-      config: params.config,
-      value: alerts.slack.webhookUrl,
-    });
-    log.warn(
-      `alert stub slack channel=${alerts.slack.channel ?? "unset"} subject="${params.subject}"`,
-    );
-    if (!webhook.ok) {
-      log.warn(`alert stub slack webhook resolver: ${webhook.reason}`);
-    }
-    log.warn(params.body);
-  }
-}
-
 function collectMonitoringMetrics(config: OpenClawConfig): FrameworkMonitorMetrics {
   const defaultAgentId = resolveDefaultAgentId(config);
   const heartbeat = resolveHeartbeatSummaryForAgent(config, defaultAgentId);
@@ -448,7 +564,279 @@ function collectMonitoringMetrics(config: OpenClawConfig): FrameworkMonitorMetri
     heapUsedMb: Math.round((usage.heapUsed / (1024 * 1024)) * 100) / 100,
     heartbeatEnabled: heartbeat.enabled,
     heartbeatEveryMs: heartbeat.everyMs,
+    alertsDeliveredTotal: monitoringCounters.alertsDeliveredTotal,
+    alertsFailedTotal: monitoringCounters.alertsFailedTotal,
+    errorsTrackedTotal: monitoringCounters.errorsTrackedTotal,
   };
+}
+
+export function renderMonitoringMetrics(config: OpenClawConfig): string {
+  const metrics = collectMonitoringMetrics(applySecurityMonitoringDefaults(config));
+  const lines = [
+    "# HELP openclaw_monitoring_queue_depth Current command queue depth.",
+    "# TYPE openclaw_monitoring_queue_depth gauge",
+    `openclaw_monitoring_queue_depth ${metrics.queueDepth}`,
+    "# HELP openclaw_monitoring_active_tasks Current active command task count.",
+    "# TYPE openclaw_monitoring_active_tasks gauge",
+    `openclaw_monitoring_active_tasks ${metrics.activeTasks}`,
+    "# HELP openclaw_monitoring_rss_mb Process resident set size in MB.",
+    "# TYPE openclaw_monitoring_rss_mb gauge",
+    `openclaw_monitoring_rss_mb ${metrics.rssMb}`,
+    "# HELP openclaw_monitoring_heap_used_mb Process heap used in MB.",
+    "# TYPE openclaw_monitoring_heap_used_mb gauge",
+    `openclaw_monitoring_heap_used_mb ${metrics.heapUsedMb}`,
+    "# HELP openclaw_monitoring_heartbeat_enabled Whether heartbeat is enabled (1/0).",
+    "# TYPE openclaw_monitoring_heartbeat_enabled gauge",
+    `openclaw_monitoring_heartbeat_enabled ${metrics.heartbeatEnabled ? 1 : 0}`,
+    "# HELP openclaw_monitoring_heartbeat_interval_ms Heartbeat interval in milliseconds.",
+    "# TYPE openclaw_monitoring_heartbeat_interval_ms gauge",
+    `openclaw_monitoring_heartbeat_interval_ms ${metrics.heartbeatEveryMs ?? 0}`,
+    "# HELP openclaw_monitoring_alerts_delivered_total Total monitoring alerts successfully delivered.",
+    "# TYPE openclaw_monitoring_alerts_delivered_total counter",
+    `openclaw_monitoring_alerts_delivered_total ${metrics.alertsDeliveredTotal}`,
+    "# HELP openclaw_monitoring_alerts_failed_total Total monitoring alerts that failed delivery.",
+    "# TYPE openclaw_monitoring_alerts_failed_total counter",
+    `openclaw_monitoring_alerts_failed_total ${metrics.alertsFailedTotal}`,
+    "# HELP openclaw_monitoring_errors_tracked_total Total errors recorded by the monitoring daemon.",
+    "# TYPE openclaw_monitoring_errors_tracked_total counter",
+    `openclaw_monitoring_errors_tracked_total ${metrics.errorsTrackedTotal}`,
+  ];
+  return `${lines.join("\n")}\n`;
+}
+
+async function tryAlertHook(params: {
+  command?: string;
+  sink: AlertSink;
+  subject: string;
+  body: string;
+  commandRunner?: SecretCommandRunner;
+}): Promise<boolean> {
+  const command = params.command?.trim();
+  if (!command) {
+    return false;
+  }
+  const commandRunner = params.commandRunner ?? defaultSecretCommandRunner;
+  const messageText = `[OpenClaw alert] ${params.subject}\n${params.body}`;
+  try {
+    await commandRunner({
+      file: command,
+      args: [params.sink],
+      env: {
+        ...process.env,
+        OPENCLAW_ALERT_SINK: params.sink,
+        OPENCLAW_ALERT_SUBJECT: params.subject,
+        OPENCLAW_ALERT_BODY: params.body,
+        OPENCLAW_ALERT_MESSAGE: messageText,
+      },
+    });
+    return true;
+  } catch (err) {
+    log.warn(`alert hook failed for ${params.sink}: ${String(err)}`);
+    return false;
+  }
+}
+
+export async function deliverMonitoringAlert(params: {
+  config: OpenClawConfig;
+  sink: AlertSink;
+  subject: string;
+  body: string;
+  commandRunner?: SecretCommandRunner;
+}): Promise<void> {
+  const cfg = applySecurityMonitoringDefaults(params.config);
+  const alerts = cfg.monitoring?.alerts;
+  if (!alerts) {
+    monitoringCounters.alertsFailedTotal += 1;
+    return;
+  }
+
+  const messageText = `[OpenClaw alert] ${params.subject}\n${params.body}`;
+
+  if (params.sink === "email" && alerts.email?.enabled) {
+    if (alerts.email.hookEnabled === true) {
+      const hooked = await tryAlertHook({
+        command: alerts.email.hookCommand,
+        sink: "email",
+        subject: params.subject,
+        body: params.body,
+        commandRunner: params.commandRunner,
+      });
+      if (hooked) {
+        monitoringCounters.alertsDeliveredTotal += 1;
+        return;
+      }
+    }
+    const to = alerts.email.to?.trim();
+    if (!to) {
+      log.warn(`email alert target missing for subject="${params.subject}"`);
+      log.warn(params.body);
+      monitoringCounters.alertsFailedTotal += 1;
+      return;
+    }
+    let delivered = false;
+    for (const modulePath of [
+      "../infra/email/send.js",
+      "../email/send.js",
+      "../hooks/email/send.js",
+    ]) {
+      try {
+        const module = (await import(modulePath)) as {
+          sendEmail?: (params: {
+            to: string;
+            from?: string;
+            subject: string;
+            text: string;
+          }) => Promise<unknown>;
+        };
+        if (!module.sendEmail) {
+          continue;
+        }
+        const prefix = alerts.email.subjectPrefix?.trim();
+        await module.sendEmail({
+          to,
+          from: alerts.email.from,
+          subject: prefix ? `${prefix} ${params.subject}` : params.subject,
+          text: params.body,
+        });
+        delivered = true;
+        break;
+      } catch {
+        // Continue to fallback behavior below.
+      }
+    }
+    if (!delivered) {
+      log.warn(`email alert utility unavailable; to=${to} subject="${params.subject}"`);
+      log.warn(params.body);
+      monitoringCounters.alertsFailedTotal += 1;
+    } else {
+      monitoringCounters.alertsDeliveredTotal += 1;
+    }
+    return;
+  }
+
+  if (params.sink === "telegram" && alerts.telegram?.enabled) {
+    if (alerts.telegram.hookEnabled === true) {
+      const hooked = await tryAlertHook({
+        command: alerts.telegram.hookCommand,
+        sink: "telegram",
+        subject: params.subject,
+        body: params.body,
+        commandRunner: params.commandRunner,
+      });
+      if (hooked) {
+        monitoringCounters.alertsDeliveredTotal += 1;
+        return;
+      }
+    }
+    const chatId = alerts.telegram.chatId?.trim();
+    if (!chatId) {
+      log.warn(`telegram alert chatId missing for subject="${params.subject}"`);
+      log.warn(params.body);
+      monitoringCounters.alertsFailedTotal += 1;
+      return;
+    }
+    const token = await resolveManagedSecret({ config: cfg, value: alerts.telegram.botToken });
+    if (!token.ok && alerts.telegram.botToken?.trim()) {
+      log.warn(`telegram alert token resolver failed: ${token.reason}`);
+    }
+    try {
+      const deps = createDefaultDeps();
+      await deps.sendMessageTelegram(chatId, messageText, {
+        ...(token.ok && token.value ? { token: token.value } : {}),
+        ...(alerts.telegram.accountId ? { accountId: alerts.telegram.accountId } : {}),
+        silent: true,
+      });
+    } catch (err) {
+      log.warn(`telegram alert delivery failed: ${String(err)}`);
+      log.warn(params.body);
+      monitoringCounters.alertsFailedTotal += 1;
+      return;
+    }
+    monitoringCounters.alertsDeliveredTotal += 1;
+    return;
+  }
+
+  if (params.sink === "slack" && alerts.slack?.enabled) {
+    if (alerts.slack.hookEnabled === true) {
+      const hooked = await tryAlertHook({
+        command: alerts.slack.hookCommand,
+        sink: "slack",
+        subject: params.subject,
+        body: params.body,
+        commandRunner: params.commandRunner,
+      });
+      if (hooked) {
+        monitoringCounters.alertsDeliveredTotal += 1;
+        return;
+      }
+    }
+    const token = await resolveManagedSecret({ config: cfg, value: alerts.slack.botToken });
+    if (!token.ok && alerts.slack.botToken?.trim()) {
+      log.warn(`slack alert token resolver failed: ${token.reason}`);
+    }
+
+    const channel = alerts.slack.channel?.trim();
+    if (channel) {
+      try {
+        const deps = createDefaultDeps();
+        await deps.sendMessageSlack(channel, messageText, {
+          ...(token.ok && token.value ? { token: token.value } : {}),
+          ...(alerts.slack.accountId ? { accountId: alerts.slack.accountId } : {}),
+        });
+        monitoringCounters.alertsDeliveredTotal += 1;
+        return;
+      } catch (err) {
+        log.warn(`slack alert channel delivery failed: ${String(err)}`);
+      }
+    }
+
+    const webhook = await resolveManagedSecret({ config: cfg, value: alerts.slack.webhookUrl });
+    if (webhook.ok && webhook.value.trim()) {
+      try {
+        const response = await fetch(webhook.value, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: messageText }),
+        });
+        if (!response.ok) {
+          throw new Error(`status ${response.status}`);
+        }
+        monitoringCounters.alertsDeliveredTotal += 1;
+        return;
+      } catch (err) {
+        log.warn(`slack alert webhook delivery failed: ${String(err)}`);
+      }
+    } else if (!webhook.ok && alerts.slack.webhookUrl?.trim()) {
+      log.warn(`slack alert webhook resolver failed: ${webhook.reason}`);
+    }
+
+    log.warn(`slack alert fallback (not delivered) subject="${params.subject}"`);
+    log.warn(params.body);
+    monitoringCounters.alertsFailedTotal += 1;
+    return;
+  }
+
+  monitoringCounters.alertsFailedTotal += 1;
+}
+
+function shouldSendAlert(params: {
+  cooldownMap: Map<string, number>;
+  config: OpenClawConfig;
+  sink: AlertSink;
+  subject: string;
+  nowMs: number;
+}): boolean {
+  const cooldownSeconds = params.config.monitoring?.alerts?.cooldownSeconds ?? 300;
+  if (cooldownSeconds <= 0) {
+    return true;
+  }
+  const key = `${params.sink}:${params.subject}`;
+  const prior = params.cooldownMap.get(key);
+  if (prior && params.nowMs - prior < cooldownSeconds * 1000) {
+    return false;
+  }
+  params.cooldownMap.set(key, params.nowMs);
+  return true;
 }
 
 export function startSecurityMonitoringDaemon(params?: { config?: OpenClawConfig }) {
@@ -467,6 +855,27 @@ export function startSecurityMonitoringDaemon(params?: { config?: OpenClawConfig
     cfg.monitoring?.resources?.maxHeapUsedMb ?? DEFAULT_MONITORING.resources.maxHeapUsedMb;
   const sampleSeconds =
     cfg.monitoring?.resources?.sampleSeconds ?? DEFAULT_MONITORING.resources.sampleSeconds;
+  const alertCooldownMap = new Map<string, number>();
+
+  const maybeAlert = async (
+    fresh: OpenClawConfig,
+    sink: AlertSink,
+    subject: string,
+    body: string,
+  ) => {
+    if (
+      !shouldSendAlert({
+        cooldownMap: alertCooldownMap,
+        config: fresh,
+        sink,
+        subject,
+        nowMs: Date.now(),
+      })
+    ) {
+      return;
+    }
+    await deliverMonitoringAlert({ config: fresh, sink, subject, body });
+  };
 
   const tick = async () => {
     const fresh = applySecurityMonitoringDefaults(loadConfig());
@@ -478,34 +887,37 @@ export function startSecurityMonitoringDaemon(params?: { config?: OpenClawConfig
     }).catch((err) => log.warn(`failed to write monitor tick: ${String(err)}`));
 
     if (fresh.monitoring?.queue?.enabled !== false && metrics.queueDepth >= queueThreshold) {
-      await emitAlertStub({
-        config: fresh,
-        sink: "slack",
-        subject: "Queue depth warning",
-        body: `queueDepth=${metrics.queueDepth} activeTasks=${metrics.activeTasks} threshold=${queueThreshold}`,
-      });
+      await maybeAlert(
+        fresh,
+        "slack",
+        "Queue depth warning",
+        `queueDepth=${metrics.queueDepth} activeTasks=${metrics.activeTasks} threshold=${queueThreshold}`,
+      );
     }
     if (fresh.monitoring?.resources?.enabled !== false && metrics.rssMb >= maxRssMb) {
-      await emitAlertStub({
-        config: fresh,
-        sink: "email",
-        subject: "RSS threshold warning",
-        body: `rssMb=${metrics.rssMb} threshold=${maxRssMb}`,
-      });
+      await maybeAlert(
+        fresh,
+        "email",
+        "RSS threshold warning",
+        `rssMb=${metrics.rssMb} threshold=${maxRssMb}`,
+      );
     }
     if (fresh.monitoring?.resources?.enabled !== false && metrics.heapUsedMb >= maxHeapUsedMb) {
-      await emitAlertStub({
-        config: fresh,
-        sink: "telegram",
-        subject: "Heap threshold warning",
-        body: `heapUsedMb=${metrics.heapUsedMb} threshold=${maxHeapUsedMb}`,
-      });
+      await maybeAlert(
+        fresh,
+        "telegram",
+        "Heap threshold warning",
+        `heapUsedMb=${metrics.heapUsedMb} threshold=${maxHeapUsedMb}`,
+      );
     }
   };
 
-  const timer = setInterval(() => {
-    void tick();
-  }, Math.max(5, sampleSeconds) * 1000);
+  const timer = setInterval(
+    () => {
+      void tick();
+    },
+    Math.max(5, sampleSeconds) * 1000,
+  );
   timer.unref?.();
 
   return {
@@ -520,15 +932,16 @@ export function startSecurityMonitoringDaemon(params?: { config?: OpenClawConfig
         event: "monitor.error",
         payload: {
           error: error instanceof Error ? error.message : String(error),
-          ...(context ?? {}),
+          ...context,
         },
       });
-      await emitAlertStub({
-        config: fresh,
-        sink: "slack",
-        subject: "Error tracking event",
-        body: error instanceof Error ? error.stack ?? error.message : String(error),
-      });
+      monitoringCounters.errorsTrackedTotal += 1;
+      await maybeAlert(
+        fresh,
+        "slack",
+        "Error tracking event",
+        error instanceof Error ? (error.stack ?? error.message) : String(error),
+      );
     },
   };
 }

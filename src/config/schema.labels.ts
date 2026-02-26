@@ -36,6 +36,7 @@ export const FIELD_LABELS: Record<string, string> = {
   "monitoring.queue": "Task Queue Monitoring",
   "monitoring.resources": "Resource Monitoring",
   "monitoring.errorTracking": "Error Tracking",
+  "monitoring.metrics": "Metrics Endpoint",
   "monitoring.alerts": "Alert Integrations",
   update: "Updates",
   "update.channel": "Update Channel",

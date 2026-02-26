@@ -3,7 +3,9 @@ import {
   applySecurityMonitoringDefaults,
   authorizeScopedToken,
   createSecurityRateLimitChecker,
+  deliverMonitoringAlert,
   enforceSandboxPermissionGate,
+  renderMonitoringMetrics,
   resolveManagedSecret,
   validateSecurityFrameworkConfig,
 } from "./framework.js";
@@ -124,18 +126,96 @@ describe("sandbox permission gates", () => {
 });
 
 describe("secret resolver", () => {
-  it("resolves env placeholders and reports keychain stubs", () => {
-    const envResolved = resolveManagedSecret({
+  it("resolves env placeholders and reports keychain disabled state", async () => {
+    const envResolved = await resolveManagedSecret({
       config: {},
       value: "env:OPENCLAW_TEST_SECRET",
       env: { OPENCLAW_TEST_SECRET: "abc" },
     });
     expect(envResolved).toEqual({ ok: true, provider: "env", value: "abc" });
 
-    const keychainStub = resolveManagedSecret({
+    const keychainStub = await resolveManagedSecret({
       config: {},
       value: "keychain:openclaw/main",
     });
     expect(keychainStub.ok).toBe(false);
+  });
+
+  it("resolves macOS keychain placeholders when enabled", async () => {
+    const resolved = await resolveManagedSecret({
+      config: {
+        security: {
+          secrets: {
+            providers: {
+              keychain: { enabled: true, command: "security-wrapper" },
+            },
+          },
+        },
+      },
+      value: "keychain:openclaw/main",
+      platform: "darwin",
+      commandRunner: async ({ file, args }) => {
+        expect(file).toBe("security-wrapper");
+        expect(args).toEqual(["find-generic-password", "-w", "-s", "openclaw", "-a", "main"]);
+        return { stdout: "kc-secret\n", stderr: "" };
+      },
+    });
+    expect(resolved).toEqual({ ok: true, provider: "keychain", value: "kc-secret" });
+  });
+
+  it("resolves 1Password placeholders via op read when enabled", async () => {
+    const resolved = await resolveManagedSecret({
+      config: {
+        security: {
+          secrets: {
+            providers: {
+              onePassword: { enabled: true, account: "my.1password.com", command: "op-wrapper" },
+            },
+          },
+        },
+      },
+      value: "op://Private/Npmjs/password",
+      commandRunner: async ({ file, args }) => {
+        expect(file).toBe("op-wrapper");
+        expect(args).toEqual([
+          "read",
+          "op://Private/Npmjs/password",
+          "--account",
+          "my.1password.com",
+        ]);
+        return { stdout: "op-secret\n", stderr: "" };
+      },
+    });
+    expect(resolved).toEqual({ ok: true, provider: "1password", value: "op-secret" });
+  });
+});
+
+describe("monitoring alerts", () => {
+  it("supports hook-based alert delivery and publishes alert metrics", async () => {
+    await deliverMonitoringAlert({
+      config: {
+        monitoring: {
+          alerts: {
+            email: {
+              enabled: true,
+              hookEnabled: true,
+              hookCommand: "alert-hook",
+            },
+          },
+        },
+      },
+      sink: "email",
+      subject: "hook test",
+      body: "hello",
+      commandRunner: async ({ file, args, env }) => {
+        expect(file).toBe("alert-hook");
+        expect(args).toEqual(["email"]);
+        expect(env?.OPENCLAW_ALERT_SUBJECT).toBe("hook test");
+        return { stdout: "", stderr: "" };
+      },
+    });
+
+    const metrics = renderMonitoringMetrics({});
+    expect(metrics).toContain("openclaw_monitoring_alerts_delivered_total");
   });
 });

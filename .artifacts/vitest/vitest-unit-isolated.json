@@ -1,0 +1,3582 @@
+{
+  "numTotalTestSuites": 90,
+  "numPassedTestSuites": 63,
+  "numFailedTestSuites": 27,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 357,
+  "numPassedTests": 317,
+  "numFailedTests": 0,
+  "numPendingTests": 40,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1771930511550,
+  "success": false,
+  "testResults": [
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/test/media-understanding.auto.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["normalizePath"],
+          "fullName": "normalizePath adds leading slash when missing",
+          "status": "passed",
+          "title": "adds leading slash when missing",
+          "duration": 1.244624999999985,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["normalizePath"],
+          "fullName": "normalizePath keeps existing slash",
+          "status": "passed",
+          "title": "keeps existing slash",
+          "duration": 0.11199999999996635,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["withWhatsAppPrefix"],
+          "fullName": "withWhatsAppPrefix adds whatsapp prefix",
+          "status": "passed",
+          "title": "adds whatsapp prefix",
+          "duration": 0.11404199999998355,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["withWhatsAppPrefix"],
+          "fullName": "withWhatsAppPrefix leaves prefixed intact",
+          "status": "passed",
+          "title": "leaves prefixed intact",
+          "duration": 0.07537500000000819,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["ensureDir"],
+          "fullName": "ensureDir creates nested directory",
+          "status": "passed",
+          "title": "creates nested directory",
+          "duration": 1.728166999999985,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["sleep"],
+          "fullName": "sleep resolves after delay using fake timers",
+          "status": "passed",
+          "title": "resolves after delay using fake timers",
+          "duration": 1.8616670000000113,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["assertWebChannel"],
+          "fullName": "assertWebChannel accepts valid channel",
+          "status": "passed",
+          "title": "accepts valid channel",
+          "duration": 0.4307499999999891,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["assertWebChannel"],
+          "fullName": "assertWebChannel throws for invalid channel",
+          "status": "passed",
+          "title": "throws for invalid channel",
+          "duration": 0.1047500000000241,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["normalizeE164 & toWhatsappJid"],
+          "fullName": "normalizeE164 & toWhatsappJid strips formatting and prefixes",
+          "status": "passed",
+          "title": "strips formatting and prefixes",
+          "duration": 0.3009579999999801,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["normalizeE164 & toWhatsappJid"],
+          "fullName": "normalizeE164 & toWhatsappJid preserves existing JIDs",
+          "status": "passed",
+          "title": "preserves existing JIDs",
+          "duration": 0.1539170000000354,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["jidToE164"],
+          "fullName": "jidToE164 maps @lid using reverse mapping file",
+          "status": "passed",
+          "title": "maps @lid using reverse mapping file",
+          "duration": 1.2425000000000068,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["jidToE164"],
+          "fullName": "jidToE164 maps @lid from authDir mapping files",
+          "status": "passed",
+          "title": "maps @lid from authDir mapping files",
+          "duration": 3.5410830000000146,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["jidToE164"],
+          "fullName": "jidToE164 maps @hosted.lid from authDir mapping files",
+          "status": "passed",
+          "title": "maps @hosted.lid from authDir mapping files",
+          "duration": 0.5198750000000132,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["jidToE164"],
+          "fullName": "jidToE164 accepts hosted PN JIDs",
+          "status": "passed",
+          "title": "accepts hosted PN JIDs",
+          "duration": 0.05579199999999673,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["jidToE164"],
+          "fullName": "jidToE164 falls back through lidMappingDirs in order",
+          "status": "passed",
+          "title": "falls back through lidMappingDirs in order",
+          "duration": 18.780583999999976,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveConfigDir"],
+          "fullName": "resolveConfigDir prefers ~/.openclaw when legacy dir is missing",
+          "status": "passed",
+          "title": "prefers ~/.openclaw when legacy dir is missing",
+          "duration": 5.876082999999994,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveHomeDir"],
+          "fullName": "resolveHomeDir prefers OPENCLAW_HOME over HOME",
+          "status": "passed",
+          "title": "prefers OPENCLAW_HOME over HOME",
+          "duration": 0.44283300000000736,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["shortenHomePath"],
+          "fullName": "shortenHomePath uses $OPENCLAW_HOME prefix when OPENCLAW_HOME is set",
+          "status": "passed",
+          "title": "uses $OPENCLAW_HOME prefix when OPENCLAW_HOME is set",
+          "duration": 0.18870800000001964,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["shortenHomeInString"],
+          "fullName": "shortenHomeInString uses $OPENCLAW_HOME replacement when OPENCLAW_HOME is set",
+          "status": "passed",
+          "title": "uses $OPENCLAW_HOME replacement when OPENCLAW_HOME is set",
+          "duration": 0.11129099999999426,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveJidToE164"],
+          "fullName": "resolveJidToE164 resolves @lid via lidLookup when mapping file is missing",
+          "status": "passed",
+          "title": "resolves @lid via lidLookup when mapping file is missing",
+          "duration": 3.0963749999999663,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveJidToE164"],
+          "fullName": "resolveJidToE164 skips lidLookup for non-lid JIDs",
+          "status": "passed",
+          "title": "skips lidLookup for non-lid JIDs",
+          "duration": 0.1500419999999849,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveJidToE164"],
+          "fullName": "resolveJidToE164 returns null when lidLookup throws",
+          "status": "passed",
+          "title": "returns null when lidLookup throws",
+          "duration": 0.3577919999999608,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveUserPath"],
+          "fullName": "resolveUserPath expands ~ to home dir",
+          "status": "passed",
+          "title": "expands ~ to home dir",
+          "duration": 0.11645899999996345,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveUserPath"],
+          "fullName": "resolveUserPath expands ~/ to home dir",
+          "status": "passed",
+          "title": "expands ~/ to home dir",
+          "duration": 0.07129200000002811,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveUserPath"],
+          "fullName": "resolveUserPath resolves relative paths",
+          "status": "passed",
+          "title": "resolves relative paths",
+          "duration": 0.07541700000001583,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveUserPath"],
+          "fullName": "resolveUserPath prefers OPENCLAW_HOME for tilde expansion",
+          "status": "passed",
+          "title": "prefers OPENCLAW_HOME for tilde expansion",
+          "duration": 0.06483299999996461,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveUserPath"],
+          "fullName": "resolveUserPath keeps blank paths blank",
+          "status": "passed",
+          "title": "keeps blank paths blank",
+          "duration": 0.04758300000003146,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveUserPath"],
+          "fullName": "resolveUserPath returns empty string for undefined/null input",
+          "status": "passed",
+          "title": "returns empty string for undefined/null input",
+          "duration": 0.046041999999999916,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771931046242,
+      "endTime": 1771931046284.0476,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/utils.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["formatAgentEnvelope"],
+          "fullName": "formatAgentEnvelope includes channel, from, ip, host, and timestamp",
+          "status": "passed",
+          "title": "includes channel, from, ip, host, and timestamp",
+          "duration": 25.52070900000001,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatAgentEnvelope"],
+          "fullName": "formatAgentEnvelope formats timestamps in local timezone by default",
+          "status": "passed",
+          "title": "formats timestamps in local timezone by default",
+          "duration": 40.372333000000026,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatAgentEnvelope"],
+          "fullName": "formatAgentEnvelope formats timestamps in UTC when configured",
+          "status": "passed",
+          "title": "formats timestamps in UTC when configured",
+          "duration": 1.4766250000000127,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatAgentEnvelope"],
+          "fullName": "formatAgentEnvelope formats timestamps in user timezone when configured",
+          "status": "passed",
+          "title": "formats timestamps in user timezone when configured",
+          "duration": 0.8546249999999986,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatAgentEnvelope"],
+          "fullName": "formatAgentEnvelope omits timestamps when configured",
+          "status": "passed",
+          "title": "omits timestamps when configured",
+          "duration": 0.5217499999999973,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatAgentEnvelope"],
+          "fullName": "formatAgentEnvelope handles missing optional fields",
+          "status": "passed",
+          "title": "handles missing optional fields",
+          "duration": 0.36025000000000773,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatInboundEnvelope"],
+          "fullName": "formatInboundEnvelope prefixes sender for non-direct chats",
+          "status": "passed",
+          "title": "prefixes sender for non-direct chats",
+          "duration": 0.18616600000001426,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatInboundEnvelope"],
+          "fullName": "formatInboundEnvelope uses sender fields when senderLabel is missing",
+          "status": "passed",
+          "title": "uses sender fields when senderLabel is missing",
+          "duration": 0.3633339999999521,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatInboundEnvelope"],
+          "fullName": "formatInboundEnvelope keeps direct messages unprefixed",
+          "status": "passed",
+          "title": "keeps direct messages unprefixed",
+          "duration": 0.1636670000000322,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatInboundEnvelope"],
+          "fullName": "formatInboundEnvelope includes elapsed time when previousTimestamp is provided",
+          "status": "passed",
+          "title": "includes elapsed time when previousTimestamp is provided",
+          "duration": 0.6138339999999971,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatInboundEnvelope"],
+          "fullName": "formatInboundEnvelope omits elapsed time when disabled",
+          "status": "passed",
+          "title": "omits elapsed time when disabled",
+          "duration": 0.15979099999998425,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatInboundEnvelope"],
+          "fullName": "formatInboundEnvelope resolves envelope options from config",
+          "status": "passed",
+          "title": "resolves envelope options from config",
+          "duration": 0.656750000000045,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771931044635,
+      "endTime": 1771931044706.6567,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/envelope.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/reply.block-streaming.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["group intro prompts"],
+          "fullName": "group intro prompts labels Discord groups using the surface metadata",
+          "status": "skipped",
+          "title": "labels Discord groups using the surface metadata",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["group intro prompts"],
+          "fullName": "group intro prompts keeps WhatsApp labeling for WhatsApp group chats",
+          "status": "skipped",
+          "title": "keeps WhatsApp labeling for WhatsApp group chats",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["group intro prompts"],
+          "fullName": "group intro prompts labels Telegram groups using their own surface",
+          "status": "skipped",
+          "title": "labels Telegram groups using their own surface",
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/reply.triggers.group-intro-prompts.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling allows /activation from allowFrom in groups",
+          "status": "skipped",
+          "title": "allows /activation from allowFrom in groups",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling injects group activation context into the system prompt",
+          "status": "skipped",
+          "title": "injects group activation context into the system prompt",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling runs a greeting prompt for a bare /new",
+          "status": "skipped",
+          "title": "runs a greeting prompt for a bare /new",
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/reply.triggers.trigger-handling.allows-activation-from-allowfrom-groups.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling filters usage summary to the current model provider",
+          "status": "skipped",
+          "title": "filters usage summary to the current model provider",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling emits /status once (no duplicate inline + final)",
+          "status": "skipped",
+          "title": "emits /status once (no duplicate inline + final)",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling sets per-response usage footer via /usage",
+          "status": "skipped",
+          "title": "sets per-response usage footer via /usage",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling cycles /usage modes and persists to the session store",
+          "status": "skipped",
+          "title": "cycles /usage modes and persists to the session store",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling treats /usage on as tokens (back-compat)",
+          "status": "skipped",
+          "title": "treats /usage on as tokens (back-compat)",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling sends one inline status and still returns agent reply for mixed text",
+          "status": "skipped",
+          "title": "sends one inline status and still returns agent reply for mixed text",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling aborts even with timestamp prefix",
+          "status": "skipped",
+          "title": "aborts even with timestamp prefix",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling handles /stop without invoking the agent",
+          "status": "skipped",
+          "title": "handles /stop without invoking the agent",
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/reply.triggers.trigger-handling.filters-usage-summary-current-model-provider.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling handles inline /commands and strips it before the agent",
+          "status": "skipped",
+          "title": "handles inline /commands and strips it before the agent",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling handles inline /whoami and strips it before the agent",
+          "status": "skipped",
+          "title": "handles inline /whoami and strips it before the agent",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling drops /status for unauthorized senders",
+          "status": "skipped",
+          "title": "drops /status for unauthorized senders",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling drops /whoami for unauthorized senders",
+          "status": "skipped",
+          "title": "drops /whoami for unauthorized senders",
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/reply.triggers.trigger-handling.handles-inline-commands-strips-it-before-agent.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling ignores inline elevated directive for unapproved sender",
+          "status": "skipped",
+          "title": "ignores inline elevated directive for unapproved sender",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling uses tools.elevated.allowFrom.discord for elevated approval",
+          "status": "skipped",
+          "title": "uses tools.elevated.allowFrom.discord for elevated approval",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling treats explicit discord elevated allowlist as override",
+          "status": "skipped",
+          "title": "treats explicit discord elevated allowlist as override",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling returns a context overflow fallback when the embedded agent throws",
+          "status": "skipped",
+          "title": "returns a context overflow fallback when the embedded agent throws",
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/reply.triggers.trigger-handling.ignores-inline-elevated-directive-unapproved-sender.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling includes the error cause when the embedded agent throws",
+          "status": "skipped",
+          "title": "includes the error cause when the embedded agent throws",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling uses heartbeat model override for heartbeat runs",
+          "status": "skipped",
+          "title": "uses heartbeat model override for heartbeat runs",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling keeps stored model override for heartbeat runs when heartbeat model is not configured",
+          "status": "skipped",
+          "title": "keeps stored model override for heartbeat runs when heartbeat model is not configured",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling suppresses HEARTBEAT_OK replies outside heartbeat runs",
+          "status": "skipped",
+          "title": "suppresses HEARTBEAT_OK replies outside heartbeat runs",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling strips HEARTBEAT_OK at edges outside heartbeat runs",
+          "status": "skipped",
+          "title": "strips HEARTBEAT_OK at edges outside heartbeat runs",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling updates group activation when the owner sends /activation",
+          "status": "skipped",
+          "title": "updates group activation when the owner sends /activation",
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/reply.triggers.trigger-handling.includes-error-cause-embedded-agent-throws.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling keeps inline /status for unauthorized senders",
+          "status": "skipped",
+          "title": "keeps inline /status for unauthorized senders",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling keeps inline /help for unauthorized senders",
+          "status": "skipped",
+          "title": "keeps inline /help for unauthorized senders",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling returns help without invoking the agent",
+          "status": "skipped",
+          "title": "returns help without invoking the agent",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling allows owner to set send policy",
+          "status": "skipped",
+          "title": "allows owner to set send policy",
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/reply.triggers.trigger-handling.keeps-inline-status-unauthorized-senders.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/reply.triggers.trigger-handling.runs-compact-as-gated-command.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling runs a greeting prompt for a bare /reset",
+          "status": "skipped",
+          "title": "runs a greeting prompt for a bare /reset",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling does not reset for unauthorized /reset",
+          "status": "skipped",
+          "title": "does not reset for unauthorized /reset",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling blocks /reset for non-owner senders",
+          "status": "skipped",
+          "title": "blocks /reset for non-owner senders",
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/reply.triggers.trigger-handling.runs-greeting-prompt-bare-reset.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling shows endpoint default in /model status when not configured",
+          "status": "skipped",
+          "title": "shows endpoint default in /model status when not configured",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling includes endpoint details in /model status when configured",
+          "status": "skipped",
+          "title": "includes endpoint details in /model status when configured",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling restarts by default",
+          "status": "skipped",
+          "title": "restarts by default",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling rejects /restart when explicitly disabled",
+          "status": "skipped",
+          "title": "rejects /restart when explicitly disabled",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["trigger handling"],
+          "fullName": "trigger handling reports status without invoking the agent",
+          "status": "skipped",
+          "title": "reports status without invoking the agent",
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/reply.triggers.trigger-handling.shows-endpoint-default-model-status-not-configured.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["tool meta formatting"],
+          "fullName": "tool meta formatting shortens paths under HOME",
+          "status": "passed",
+          "title": "shortens paths under HOME",
+          "duration": 2.348083000000031,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["tool meta formatting"],
+          "fullName": "tool meta formatting shortens meta strings with optional colon suffix",
+          "status": "passed",
+          "title": "shortens meta strings with optional colon suffix",
+          "duration": 0.7008749999999964,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["tool meta formatting"],
+          "fullName": "tool meta formatting formats aggregates with grouping and brace-collapse",
+          "status": "passed",
+          "title": "formats aggregates with grouping and brace-collapse",
+          "duration": 1.8392499999999927,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["tool meta formatting"],
+          "fullName": "tool meta formatting wraps aggregate meta in backticks when markdown is enabled",
+          "status": "passed",
+          "title": "wraps aggregate meta in backticks when markdown is enabled",
+          "duration": 0.2207499999999527,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["tool meta formatting"],
+          "fullName": "tool meta formatting keeps exec flags outside markdown and moves them to the front",
+          "status": "passed",
+          "title": "keeps exec flags outside markdown and moves them to the front",
+          "duration": 0.32116600000000517,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["tool meta formatting"],
+          "fullName": "tool meta formatting formats prefixes with default labels",
+          "status": "passed",
+          "title": "formats prefixes with default labels",
+          "duration": 1.3205840000000535,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771931047027,
+      "endTime": 1771931047034.3206,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/auto-reply/tool-meta.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/browser/server.agent-contract-form-layout-act-commands.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/browser/server.agent-contract-snapshot-endpoints.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["browser control HTTP auth"],
+          "fullName": "browser control HTTP auth requires bearer auth for standalone browser HTTP routes",
+          "status": "passed",
+          "title": "requires bearer auth for standalone browser HTTP routes",
+          "duration": 73.46716700000002,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771931045869,
+      "endTime": 1771931045942.4673,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/browser/server.auth-token-gates-http.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/browser/server.post-tabs-open-profile-unknown-returns-404.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/agents/bash-tools.exec.background-abort.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/agents/bash-tools.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/agents/models-config.normalizes-gemini-3-ids-preview-google-providers.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/agents/openclaw-tools.subagents.sessions-spawn.lifecycle.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation rotates for auto-pinned profiles across retryable stream failures",
+          "status": "passed",
+          "title": "rotates for auto-pinned profiles across retryable stream failures",
+          "duration": 314.6830839999966,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation rotates on timeout without cooling down the timed-out profile",
+          "status": "passed",
+          "title": "rotates on timeout without cooling down the timed-out profile",
+          "duration": 45.96937500000058,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation does not rotate for compaction timeouts",
+          "status": "passed",
+          "title": "does not rotate for compaction timeouts",
+          "duration": 14.352459000001545,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation does not rotate for user-pinned profiles",
+          "status": "passed",
+          "title": "does not rotate for user-pinned profiles",
+          "duration": 24.10491699999693,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation honors user-pinned profiles even when in cooldown",
+          "status": "passed",
+          "title": "honors user-pinned profiles even when in cooldown",
+          "duration": 43.173917000000074,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation ignores user-locked profile when provider mismatches",
+          "status": "passed",
+          "title": "ignores user-locked profile when provider mismatches",
+          "duration": 21.08787499999744,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation skips profiles in cooldown during initial selection",
+          "status": "passed",
+          "title": "skips profiles in cooldown during initial selection",
+          "duration": 24.30304199999955,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation fails over when all profiles are in cooldown and fallbacks are configured",
+          "status": "passed",
+          "title": "fails over when all profiles are in cooldown and fallbacks are configured",
+          "duration": 15.910875000001397,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation fails over with disabled reason when all profiles are unavailable",
+          "status": "passed",
+          "title": "fails over with disabled reason when all profiles are unavailable",
+          "duration": 6.6030420000024606,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation fails over when auth is unavailable and fallbacks are configured",
+          "status": "passed",
+          "title": "fails over when auth is unavailable and fallbacks are configured",
+          "duration": 34.96891699999833,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation uses the active erroring model in billing failover errors",
+          "status": "passed",
+          "title": "uses the active erroring model in billing failover errors",
+          "duration": 31.873124999998254,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent auth profile rotation"],
+          "fullName": "runEmbeddedPiAgent auth profile rotation skips profiles in cooldown when rotating after failure",
+          "status": "passed",
+          "title": "skips profiles in cooldown when rotating after failure",
+          "duration": 16.658957999999984,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930827683,
+      "endTime": 1771930828274.659,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/agents/pi-embedded-runner.run-embedded-pi-agent.auth-profile-rotation.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent"],
+          "fullName": "runEmbeddedPiAgent handles prompt error paths without dropping user state",
+          "status": "passed",
+          "title": "handles prompt error paths without dropping user state",
+          "duration": 6391.022874999995,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent"],
+          "fullName": "runEmbeddedPiAgent appends new user + assistant after existing transcript entries",
+          "status": "passed",
+          "title": "appends new user + assistant after existing transcript entries",
+          "duration": 1113.3880419999987,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["runEmbeddedPiAgent"],
+          "fullName": "runEmbeddedPiAgent repairs orphaned user messages and continues",
+          "status": "passed",
+          "title": "repairs orphaned user messages and continues",
+          "duration": 442.78312500000175,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930776711,
+      "endTime": 1771930784657.7832,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/agents/pi-embedded-runner.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/agents/session-tool-result-guard.tool-result-persist-hook.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["installSkill download extraction safety"],
+          "fullName": "installSkill download extraction safety rejects archive traversal writes outside targetDir",
+          "status": "passed",
+          "title": "rejects archive traversal writes outside targetDir",
+          "duration": 941.584417,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["installSkill download extraction safety"],
+          "fullName": "installSkill download extraction safety extracts zip with stripComponents safely",
+          "status": "passed",
+          "title": "extracts zip with stripComponents safely",
+          "duration": 93.14987499999916,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["installSkill download extraction safety"],
+          "fullName": "installSkill download extraction safety rejects targetDir escapes outside the per-skill tools root",
+          "status": "passed",
+          "title": "rejects targetDir escapes outside the per-skill tools root",
+          "duration": 42.97337499999958,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["installSkill download extraction safety"],
+          "fullName": "installSkill download extraction safety allows relative targetDir inside the per-skill tools root",
+          "status": "passed",
+          "title": "allows relative targetDir inside the per-skill tools root",
+          "duration": 30.918540999999095,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["installSkill download extraction safety (tar.bz2)"],
+          "fullName": "installSkill download extraction safety (tar.bz2) handles tar.bz2 extraction safety edge-cases",
+          "status": "passed",
+          "title": "handles tar.bz2 extraction safety edge-cases",
+          "duration": 135.82900000000154,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930981465,
+      "endTime": 1771930982709.829,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/agents/skills-install.download.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting sends instructional message to main agent with status and findings",
+          "status": "passed",
+          "title": "sends instructional message to main agent with status and findings",
+          "duration": 460.1446250000008,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting includes success status when outcome is ok",
+          "status": "passed",
+          "title": "includes success status when outcome is ok",
+          "duration": 29.14237500001036,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting uses child-run announce identity for direct idempotency",
+          "status": "passed",
+          "title": "uses child-run announce identity for direct idempotency",
+          "duration": 2.4957500000018626,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting falls back to latest 'toolResult' output when assistant reply is empty",
+          "status": "passed",
+          "title": "falls back to latest 'toolResult' output when assistant reply is empty",
+          "duration": 40.9754580000008,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting falls back to latest 'tool' output when assistant reply is empty",
+          "status": "passed",
+          "title": "falls back to latest 'tool' output when assistant reply is empty",
+          "duration": 3.4942079999891575,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting uses latest assistant text when it appears after a tool output",
+          "status": "passed",
+          "title": "uses latest assistant text when it appears after a tool output",
+          "duration": 7.931540999998106,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting keeps full findings and includes compact stats",
+          "status": "passed",
+          "title": "keeps full findings and includes compact stats",
+          "duration": 19.664208000001963,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting sends deterministic completion message directly for manual spawn completion",
+          "status": "passed",
+          "title": "sends deterministic completion message directly for manual spawn completion",
+          "duration": 74.12404199999582,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting keeps completion-mode delivery coordinated when sibling runs are still active",
+          "status": "passed",
+          "title": "keeps completion-mode delivery coordinated when sibling runs are still active",
+          "duration": 33.69254200000432,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting keeps session-mode completion delivery on the bound destination when sibling runs are active",
+          "status": "passed",
+          "title": "keeps session-mode completion delivery on the bound destination when sibling runs are active",
+          "duration": 5.518458999998984,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting does not duplicate to main channel when two active bound sessions complete from the same requester channel",
+          "status": "passed",
+          "title": "does not duplicate to main channel when two active bound sessions complete from the same requester channel",
+          "duration": 613.1754999999976,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting uses completion direct-send headers for error and timeout outcomes",
+          "status": "passed",
+          "title": "uses completion direct-send headers for error and timeout outcomes",
+          "duration": 40.775500000003376,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting routes manual completion direct-send using requester thread hints",
+          "status": "passed",
+          "title": "routes manual completion direct-send using requester thread hints",
+          "duration": 4.960957999996026,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting uses hook-provided thread target across requester thread variants",
+          "status": "passed",
+          "title": "uses hook-provided thread target across requester thread variants",
+          "duration": 84.65141700000095,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting keeps requester origin when 'delivery-target hook returns no overr…'",
+          "status": "passed",
+          "title": "keeps requester origin when 'delivery-target hook returns no overr…'",
+          "duration": 9.209625000003143,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting keeps requester origin when 'delivery-target hook returns non-deli…'",
+          "status": "passed",
+          "title": "keeps requester origin when 'delivery-target hook returns non-deli…'",
+          "duration": 9.141666000010446,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting steers announcements into an active run when queue mode is steer",
+          "status": "passed",
+          "title": "steers announcements into an active run when queue mode is steer",
+          "duration": 65.39766699999745,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting queues announce delivery with origin account routing",
+          "status": "passed",
+          "title": "queues announce delivery with origin account routing",
+          "duration": 29.913457999995444,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting keeps queued idempotency unique for same-ms distinct child runs",
+          "status": "passed",
+          "title": "keeps queued idempotency unique for same-ms distinct child runs",
+          "duration": 41.60274999999092,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting prefers direct delivery first for completion-mode and then queues on direct failure",
+          "status": "passed",
+          "title": "prefers direct delivery first for completion-mode and then queues on direct failure",
+          "duration": 14.682125000006636,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting returns failure for completion-mode when direct delivery fails and queue fallback is unavailable",
+          "status": "passed",
+          "title": "returns failure for completion-mode when direct delivery fails and queue fallback is unavailable",
+          "duration": 31.038667000000714,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting uses assistant output for completion-mode when latest assistant text exists",
+          "status": "passed",
+          "title": "uses assistant output for completion-mode when latest assistant text exists",
+          "duration": 10.906707999994978,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting falls back to latest tool output for completion-mode when assistant output is empty",
+          "status": "passed",
+          "title": "falls back to latest tool output for completion-mode when assistant output is empty",
+          "duration": 24.267957999996725,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting ignores user text when deriving fallback completion output",
+          "status": "passed",
+          "title": "ignores user text when deriving fallback completion output",
+          "duration": 17.99687499999709,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting queues announce delivery back into requester subagent session",
+          "status": "passed",
+          "title": "queues announce delivery back into requester subagent session",
+          "duration": 91.08904199999233,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting thread routing: 'includes threadId when origin has an …'",
+          "status": "passed",
+          "title": "thread routing: 'includes threadId when origin has an …'",
+          "duration": 18.243707999994513,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting thread routing: 'prefers requesterOrigin.threadId over…'",
+          "status": "passed",
+          "title": "thread routing: 'prefers requesterOrigin.threadId over…'",
+          "duration": 89.62679200001003,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting splits collect-mode queues when accountId differs",
+          "status": "passed",
+          "title": "splits collect-mode queues when accountId differs",
+          "duration": 71.94020899999305,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting direct announce: 'uses requester origin for direct anno…'",
+          "status": "passed",
+          "title": "direct announce: 'uses requester origin for direct anno…'",
+          "duration": 15.443125000005239,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting direct announce: 'normalizes requesterOrigin for direct…'",
+          "status": "passed",
+          "title": "direct announce: 'normalizes requesterOrigin for direct…'",
+          "duration": 1.257792000003974,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting injects direct announce into requester subagent session instead of chat channel",
+          "status": "passed",
+          "title": "injects direct announce into requester subagent session instead of chat channel",
+          "duration": 100.92812500000582,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting keeps completion-mode announce internal for nested requester subagent sessions",
+          "status": "passed",
+          "title": "keeps completion-mode announce internal for nested requester subagent sessions",
+          "duration": 66.50216699999874,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting retries reading subagent output when early lifecycle completion had no text",
+          "status": "passed",
+          "title": "retries reading subagent output when early lifecycle completion had no text",
+          "duration": 22.848124999989523,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting uses advisory guidance when sibling subagents are still active",
+          "status": "passed",
+          "title": "uses advisory guidance when sibling subagents are still active",
+          "duration": 6.364416000011261,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting defers announce while finished runs still have active descendants",
+          "status": "passed",
+          "title": "defers announce while finished runs still have active descendants",
+          "duration": 65.71950000000652,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting waits for updated synthesized output before announcing nested subagent completion",
+          "status": "passed",
+          "title": "waits for updated synthesized output before announcing nested subagent completion",
+          "duration": 148.73825000000943,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting bubbles child announce to parent requester when requester subagent already ended",
+          "status": "passed",
+          "title": "bubbles child announce to parent requester when requester subagent already ended",
+          "duration": 166.20783399998618,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting keeps announce retryable when ended requester subagent has no fallback requester",
+          "status": "passed",
+          "title": "keeps announce retryable when ended requester subagent has no fallback requester",
+          "duration": 128.66945800000394,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting defers announce when child run stays active after settle timeout",
+          "status": "passed",
+          "title": "defers announce when child run stays active after settle timeout",
+          "duration": 69.3917919999949,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting prefers requesterOrigin channel over stale session lastChannel in queued announce",
+          "status": "passed",
+          "title": "prefers requesterOrigin channel over stale session lastChannel in queued announce",
+          "duration": 50.15937500000291,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["subagent announce formatting"],
+          "fullName": "subagent announce formatting routes or falls back for ended parent subagent sessions (#18037)",
+          "status": "passed",
+          "title": "routes or falls back for ended parent subagent sessions (#18037)",
+          "duration": 129.10399999999208,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930718180,
+      "endTime": 1771930721101.104,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/agents/subagent-announce.format.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/cli/daemon-cli.coverage.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/commands/auth-choice.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/hooks/install.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["monitorIMessageProvider"],
+          "fullName": "monitorIMessageProvider does not trigger unhandledRejection when aborting during shutdown",
+          "status": "passed",
+          "title": "does not trigger unhandledRejection when aborting during shutdown",
+          "duration": 3.2232499999999504,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771931047444,
+      "endTime": 1771931047447.2231,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/imessage/monitor.shutdown.unhandled-rejection.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["media store"],
+          "fullName": "media store creates and returns media directory",
+          "status": "passed",
+          "title": "creates and returns media directory",
+          "duration": 8.429124999998749,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store"],
+          "fullName": "media store saves buffers and enforces size limit",
+          "status": "passed",
+          "title": "saves buffers and enforces size limit",
+          "duration": 79.78229199999987,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store"],
+          "fullName": "media store copies local files and cleans old media",
+          "status": "passed",
+          "title": "copies local files and cleans old media",
+          "duration": 16.37645800000064,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store"],
+          "fullName": "media store rejects symlink sources",
+          "status": "passed",
+          "title": "rejects symlink sources",
+          "duration": 3.924957999999606,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store"],
+          "fullName": "media store rejects directory sources with typed error code",
+          "status": "passed",
+          "title": "rejects directory sources with typed error code",
+          "duration": 0.5391660000004777,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store"],
+          "fullName": "media store cleans old media files in first-level subdirectories",
+          "status": "passed",
+          "title": "cleans old media files in first-level subdirectories",
+          "duration": 1.0318330000009155,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store"],
+          "fullName": "media store sets correct mime for xlsx by extension",
+          "status": "passed",
+          "title": "sets correct mime for xlsx by extension",
+          "duration": 1.3117910000000848,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store"],
+          "fullName": "media store renames media based on detected mime even when extension is wrong",
+          "status": "passed",
+          "title": "renames media based on detected mime even when extension is wrong",
+          "duration": 13.712999999999738,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store"],
+          "fullName": "media store sniffs xlsx mime for zip buffers and renames extension",
+          "status": "passed",
+          "title": "sniffs xlsx mime for zip buffers and renames extension",
+          "duration": 72.85204200000044,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store"],
+          "fullName": "media store prefers header mime extension when sniffed mime lacks mapping",
+          "status": "passed",
+          "title": "prefers header mime extension when sniffed mime lacks mapping",
+          "duration": 12.193999999999505,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store", "extractOriginalFilename"],
+          "fullName": "media store extractOriginalFilename extracts original filename from embedded pattern",
+          "status": "passed",
+          "title": "extracts original filename from embedded pattern",
+          "duration": 0.22612499999922875,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store", "extractOriginalFilename"],
+          "fullName": "media store extractOriginalFilename handles uppercase UUID pattern",
+          "status": "passed",
+          "title": "handles uppercase UUID pattern",
+          "duration": 0.13029200000164565,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store", "extractOriginalFilename"],
+          "fullName": "media store extractOriginalFilename falls back to basename for non-matching patterns",
+          "status": "passed",
+          "title": "falls back to basename for non-matching patterns",
+          "duration": 0.10866700000042329,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store", "extractOriginalFilename"],
+          "fullName": "media store extractOriginalFilename preserves original name with special characters",
+          "status": "passed",
+          "title": "preserves original name with special characters",
+          "duration": 0.11449999999967986,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store", "saveMediaBuffer with originalFilename"],
+          "fullName": "media store saveMediaBuffer with originalFilename embeds original filename in stored path when provided",
+          "status": "passed",
+          "title": "embeds original filename in stored path when provided",
+          "duration": 1.3557080000009591,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store", "saveMediaBuffer with originalFilename"],
+          "fullName": "media store saveMediaBuffer with originalFilename sanitizes unsafe characters in original filename",
+          "status": "passed",
+          "title": "sanitizes unsafe characters in original filename",
+          "duration": 0.5015409999996336,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store", "saveMediaBuffer with originalFilename"],
+          "fullName": "media store saveMediaBuffer with originalFilename truncates long original filenames",
+          "status": "passed",
+          "title": "truncates long original filenames",
+          "duration": 0.4922500000011496,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["media store", "saveMediaBuffer with originalFilename"],
+          "fullName": "media store saveMediaBuffer with originalFilename falls back to UUID-only when originalFilename not provided",
+          "status": "passed",
+          "title": "falls back to UUID-only when originalFilename not provided",
+          "duration": 0.47612499999922875,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771931013996,
+      "endTime": 1771931014210.476,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/media/store.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/plugins/loader.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["resolvePluginTools optional tools"],
+          "fullName": "resolvePluginTools optional tools skips optional tools without explicit allowlist",
+          "status": "passed",
+          "title": "skips optional tools without explicit allowlist",
+          "duration": 2.3126249999999686,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolvePluginTools optional tools"],
+          "fullName": "resolvePluginTools optional tools allows optional tools by tool name",
+          "status": "passed",
+          "title": "allows optional tools by tool name",
+          "duration": 0.8743329999999787,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolvePluginTools optional tools"],
+          "fullName": "resolvePluginTools optional tools allows optional tools via plugin-scoped allowlist entries",
+          "status": "passed",
+          "title": "allows optional tools via plugin-scoped allowlist entries",
+          "duration": 0.43029200000000856,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolvePluginTools optional tools"],
+          "fullName": "resolvePluginTools optional tools rejects plugin id collisions with core tool names",
+          "status": "passed",
+          "title": "rejects plugin id collisions with core tool names",
+          "duration": 27.926249999999982,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolvePluginTools optional tools"],
+          "fullName": "resolvePluginTools optional tools skips conflicting tool names but keeps other tools",
+          "status": "passed",
+          "title": "skips conflicting tool names but keeps other tools",
+          "duration": 1.252958000000035,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771931046671,
+      "endTime": 1771931046703.253,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/plugins/tools.optional.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit includes an attack surface summary (info)",
+          "status": "passed",
+          "title": "includes an attack surface summary (info)",
+          "duration": 387.6358330000003,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags non-loopback bind without auth as critical",
+          "status": "passed",
+          "title": "flags non-loopback bind without auth as critical",
+          "duration": 34.33558300000004,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when non-loopback bind has auth but no auth rate limit",
+          "status": "passed",
+          "title": "warns when non-loopback bind has auth but no auth rate limit",
+          "duration": 18.394749999999476,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit scores dangerous gateway.tools.allow over HTTP by exposure",
+          "status": "passed",
+          "title": "scores dangerous gateway.tools.allow over HTTP by exposure",
+          "duration": 40.6852910000016,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not warn for auth rate limiting when configured",
+          "status": "passed",
+          "title": "does not warn for auth rate limiting when configured",
+          "duration": 10.035499999998137,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when exec host is explicitly sandbox while sandbox mode is off",
+          "status": "passed",
+          "title": "warns when exec host is explicitly sandbox while sandbox mode is off",
+          "duration": 6.047041999998328,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when an agent sets exec host=sandbox with sandbox mode off",
+          "status": "passed",
+          "title": "warns when an agent sets exec host=sandbox with sandbox mode off",
+          "duration": 64.41300000000047,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns for interpreter safeBins entries without explicit profiles",
+          "status": "passed",
+          "title": "warns for interpreter safeBins entries without explicit profiles",
+          "duration": 60.214959000004455,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not warn for interpreter safeBins when explicit profiles are present",
+          "status": "passed",
+          "title": "does not warn for interpreter safeBins when explicit profiles are present",
+          "duration": 65.66591699999844,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when loopback control UI lacks trusted proxies",
+          "status": "passed",
+          "title": "warns when loopback control UI lacks trusted proxies",
+          "duration": 27.132791999996698,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags loopback control UI without auth as critical",
+          "status": "passed",
+          "title": "flags loopback control UI without auth as critical",
+          "duration": 33.59324999999808,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags logging.redactSensitive=off",
+          "status": "passed",
+          "title": "flags logging.redactSensitive=off",
+          "duration": 30.06466700000601,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit treats Windows ACL-only perms as secure",
+          "status": "passed",
+          "title": "treats Windows ACL-only perms as secure",
+          "duration": 2055.0527499999953,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags Windows ACLs when Users can read the state dir",
+          "status": "passed",
+          "title": "flags Windows ACLs when Users can read the state dir",
+          "duration": 115.09591700000601,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when sandbox browser containers have missing or stale hash labels",
+          "status": "passed",
+          "title": "warns when sandbox browser containers have missing or stale hash labels",
+          "duration": 62.719833000002836,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit skips sandbox browser hash label checks when docker inspect is unavailable",
+          "status": "passed",
+          "title": "skips sandbox browser hash label checks when docker inspect is unavailable",
+          "duration": 82.20074999999633,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags sandbox browser containers with non-loopback published ports",
+          "status": "passed",
+          "title": "flags sandbox browser containers with non-loopback published ports",
+          "duration": 60.60008399999788,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit uses symlink target permissions for config checks",
+          "status": "passed",
+          "title": "uses symlink target permissions for config checks",
+          "duration": 114.73791699999856,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit scores small-model risk by tool/sandbox exposure",
+          "status": "passed",
+          "title": "scores small-model risk by tool/sandbox exposure",
+          "duration": 110.1528330000001,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit checks sandbox docker mode-off findings with/without agent override",
+          "status": "passed",
+          "title": "checks sandbox docker mode-off findings with/without agent override",
+          "duration": 5.919709000001603,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags dangerous sandbox docker config (binds/network/seccomp/apparmor)",
+          "status": "passed",
+          "title": "flags dangerous sandbox docker config (binds/network/seccomp/apparmor)",
+          "duration": 61.99937499999942,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit checks sandbox browser bridge-network restrictions",
+          "status": "passed",
+          "title": "checks sandbox browser bridge-network restrictions",
+          "duration": 8.840374999999767,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags ineffective gateway.nodes.denyCommands entries",
+          "status": "passed",
+          "title": "flags ineffective gateway.nodes.denyCommands entries",
+          "duration": 124.70033300000068,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit scores dangerous gateway.nodes.allowCommands by exposure",
+          "status": "passed",
+          "title": "scores dangerous gateway.nodes.allowCommands by exposure",
+          "duration": 67.43312499999593,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not flag dangerous allowCommands entries when denied again",
+          "status": "passed",
+          "title": "does not flag dangerous allowCommands entries when denied again",
+          "duration": 50.07300000000396,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags agent profile overrides when global tools.profile is minimal",
+          "status": "passed",
+          "title": "flags agent profile overrides when global tools.profile is minimal",
+          "duration": 52.04391699999542,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags tools.elevated allowFrom wildcard as critical",
+          "status": "passed",
+          "title": "flags tools.elevated allowFrom wildcard as critical",
+          "duration": 35.75875000000087,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags browser control without auth when browser is enabled",
+          "status": "passed",
+          "title": "flags browser control without auth when browser is enabled",
+          "duration": 32.8859999999986,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not flag browser control auth when gateway token is configured",
+          "status": "passed",
+          "title": "does not flag browser control auth when gateway token is configured",
+          "duration": 281.478916,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when remote CDP uses HTTP",
+          "status": "passed",
+          "title": "warns when remote CDP uses HTTP",
+          "duration": 101.91704200000095,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when control UI allows insecure auth",
+          "status": "passed",
+          "title": "warns when control UI allows insecure auth",
+          "duration": 101.67391700000007,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when control UI device auth is disabled",
+          "status": "passed",
+          "title": "warns when control UI device auth is disabled",
+          "duration": 378.28608299999905,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when insecure/dangerous debug flags are enabled",
+          "status": "passed",
+          "title": "warns when insecure/dangerous debug flags are enabled",
+          "duration": 645.7989589999997,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit scores X-Real-IP fallback risk by gateway exposure",
+          "status": "passed",
+          "title": "scores X-Real-IP fallback risk by gateway exposure",
+          "duration": 175.13287500000297,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit scores mDNS full mode risk by gateway bind mode",
+          "status": "passed",
+          "title": "scores mDNS full mode risk by gateway bind mode",
+          "duration": 62.4698750000025,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit evaluates trusted-proxy auth guardrails",
+          "status": "passed",
+          "title": "evaluates trusted-proxy auth guardrails",
+          "duration": 152.1037920000017,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when multiple DM senders share the main session",
+          "status": "passed",
+          "title": "warns when multiple DM senders share the main session",
+          "duration": 178.05966700000135,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags Discord native commands without a guild user allowlist",
+          "status": "passed",
+          "title": "flags Discord native commands without a guild user allowlist",
+          "duration": 102.47629199999938,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not flag Discord slash commands when dm.allowFrom includes a Discord snowflake id",
+          "status": "passed",
+          "title": "does not flag Discord slash commands when dm.allowFrom includes a Discord snowflake id",
+          "duration": 80.859457999999,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when Discord allowlists contain name-based entries",
+          "status": "passed",
+          "title": "warns when Discord allowlists contain name-based entries",
+          "duration": 105.70991700000013,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not warn when Discord allowlists use ID-style entries only",
+          "status": "passed",
+          "title": "does not warn when Discord allowlists use ID-style entries only",
+          "duration": 20.66754100000253,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags Discord slash commands when access-group enforcement is disabled and no users allowlist exists",
+          "status": "passed",
+          "title": "flags Discord slash commands when access-group enforcement is disabled and no users allowlist exists",
+          "duration": 49.74591599999985,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags Slack slash commands without a channel users allowlist",
+          "status": "passed",
+          "title": "flags Slack slash commands without a channel users allowlist",
+          "duration": 20.794041000001016,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags Slack slash commands when access-group enforcement is disabled",
+          "status": "passed",
+          "title": "flags Slack slash commands when access-group enforcement is disabled",
+          "duration": 61.23525000000518,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags Telegram group commands without a sender allowlist",
+          "status": "passed",
+          "title": "flags Telegram group commands without a sender allowlist",
+          "duration": 24.9586249999993,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when Telegram allowFrom entries are non-numeric (legacy @username configs)",
+          "status": "passed",
+          "title": "warns when Telegram allowFrom entries are non-numeric (legacy @username configs)",
+          "duration": 25.468500000002678,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit adds probe_failed warnings for deep probe failure modes",
+          "status": "passed",
+          "title": "adds probe_failed warnings for deep probe failure modes",
+          "duration": 500.8680830000012,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit classifies legacy and weak-tier model identifiers",
+          "status": "passed",
+          "title": "classifies legacy and weak-tier model identifiers",
+          "duration": 100.56904200000281,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when hooks token looks short",
+          "status": "passed",
+          "title": "warns when hooks token looks short",
+          "duration": 20.708417000001646,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags hooks token reuse of the gateway env token as critical",
+          "status": "passed",
+          "title": "flags hooks token reuse of the gateway env token as critical",
+          "duration": 35.55945800000336,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when hooks.defaultSessionKey is unset",
+          "status": "passed",
+          "title": "warns when hooks.defaultSessionKey is unset",
+          "duration": 97.08100000000559,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit scores hooks request sessionKey override by gateway exposure",
+          "status": "passed",
+          "title": "scores hooks request sessionKey override by gateway exposure",
+          "duration": 36.15024999999878,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit scores gateway HTTP no-auth findings by exposure",
+          "status": "passed",
+          "title": "scores gateway HTTP no-auth findings by exposure",
+          "duration": 145.44862500000454,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not report gateway.http.no_auth when auth mode is token",
+          "status": "passed",
+          "title": "does not report gateway.http.no_auth when auth mode is token",
+          "duration": 63.25483399999939,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit reports HTTP API session-key override surfaces when enabled",
+          "status": "passed",
+          "title": "reports HTTP API session-key override surfaces when enabled",
+          "duration": 86.77591699999903,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when state/config look like a synced folder",
+          "status": "passed",
+          "title": "warns when state/config look like a synced folder",
+          "duration": 84.69287499999336,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags group/world-readable config include files",
+          "status": "passed",
+          "title": "flags group/world-readable config include files",
+          "duration": 2370.3716249999998,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags extensions without plugins.allow",
+          "status": "passed",
+          "title": "flags extensions without plugins.allow",
+          "duration": 2230.511333000002,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns on unpinned npm install specs and missing integrity metadata",
+          "status": "passed",
+          "title": "warns on unpinned npm install specs and missing integrity metadata",
+          "duration": 121.1091249999954,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not warn on pinned npm install specs with integrity metadata",
+          "status": "passed",
+          "title": "does not warn on pinned npm install specs with integrity metadata",
+          "duration": 154.9656249999971,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit warns when install records drift from installed package versions",
+          "status": "passed",
+          "title": "warns when install records drift from installed package versions",
+          "duration": 111.95241700000042,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags enabled extensions when tool policy can expose plugin tools",
+          "status": "passed",
+          "title": "flags enabled extensions when tool policy can expose plugin tools",
+          "duration": 88.18941700000141,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not flag plugin tool reachability when profile is restrictive",
+          "status": "passed",
+          "title": "does not flag plugin tool reachability when profile is restrictive",
+          "duration": 73.27249999999913,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags unallowlisted extensions as critical when native skill commands are exposed",
+          "status": "passed",
+          "title": "flags unallowlisted extensions as critical when native skill commands are exposed",
+          "duration": 68.39404099999956,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not scan plugin code safety findings when deep audit is disabled",
+          "status": "passed",
+          "title": "does not scan plugin code safety findings when deep audit is disabled",
+          "duration": 46.41541600000346,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit reports detailed code-safety issues for both plugins and skills",
+          "status": "passed",
+          "title": "reports detailed code-safety issues for both plugins and skills",
+          "duration": 4247.269957999997,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags plugin extension entry path traversal in deep audit",
+          "status": "passed",
+          "title": "flags plugin extension entry path traversal in deep audit",
+          "duration": 10.86229099999764,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit reports scan_failed when plugin code scanner throws during deep audit",
+          "status": "passed",
+          "title": "reports scan_failed when plugin code scanner throws during deep audit",
+          "duration": 103.05937499999709,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags open groupPolicy when tools.elevated is enabled",
+          "status": "passed",
+          "title": "flags open groupPolicy when tools.elevated is enabled",
+          "duration": 27.307208999998693,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit flags open groupPolicy when runtime/filesystem tools are exposed without guards",
+          "status": "passed",
+          "title": "flags open groupPolicy when runtime/filesystem tools are exposed without guards",
+          "duration": 11.865082999996957,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not flag runtime/filesystem exposure for open groups when sandbox mode is all",
+          "status": "passed",
+          "title": "does not flag runtime/filesystem exposure for open groups when sandbox mode is all",
+          "duration": 15.573958000000857,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit"],
+          "fullName": "security audit does not flag runtime/filesystem exposure for open groups when runtime is denied and fs is workspace-only",
+          "status": "passed",
+          "title": "does not flag runtime/filesystem exposure for open groups when runtime is denied and fs is workspace-only",
+          "duration": 19.706583999999566,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit", "maybeProbeGateway auth selection"],
+          "fullName": "security audit maybeProbeGateway auth selection applies token precedence across local/remote gateway modes",
+          "status": "passed",
+          "title": "applies token precedence across local/remote gateway modes",
+          "duration": 114.77700000000186,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["security audit", "maybeProbeGateway auth selection"],
+          "fullName": "security audit maybeProbeGateway auth selection applies password precedence for remote gateways",
+          "status": "passed",
+          "title": "applies password precedence for remote gateways",
+          "duration": 41.492292000002635,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930950191,
+      "endTime": 1771930967768.4922,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/security/audit.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/security/fix.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["temp path guard"],
+          "fullName": "temp path guard skips test helper filename variants",
+          "status": "passed",
+          "title": "skips test helper filename variants",
+          "duration": 1.5319170000002487,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["temp path guard"],
+          "fullName": "temp path guard detects dynamic and ignores static fixtures",
+          "status": "passed",
+          "title": "detects dynamic and ignores static fixtures",
+          "duration": 0.6954999999998108,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["temp path guard"],
+          "fullName": "temp path guard enforces runtime guardrails for tmpdir joins and weak randomness",
+          "status": "passed",
+          "title": "enforces runtime guardrails for tmpdir joins and weak randomness",
+          "duration": 3866.0437079999992,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930993433,
+      "endTime": 1771930997301.0437,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/security/temp-path-guard.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["archive utils"],
+          "fullName": "archive utils detects archive kinds",
+          "status": "passed",
+          "title": "detects archive kinds",
+          "duration": 2.0370000000000346,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["archive utils"],
+          "fullName": "archive utils extracts 'zip' archives",
+          "status": "passed",
+          "title": "extracts 'zip' archives",
+          "duration": 12.636291999999912,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["archive utils"],
+          "fullName": "archive utils extracts 'tar' archives",
+          "status": "passed",
+          "title": "extracts 'tar' archives",
+          "duration": 56.340832999999975,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["archive utils"],
+          "fullName": "archive utils rejects zip path traversal (zip slip)",
+          "status": "passed",
+          "title": "rejects zip path traversal (zip slip)",
+          "duration": 2.9769999999998618,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["archive utils"],
+          "fullName": "archive utils rejects zip entries that traverse pre-existing destination symlinks",
+          "status": "passed",
+          "title": "rejects zip entries that traverse pre-existing destination symlinks",
+          "duration": 3.382624999999962,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["archive utils"],
+          "fullName": "archive utils rejects tar path traversal (zip slip)",
+          "status": "passed",
+          "title": "rejects tar path traversal (zip slip)",
+          "duration": 2.008290999999872,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["archive utils"],
+          "fullName": "archive utils rejects 'zip' archives that exceed extracted size budget",
+          "status": "passed",
+          "title": "rejects 'zip' archives that exceed extracted size budget",
+          "duration": 12.035916000000043,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["archive utils"],
+          "fullName": "archive utils rejects 'tar' archives that exceed extracted size budget",
+          "status": "passed",
+          "title": "rejects 'tar' archives that exceed extracted size budget",
+          "duration": 5.801625000000058,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["archive utils"],
+          "fullName": "archive utils rejects archives that exceed archive size budget",
+          "status": "passed",
+          "title": "rejects archives that exceed archive size budget",
+          "duration": 2.3596249999998236,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["archive utils"],
+          "fullName": "archive utils fails resolvePackedRootDir when extract dir has multiple root dirs",
+          "status": "passed",
+          "title": "fails resolvePackedRootDir when extract dir has multiple root dirs",
+          "duration": 1.2400840000000244,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["archive utils"],
+          "fullName": "archive utils rejects tar entries with absolute extraction paths",
+          "status": "passed",
+          "title": "rejects tar entries with absolute extraction paths",
+          "duration": 1.3790829999998095,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771931044085,
+      "endTime": 1771931044187.3792,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/infra/archive.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot installs grammY throttler",
+          "status": "passed",
+          "title": "installs grammY throttler",
+          "duration": 1710.8264170000039,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot uses wrapped fetch when global fetch is available",
+          "status": "passed",
+          "title": "uses wrapped fetch when global fetch is available",
+          "duration": 65.13545800000429,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot applies global and per-account timeoutSeconds",
+          "status": "passed",
+          "title": "applies global and per-account timeoutSeconds",
+          "duration": 222.7701670000024,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot sequentializes updates by chat and thread",
+          "status": "passed",
+          "title": "sequentializes updates by chat and thread",
+          "duration": 151.20724999999948,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot routes callback_query payloads as messages and answers callbacks",
+          "status": "passed",
+          "title": "routes callback_query payloads as messages and answers callbacks",
+          "duration": 4157.044209,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot wraps inbound message with Telegram envelope",
+          "status": "passed",
+          "title": "wraps inbound message with Telegram envelope",
+          "duration": 545.138125000005,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot handles pairing DM flows for new and already-pending requests",
+          "status": "passed",
+          "title": "handles pairing DM flows for new and already-pending requests",
+          "duration": 1514.9365829999952,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot triggers typing cue via onReplyStart",
+          "status": "passed",
+          "title": "triggers typing cue via onReplyStart",
+          "duration": 484.30479199999536,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot dedupes duplicate updates for callback_query, message, and channel_post",
+          "status": "passed",
+          "title": "dedupes duplicate updates for callback_query, message, and channel_post",
+          "duration": 447.9276660000032,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot does not persist update offset past pending updates",
+          "status": "passed",
+          "title": "does not persist update offset past pending updates",
+          "duration": 81.99054199999955,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot allows distinct callback_query ids without update_id",
+          "status": "passed",
+          "title": "allows distinct callback_query ids without update_id",
+          "duration": 215.72604199999478,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot applies groupPolicy cases",
+          "status": "passed",
+          "title": "applies groupPolicy cases",
+          "duration": 245.40575000000536,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot routes DMs by telegram accountId binding",
+          "status": "passed",
+          "title": "routes DMs by telegram accountId binding",
+          "duration": 118.02562499999476,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot applies group mention overrides and fallback behavior",
+          "status": "passed",
+          "title": "applies group mention overrides and fallback behavior",
+          "duration": 211.48941700000432,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot routes forum topics to parent or topic-specific bindings",
+          "status": "passed",
+          "title": "routes forum topics to parent or topic-specific bindings",
+          "duration": 91.39370900001086,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot sends GIF replies as animations",
+          "status": "passed",
+          "title": "sends GIF replies as animations",
+          "duration": 546.98616700001,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot accepts mentionPatterns matches with and without unrelated mentions",
+          "status": "passed",
+          "title": "accepts mentionPatterns matches with and without unrelated mentions",
+          "duration": 97.70537499999045,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot keeps group envelope headers stable (sender identity is separate)",
+          "status": "passed",
+          "title": "keeps group envelope headers stable (sender identity is separate)",
+          "duration": 39.6929999999993,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot reacts to mention-gated group messages when ackReaction is enabled",
+          "status": "passed",
+          "title": "reacts to mention-gated group messages when ackReaction is enabled",
+          "duration": 37.2730409999931,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot clears native commands when disabled",
+          "status": "passed",
+          "title": "clears native commands when disabled",
+          "duration": 18.848666999998386,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot handles requireMention when mentions do and do not resolve",
+          "status": "passed",
+          "title": "handles requireMention when mentions do and do not resolve",
+          "duration": 74.62483400000201,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot includes reply-to context when a Telegram reply is received",
+          "status": "passed",
+          "title": "includes reply-to context when a Telegram reply is received",
+          "duration": 197.05420800000138,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot blocks group messages for restrictive group config edge cases",
+          "status": "passed",
+          "title": "blocks group messages for restrictive group config edge cases",
+          "duration": 257.92604199999187,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot allows control commands with TG-prefixed groupAllowFrom entries",
+          "status": "passed",
+          "title": "allows control commands with TG-prefixed groupAllowFrom entries",
+          "duration": 62.19383299999754,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot handles forum topic metadata and typing thread fallbacks",
+          "status": "passed",
+          "title": "handles forum topic metadata and typing thread fallbacks",
+          "duration": 93.54304199999024,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot threads forum replies only when a topic id exists",
+          "status": "passed",
+          "title": "threads forum replies only when a topic id exists",
+          "duration": 180.15704099999857,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot applies allowFrom edge cases",
+          "status": "passed",
+          "title": "applies allowFrom edge cases",
+          "duration": 279.29766699999163,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot sends replies without native reply threading",
+          "status": "passed",
+          "title": "sends replies without native reply threading",
+          "duration": 2509.1246669999964,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot prefixes final replies with responsePrefix",
+          "status": "passed",
+          "title": "prefixes final replies with responsePrefix",
+          "duration": 126.24950000000536,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot honors threaded replies for replyToMode=first/all",
+          "status": "passed",
+          "title": "honors threaded replies for replyToMode=first/all",
+          "duration": 177.54158299999835,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot honors routed group activation from session store",
+          "status": "passed",
+          "title": "honors routed group activation from session store",
+          "duration": 100.29654200001096,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot applies topic skill filters and system prompts",
+          "status": "passed",
+          "title": "applies topic skill filters and system prompts",
+          "duration": 65.41145800000231,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot threads native command replies inside topics",
+          "status": "passed",
+          "title": "threads native command replies inside topics",
+          "duration": 72.09275000001071,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot skips tool summaries for native slash commands",
+          "status": "passed",
+          "title": "skips tool summaries for native slash commands",
+          "duration": 57.741582999995444,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot buffers channel_post media groups and processes them together",
+          "status": "passed",
+          "title": "buffers channel_post media groups and processes them together",
+          "duration": 843.4022079999995,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot coalesces channel_post near-limit text fragments into one message",
+          "status": "passed",
+          "title": "coalesces channel_post near-limit text fragments into one message",
+          "duration": 109.90491700000712,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot drops oversized channel_post media instead of dispatching a placeholder message",
+          "status": "passed",
+          "title": "drops oversized channel_post media instead of dispatching a placeholder message",
+          "duration": 81.03254200000083,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot notifies users when media download fails for direct messages",
+          "status": "passed",
+          "title": "notifies users when media download fails for direct messages",
+          "duration": 62.99420799998916,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot processes remaining media group photos when one photo download fails",
+          "status": "passed",
+          "title": "processes remaining media group photos when one photo download fails",
+          "duration": 92.88370900000155,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot drops the media group when a non-recoverable media error occurs",
+          "status": "passed",
+          "title": "drops the media group when a non-recoverable media error occurs",
+          "duration": 61.067041000002064,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot dedupes duplicate message updates by update_id",
+          "status": "passed",
+          "title": "dedupes duplicate message updates by update_id",
+          "duration": 92.15224999999919,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930887024,
+      "endTime": 1771930903642.1523,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/telegram/bot.create-telegram-bot.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot merges custom commands with native commands",
+          "status": "passed",
+          "title": "merges custom commands with native commands",
+          "duration": 221.07025000000067,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot ignores custom commands that collide with native commands",
+          "status": "passed",
+          "title": "ignores custom commands that collide with native commands",
+          "duration": 24.282083000001876,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot registers custom commands when native commands are disabled",
+          "status": "passed",
+          "title": "registers custom commands when native commands are disabled",
+          "duration": 5.962416999998823,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot blocks callback_query when inline buttons are allowlist-only and sender not authorized",
+          "status": "passed",
+          "title": "blocks callback_query when inline buttons are allowlist-only and sender not authorized",
+          "duration": 22.485499999998865,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot edits commands list for pagination callbacks",
+          "status": "passed",
+          "title": "edits commands list for pagination callbacks",
+          "duration": 25.304792000002635,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot blocks pagination callbacks when allowlist rejects sender",
+          "status": "passed",
+          "title": "blocks pagination callbacks when allowlist rejects sender",
+          "duration": 48.393207999997685,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot includes sender identity in group envelope headers",
+          "status": "passed",
+          "title": "includes sender identity in group envelope headers",
+          "duration": 780.1469580000012,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot uses quote text when a Telegram partial reply is received",
+          "status": "passed",
+          "title": "uses quote text when a Telegram partial reply is received",
+          "duration": 62.68720799999937,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot handles quote-only replies without reply metadata",
+          "status": "passed",
+          "title": "handles quote-only replies without reply metadata",
+          "duration": 7.205792000000656,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot uses external_reply quote text for partial replies",
+          "status": "passed",
+          "title": "uses external_reply quote text for partial replies",
+          "duration": 42.089082999998936,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot propagates forwarded origin from external_reply targets",
+          "status": "passed",
+          "title": "propagates forwarded origin from external_reply targets",
+          "duration": 55.24366700000246,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot accepts group replies to the bot without explicit mention when requireMention is enabled",
+          "status": "passed",
+          "title": "accepts group replies to the bot without explicit mention when requireMention is enabled",
+          "duration": 14.690708999998606,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot inherits group allowlist + requireMention in topics",
+          "status": "passed",
+          "title": "inherits group allowlist + requireMention in topics",
+          "duration": 14.070290999999997,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot prefers topic allowFrom over group allowFrom",
+          "status": "passed",
+          "title": "prefers topic allowFrom over group allowFrom",
+          "duration": 29.03912499999933,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot allows group messages for per-group groupPolicy open override (global groupPolicy allowlist)",
+          "status": "passed",
+          "title": "allows group messages for per-group groupPolicy open override (global groupPolicy allowlist)",
+          "duration": 20.68895799999882,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot blocks control commands from unauthorized senders in per-group open groups",
+          "status": "passed",
+          "title": "blocks control commands from unauthorized senders in per-group open groups",
+          "duration": 12.023333000001003,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot sets command target session key for dm topic commands",
+          "status": "passed",
+          "title": "sets command target session key for dm topic commands",
+          "duration": 168.76987499999814,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot allows native DM commands for paired users",
+          "status": "passed",
+          "title": "allows native DM commands for paired users",
+          "duration": 11.18383299999914,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot blocks native DM commands for unpaired users",
+          "status": "passed",
+          "title": "blocks native DM commands for unpaired users",
+          "duration": 1.5047919999997248,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot registers message_reaction handler",
+          "status": "passed",
+          "title": "registers message_reaction handler",
+          "duration": 3.5202080000017304,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot enqueues system event for reaction",
+          "status": "passed",
+          "title": "enqueues system event for reaction",
+          "duration": 6.92804199999955,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot skips reaction when reactionNotifications is off",
+          "status": "passed",
+          "title": "skips reaction when reactionNotifications is off",
+          "duration": 1.4235000000007858,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot defaults reactionNotifications to own",
+          "status": "passed",
+          "title": "defaults reactionNotifications to own",
+          "duration": 1.0058749999989232,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot allows reaction in all mode regardless of message sender",
+          "status": "passed",
+          "title": "allows reaction in all mode regardless of message sender",
+          "duration": 2.4644999999982247,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot skips reaction in own mode when message is not sent by bot",
+          "status": "passed",
+          "title": "skips reaction in own mode when message is not sent by bot",
+          "duration": 1.1147089999976743,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot allows reaction in own mode when message is sent by bot",
+          "status": "passed",
+          "title": "allows reaction in own mode when message is sent by bot",
+          "duration": 2.9233749999984866,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot skips reaction from bot users",
+          "status": "passed",
+          "title": "skips reaction from bot users",
+          "duration": 7.151458000000275,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot skips reaction removal (only processes added reactions)",
+          "status": "passed",
+          "title": "skips reaction removal (only processes added reactions)",
+          "duration": 1.7359170000017912,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot enqueues one event per added emoji reaction",
+          "status": "passed",
+          "title": "enqueues one event per added emoji reaction",
+          "duration": 1.6441670000021986,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot routes forum group reactions to the general topic (thread id not available on reactions)",
+          "status": "passed",
+          "title": "routes forum group reactions to the general topic (thread id not available on reactions)",
+          "duration": 1.3186659999992116,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot uses correct session key for forum group reactions in general topic",
+          "status": "passed",
+          "title": "uses correct session key for forum group reactions in general topic",
+          "duration": 0.9846250000009604,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createTelegramBot"],
+          "fullName": "createTelegramBot uses correct session key for regular group reactions without topic",
+          "status": "passed",
+          "title": "uses correct session key for regular group reactions without topic",
+          "duration": 2.1494999999995343,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771931040814,
+      "endTime": 1771931042416.1494,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/telegram/bot.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/web/auto-reply.web-auto-reply.compresses-common-formats-jpeg-cap.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/web/media.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus registers options handlers without losing app receiver binding",
+          "status": "passed",
+          "title": "registers options handlers without losing app receiver binding",
+          "duration": 6.9417090000001735,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus shows a button menu when required args are omitted",
+          "status": "passed",
+          "title": "shows a button menu when required args are omitted",
+          "duration": 1.6236660000004122,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus shows a static_select menu when choices exceed button row size",
+          "status": "passed",
+          "title": "shows a static_select menu when choices exceed button row size",
+          "duration": 0.4142500000002656,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus falls back to buttons when static_select value limit would be exceeded",
+          "status": "passed",
+          "title": "falls back to buttons when static_select value limit would be exceeded",
+          "duration": 0.23587499999985084,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus shows an overflow menu when choices fit compact range",
+          "status": "passed",
+          "title": "shows an overflow menu when choices fit compact range",
+          "duration": 0.23837500000036016,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus escapes mrkdwn characters in confirm dialog text",
+          "status": "passed",
+          "title": "escapes mrkdwn characters in confirm dialog text",
+          "duration": 0.28237499999977445,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus dispatches the command when a menu button is clicked",
+          "status": "passed",
+          "title": "dispatches the command when a menu button is clicked",
+          "duration": 26.556416999999783,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus dispatches the command when a static_select option is chosen",
+          "status": "passed",
+          "title": "dispatches the command when a static_select option is chosen",
+          "duration": 0.8718330000001515,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus dispatches the command when an overflow option is chosen",
+          "status": "passed",
+          "title": "dispatches the command when an overflow option is chosen",
+          "duration": 0.2826669999999467,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus shows an external_select menu when choices exceed static_select options max",
+          "status": "passed",
+          "title": "shows an external_select menu when choices exceed static_select options max",
+          "duration": 0.7471250000003238,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus serves filtered options for external_select menus",
+          "status": "passed",
+          "title": "serves filtered options for external_select menus",
+          "duration": 0.9505420000000413,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus rejects external_select option requests without user identity",
+          "status": "passed",
+          "title": "rejects external_select option requests without user identity",
+          "duration": 1.0761250000000473,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus rejects menu clicks from other users",
+          "status": "passed",
+          "title": "rejects menu clicks from other users",
+          "duration": 0.3038329999999405,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus falls back to postEphemeral with token when respond is unavailable",
+          "status": "passed",
+          "title": "falls back to postEphemeral with token when respond is unavailable",
+          "duration": 0.8308330000004389,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["Slack native command argument menus"],
+          "fullName": "Slack native command argument menus treats malformed percent-encoding as an invalid button (no throw)",
+          "status": "passed",
+          "title": "treats malformed percent-encoding as an invalid button (no throw)",
+          "duration": 0.21058399999992616,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["slack slash commands channel policy"],
+          "fullName": "slack slash commands channel policy allows unlisted channels when groupPolicy is open",
+          "status": "passed",
+          "title": "allows unlisted channels when groupPolicy is open",
+          "duration": 3.5836249999997563,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["slack slash commands channel policy"],
+          "fullName": "slack slash commands channel policy blocks explicitly denied channels when groupPolicy is open",
+          "status": "passed",
+          "title": "blocks explicitly denied channels when groupPolicy is open",
+          "duration": 0.6284169999998994,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["slack slash commands channel policy"],
+          "fullName": "slack slash commands channel policy blocks unlisted channels when groupPolicy is allowlist",
+          "status": "passed",
+          "title": "blocks unlisted channels when groupPolicy is allowlist",
+          "duration": 0.6864580000001297,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["slack slash commands access groups"],
+          "fullName": "slack slash commands access groups fails closed when channel type lookup returns empty for channels",
+          "status": "passed",
+          "title": "fails closed when channel type lookup returns empty for channels",
+          "duration": 6.256875000000036,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["slack slash commands access groups"],
+          "fullName": "slack slash commands access groups still treats D-prefixed channel ids as DMs when lookup fails",
+          "status": "passed",
+          "title": "still treats D-prefixed channel ids as DMs when lookup fails",
+          "duration": 0.5098749999997381,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["slack slash commands access groups"],
+          "fullName": "slack slash commands access groups computes CommandAuthorized for DM slash commands when dmPolicy is open",
+          "status": "passed",
+          "title": "computes CommandAuthorized for DM slash commands when dmPolicy is open",
+          "duration": 0.8947920000000522,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["slack slash commands access groups"],
+          "fullName": "slack slash commands access groups enforces access-group gating when lookup fails for private channels",
+          "status": "passed",
+          "title": "enforces access-group gating when lookup fails for private channels",
+          "duration": 0.3090830000001006,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["slack slash command session metadata"],
+          "fullName": "slack slash command session metadata calls recordSessionMetaFromInbound after dispatching a slash command",
+          "status": "passed",
+          "title": "calls recordSessionMetaFromInbound after dispatching a slash command",
+          "duration": 0.28549999999995634,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["slack slash command session metadata"],
+          "fullName": "slack slash command session metadata awaits session metadata persistence before dispatch",
+          "status": "passed",
+          "title": "awaits session metadata persistence before dispatch",
+          "duration": 51.13120799999979,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771931018045,
+      "endTime": 1771931018151.131,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/slack/monitor/slash.test.ts"
+    }
+  ]
+}

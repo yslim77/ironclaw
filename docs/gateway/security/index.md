@@ -74,12 +74,14 @@ OpenClaw now includes a built-in framework for hardening + monitoring long-runni
 Core config sections:
 
 - `security.secrets`: managed secret hooks (`env:` + `keychain:` + `op://` placeholders)
+- `security.secrets.providers.*.command`: optional command hook for keychain / 1Password CLI wrappers
 - `security.audit`: JSONL security audit log output
 - `security.rbac.scopedTokens`: scoped tokens (for example `gateway.connect`)
 - `security.rateLimit`: scope-aware request budgets
 - `security.sandbox`: tool/path permission gates for sandbox bind checks
 - `monitoring`: always-on daemon telemetry for heartbeat health, queue depth, resource usage, and error tracking
-- `monitoring.alerts`: email/telegram/slack alert transport stubs (wire your own delivery integrations)
+- `monitoring.metrics`: Prometheus-style metrics endpoint (default path `/metrics`, protected by gateway auth)
+- `monitoring.alerts`: email/telegram/slack alert sinks with optional `hookEnabled` + `hookCommand` per sink
 
 Example:
 
@@ -105,15 +107,47 @@ Example:
   },
   monitoring: {
     enabled: true,
+    metrics: { enabled: true, path: "/metrics" },
     queue: { warnDepth: 25 },
     resources: { maxRssMb: 1536, maxHeapUsedMb: 1024 },
     alerts: {
-      slack: { enabled: true, webhookUrl: "env:OPENCLAW_ALERT_SLACK_WEBHOOK" },
-      telegram: { enabled: true, botToken: "env:OPENCLAW_ALERT_TELEGRAM_BOT_TOKEN" },
+      slack: {
+        enabled: true,
+        channel: "#ops-alerts",
+        botToken: "env:OPENCLAW_ALERT_SLACK_BOT_TOKEN",
+      },
+      telegram: {
+        enabled: true,
+        botToken: "env:OPENCLAW_ALERT_TELEGRAM_BOT_TOKEN",
+        hookEnabled: true,
+        hookCommand: "/usr/local/bin/openclaw-alert-hook",
+      },
     },
   },
 }
 ```
+
+Secret placeholder behavior:
+
+- `env:NAME` resolves from process env.
+- `keychain:service/account` resolves from macOS Keychain (`security find-generic-password`).
+- `op://vault/item/field` resolves through 1Password CLI (`op read`).
+- `security.secrets.providers.keychain.command` and `security.secrets.providers.onePassword.command` can point to wrapper binaries if your environment does not expose `security` / `op` directly.
+
+Alert hook behavior:
+
+- Set `monitoring.alerts.<sink>.hookEnabled: true` and `hookCommand` to execute a local hook binary.
+- Hook receives the sink name as argv[1] and alert payload in env vars:
+  - `OPENCLAW_ALERT_SINK`
+  - `OPENCLAW_ALERT_SUBJECT`
+  - `OPENCLAW_ALERT_BODY`
+  - `OPENCLAW_ALERT_MESSAGE`
+
+Metrics endpoint now also includes:
+
+- `openclaw_monitoring_alerts_delivered_total`
+- `openclaw_monitoring_alerts_failed_total`
+- `openclaw_monitoring_errors_tracked_total`
 
 ## Shared inbox quick rule
 

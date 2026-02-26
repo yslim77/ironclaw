@@ -9,11 +9,13 @@ export type SecuritySecretsConfig = {
       enabled?: boolean;
       service?: string;
       account?: string;
+      command?: string;
     };
     onePassword?: {
       enabled?: boolean;
       vault?: string;
       account?: string;
+      command?: string;
     };
   };
   placeholders?: {

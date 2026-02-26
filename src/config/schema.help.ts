@@ -56,7 +56,7 @@ export const FIELD_HELP: Record<string, string> = {
   "security.rateLimit":
     "Security rate-limit controls for framework-protected operations and scope-specific request budgets. Tune per-scope limits to reduce abuse risk without blocking normal automation traffic.",
   "security.sandbox":
-    "Sandbox permission gates that provide additional allow/deny checks for tool names and filesystem paths. Keep defaultPolicy at \"deny\" for strict environments and open only the minimum tool/path surface required.",
+    'Sandbox permission gates that provide additional allow/deny checks for tool names and filesystem paths. Keep defaultPolicy at "deny" for strict environments and open only the minimum tool/path surface required.',
   monitoring:
     "Always-on monitoring framework for agent heartbeat signals, queue pressure, process resource usage, and error tracking with alert fanout. Use this for operational visibility when running OpenClaw as a long-lived daemon.",
   "monitoring.heartbeat":
@@ -67,8 +67,10 @@ export const FIELD_HELP: Record<string, string> = {
     "Resource usage sampling controls and memory thresholds for long-running daemon health checks. Set realistic RSS/heap limits for your host to catch leaks before they become outages.",
   "monitoring.errorTracking":
     "Error tracking toggle for framework-captured runtime exceptions and emitted failure events. Keep enabled so severe failures are consistently logged and eligible for alert routing.",
+  "monitoring.metrics":
+    "Prometheus-style metrics endpoint controls for scraping queue depth, task count, and memory/heartbeat gauges. Keep gateway auth enabled when exposing this path beyond loopback.",
   "monitoring.alerts":
-    "Alert integration settings for email, Telegram, and Slack sink stubs with cooldown controls. Configure destination metadata now and replace stub transports with real delivery integrations when ready.",
+    "Alert integration settings for email, Telegram, and Slack sinks with cooldown controls. Configure delivery targets and secret references so threshold/error events can notify operators.",
   update:
     "Update-channel and startup-check behavior for keeping OpenClaw runtime versions current. Use conservative channels in production and more experimental channels only in controlled environments.",
   "update.channel": 'Update channel for git + npm installs ("stable", "beta", or "dev").',

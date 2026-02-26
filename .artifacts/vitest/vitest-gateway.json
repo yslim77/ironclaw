@@ -1,0 +1,3632 @@
+{
+  "numTotalTestSuites": 169,
+  "numPassedTestSuites": 119,
+  "numFailedTestSuites": 50,
+  "numPendingTestSuites": 0,
+  "numTotalTests": 314,
+  "numPassedTests": 300,
+  "numFailedTests": 0,
+  "numPendingTests": 14,
+  "numTodoTests": 0,
+  "snapshot": {
+    "added": 0,
+    "failure": false,
+    "filesAdded": 0,
+    "filesRemoved": 0,
+    "filesRemovedList": [],
+    "filesUnmatched": 0,
+    "filesUpdated": 0,
+    "matched": 0,
+    "total": 0,
+    "unchecked": 0,
+    "uncheckedKeysByFile": [],
+    "unmatched": 0,
+    "updated": 0,
+    "didUpdate": false
+  },
+  "startTime": 1771930511550,
+  "success": false,
+  "testResults": [
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["gateway agent prompt"],
+          "fullName": "gateway agent prompt returns empty for no entries",
+          "status": "passed",
+          "title": "returns empty for no entries",
+          "duration": 1.2082090000000107,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway agent prompt"],
+          "fullName": "gateway agent prompt returns current body when there is no history",
+          "status": "passed",
+          "title": "returns current body when there is no history",
+          "duration": 0.12879199999997581,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway agent prompt"],
+          "fullName": "gateway agent prompt uses history context when there is history",
+          "status": "passed",
+          "title": "uses history context when there is history",
+          "duration": 0.22641599999997197,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway agent prompt"],
+          "fullName": "gateway agent prompt prefers last tool entry over assistant for current message",
+          "status": "passed",
+          "title": "prefers last tool entry over assistant for current message",
+          "duration": 0.10824999999999818,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930759961,
+      "endTime": 1771930759963.2263,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/agent-prompt.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["resolveAssistantIdentity avatar normalization"],
+          "fullName": "resolveAssistantIdentity avatar normalization drops sentence-like avatar placeholders",
+          "status": "passed",
+          "title": "drops sentence-like avatar placeholders",
+          "duration": 2.479959000000008,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveAssistantIdentity avatar normalization"],
+          "fullName": "resolveAssistantIdentity avatar normalization keeps short text avatars",
+          "status": "passed",
+          "title": "keeps short text avatars",
+          "duration": 0.42162499999994907,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveAssistantIdentity avatar normalization"],
+          "fullName": "resolveAssistantIdentity avatar normalization keeps path avatars",
+          "status": "passed",
+          "title": "keeps path avatars",
+          "duration": 0.23841699999979937,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930763763,
+      "endTime": 1771930763766.4216,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/assistant-identity.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter allows requests when no failures have been recorded",
+          "status": "passed",
+          "title": "allows requests when no failures have been recorded",
+          "duration": 4.638042000000041,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter decrements remaining count after each failure",
+          "status": "passed",
+          "title": "decrements remaining count after each failure",
+          "duration": 1.892832999999996,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter blocks the IP once maxAttempts is reached",
+          "status": "passed",
+          "title": "blocks the IP once maxAttempts is reached",
+          "duration": 0.9544170000000349,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter unblocks after the lockout period expires",
+          "status": "passed",
+          "title": "unblocks after the lockout period expires",
+          "duration": 4.711584000000016,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter expires old failures outside the window",
+          "status": "passed",
+          "title": "expires old failures outside the window",
+          "duration": 0.7786250000000337,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter tracks IPs independently",
+          "status": "passed",
+          "title": "tracks IPs independently",
+          "duration": 0.3685839999999416,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter treats ipv4 and ipv4-mapped ipv6 forms as the same client",
+          "status": "passed",
+          "title": "treats ipv4 and ipv4-mapped ipv6 forms as the same client",
+          "duration": 1.1377919999999904,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter tracks scopes independently for the same IP",
+          "status": "passed",
+          "title": "tracks scopes independently for the same IP",
+          "duration": 0.15304100000003018,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter exempts loopback addresses by default",
+          "status": "passed",
+          "title": "exempts loopback addresses by default",
+          "duration": 0.09787500000004457,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter exempts IPv6 loopback by default",
+          "status": "passed",
+          "title": "exempts IPv6 loopback by default",
+          "duration": 0.5093330000000833,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter rate-limits loopback when exemptLoopback is false",
+          "status": "passed",
+          "title": "rate-limits loopback when exemptLoopback is false",
+          "duration": 0.10687500000005912,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter clears tracking state when reset is called",
+          "status": "passed",
+          "title": "clears tracking state when reset is called",
+          "duration": 0.16174999999998363,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter reset only clears the requested scope for an IP",
+          "status": "passed",
+          "title": "reset only clears the requested scope for an IP",
+          "duration": 0.21391699999992397,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter prune removes stale entries",
+          "status": "passed",
+          "title": "prune removes stale entries",
+          "duration": 0.27962500000001,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter prune keeps entries that are still locked out",
+          "status": "passed",
+          "title": "prune keeps entries that are still locked out",
+          "duration": 0.18854099999998652,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter normalizes undefined IP to 'unknown'",
+          "status": "passed",
+          "title": "normalizes undefined IP to 'unknown'",
+          "duration": 0.1646250000000009,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter normalizes empty-string IP to 'unknown'",
+          "status": "passed",
+          "title": "normalizes empty-string IP to 'unknown'",
+          "duration": 0.09416700000008404,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["auth rate limiter"],
+          "fullName": "auth rate limiter dispose clears all entries",
+          "status": "passed",
+          "title": "dispose clears all entries",
+          "duration": 0.0820410000000038,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930641501,
+      "endTime": 1771930641518.1885,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/auth-rate-limit.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/auth.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/boot.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/call.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor does not run before the grace period",
+          "status": "passed",
+          "title": "does not run before the grace period",
+          "duration": 34.76320800000002,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor runs health check after grace period",
+          "status": "passed",
+          "title": "runs health check after grace period",
+          "duration": 1.4904579999999896,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor skips healthy channels (running + connected)",
+          "status": "passed",
+          "title": "skips healthy channels (running + connected)",
+          "duration": 2.383958000000007,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor skips disabled channels",
+          "status": "passed",
+          "title": "skips disabled channels",
+          "duration": 3.66616700000003,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor skips unconfigured channels",
+          "status": "passed",
+          "title": "skips unconfigured channels",
+          "duration": 1.2164169999999785,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor skips manually stopped channels",
+          "status": "passed",
+          "title": "skips manually stopped channels",
+          "duration": 0.8984580000000051,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor restarts a stuck channel (running but not connected)",
+          "status": "passed",
+          "title": "restarts a stuck channel (running but not connected)",
+          "duration": 10.140874999999994,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor restarts a stopped channel that gave up (reconnectAttempts >= 10)",
+          "status": "passed",
+          "title": "restarts a stopped channel that gave up (reconnectAttempts >= 10)",
+          "duration": 6.364417000000003,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor restarts a channel that stopped unexpectedly (not running, not manual)",
+          "status": "passed",
+          "title": "restarts a channel that stopped unexpectedly (not running, not manual)",
+          "duration": 1.4516669999999863,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor treats missing enabled/configured flags as managed accounts",
+          "status": "passed",
+          "title": "treats missing enabled/configured flags as managed accounts",
+          "duration": 1.4157500000000027,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor applies cooldown — skips recently restarted channels for 2 cycles",
+          "status": "passed",
+          "title": "applies cooldown — skips recently restarted channels for 2 cycles",
+          "duration": 1.8917079999999942,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor caps at 3 health-monitor restarts per channel per hour",
+          "status": "passed",
+          "title": "caps at 3 health-monitor restarts per channel per hour",
+          "duration": 3.4733340000000226,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor runs checks single-flight when restart work is still in progress",
+          "status": "passed",
+          "title": "runs checks single-flight when restart work is still in progress",
+          "duration": 1.2994580000000155,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor stops cleanly",
+          "status": "passed",
+          "title": "stops cleanly",
+          "duration": 0.571124999999995,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor stops via abort signal",
+          "status": "passed",
+          "title": "stops via abort signal",
+          "duration": 1.5861249999999814,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["channel-health-monitor"],
+          "fullName": "channel-health-monitor treats running channels without a connected field as healthy",
+          "status": "passed",
+          "title": "treats running channels without a connected field as healthy",
+          "duration": 0.8046250000000441,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930586415,
+      "endTime": 1771930586488.8047,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/channel-health-monitor.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["abortChatRunById"],
+          "fullName": "abortChatRunById broadcasts aborted payload with partial message when buffered text exists",
+          "status": "passed",
+          "title": "broadcasts aborted payload with partial message when buffered text exists",
+          "duration": 111.60479199999827,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["abortChatRunById"],
+          "fullName": "abortChatRunById omits aborted message when buffered text is empty",
+          "status": "passed",
+          "title": "omits aborted message when buffered text is empty",
+          "duration": 3.6153330000015558,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["abortChatRunById"],
+          "fullName": "abortChatRunById preserves partial message even when abort listeners clear buffers synchronously",
+          "status": "passed",
+          "title": "preserves partial message even when abort listeners clear buffers synchronously",
+          "duration": 3.085291999996116,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930747164,
+      "endTime": 1771930747282.0852,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/chat-abort.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["buildMessageWithAttachments"],
+          "fullName": "buildMessageWithAttachments embeds a single image as data URL",
+          "status": "passed",
+          "title": "embeds a single image as data URL",
+          "duration": 1.515875000000051,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["buildMessageWithAttachments"],
+          "fullName": "buildMessageWithAttachments rejects non-image mime types",
+          "status": "passed",
+          "title": "rejects non-image mime types",
+          "duration": 0.8876660000005359,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["parseMessageWithAttachments"],
+          "fullName": "parseMessageWithAttachments strips data URL prefix",
+          "status": "passed",
+          "title": "strips data URL prefix",
+          "duration": 2.113999999999578,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["parseMessageWithAttachments"],
+          "fullName": "parseMessageWithAttachments sniffs mime when missing",
+          "status": "passed",
+          "title": "sniffs mime when missing",
+          "duration": 0.40737499999977445,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["parseMessageWithAttachments"],
+          "fullName": "parseMessageWithAttachments drops non-image payloads and logs",
+          "status": "passed",
+          "title": "drops non-image payloads and logs",
+          "duration": 0.390334000000621,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["parseMessageWithAttachments"],
+          "fullName": "parseMessageWithAttachments prefers sniffed mime type and logs mismatch",
+          "status": "passed",
+          "title": "prefers sniffed mime type and logs mismatch",
+          "duration": 0.36379200000010314,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["parseMessageWithAttachments"],
+          "fullName": "parseMessageWithAttachments drops unknown mime when sniff fails and logs",
+          "status": "passed",
+          "title": "drops unknown mime when sniff fails and logs",
+          "duration": 0.48649999999997817,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["parseMessageWithAttachments"],
+          "fullName": "parseMessageWithAttachments keeps valid images and drops invalid ones",
+          "status": "passed",
+          "title": "keeps valid images and drops invalid ones",
+          "duration": 0.3462499999995998,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["shared attachment validation"],
+          "fullName": "shared attachment validation rejects invalid base64 content for both builder and parser",
+          "status": "passed",
+          "title": "rejects invalid base64 content for both builder and parser",
+          "duration": 0.7252079999998386,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["shared attachment validation"],
+          "fullName": "shared attachment validation rejects images over limit for both builder and parser without decoding base64",
+          "status": "passed",
+          "title": "rejects images over limit for both builder and parser without decoding base64",
+          "duration": 1.9936250000000655,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930684348,
+      "endTime": 1771930684356.9937,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/chat-attachments.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["stripEnvelopeFromMessage"],
+          "fullName": "stripEnvelopeFromMessage removes message_id hint lines from user messages",
+          "status": "passed",
+          "title": "removes message_id hint lines from user messages",
+          "duration": 2.1164170000000695,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["stripEnvelopeFromMessage"],
+          "fullName": "stripEnvelopeFromMessage removes message_id hint lines from text content arrays",
+          "status": "passed",
+          "title": "removes message_id hint lines from text content arrays",
+          "duration": 0.5566660000000638,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["stripEnvelopeFromMessage"],
+          "fullName": "stripEnvelopeFromMessage does not strip inline message_id text that is part of a line",
+          "status": "passed",
+          "title": "does not strip inline message_id text that is part of a line",
+          "duration": 0.2792499999999336,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["stripEnvelopeFromMessage"],
+          "fullName": "stripEnvelopeFromMessage does not strip assistant messages",
+          "status": "passed",
+          "title": "does not strip assistant messages",
+          "duration": 0.4096670000000131,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["stripEnvelopeFromMessage"],
+          "fullName": "stripEnvelopeFromMessage defensively strips inbound metadata blocks from non-user messages",
+          "status": "passed",
+          "title": "defensively strips inbound metadata blocks from non-user messages",
+          "duration": 0.18829200000004676,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["stripEnvelopeFromMessage"],
+          "fullName": "stripEnvelopeFromMessage removes inbound un-bracketed conversation info blocks from user messages",
+          "status": "passed",
+          "title": "removes inbound un-bracketed conversation info blocks from user messages",
+          "duration": 0.1262090000000171,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["stripEnvelopeFromMessage"],
+          "fullName": "stripEnvelopeFromMessage removes all inbound metadata blocks before user text",
+          "status": "passed",
+          "title": "removes all inbound metadata blocks before user text",
+          "duration": 0.07283399999994344,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["stripEnvelopeFromMessage"],
+          "fullName": "stripEnvelopeFromMessage strips metadata-like blocks even when not a prefix",
+          "status": "passed",
+          "title": "strips metadata-like blocks even when not a prefix",
+          "duration": 0.0649590000000444,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["stripEnvelopeFromMessage"],
+          "fullName": "stripEnvelopeFromMessage strips trailing untrusted context metadata suffix blocks",
+          "status": "passed",
+          "title": "strips trailing untrusted context metadata suffix blocks",
+          "duration": 0.11529199999995399,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930738156,
+      "endTime": 1771930738160.1152,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/chat-sanitize.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["GatewayClient security checks"],
+          "fullName": "GatewayClient security checks blocks ws:// to non-loopback addresses (CWE-319)",
+          "status": "passed",
+          "title": "blocks ws:// to non-loopback addresses (CWE-319)",
+          "duration": 20.257542000000058,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient security checks"],
+          "fullName": "GatewayClient security checks handles malformed URLs gracefully without crashing",
+          "status": "passed",
+          "title": "handles malformed URLs gracefully without crashing",
+          "duration": 1.0642499999999018,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient security checks"],
+          "fullName": "GatewayClient security checks allows ws:// to loopback addresses",
+          "status": "passed",
+          "title": "allows ws:// to loopback addresses",
+          "duration": 0.5856670000000577,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient security checks"],
+          "fullName": "GatewayClient security checks allows wss:// to any address",
+          "status": "passed",
+          "title": "allows wss:// to any address",
+          "duration": 0.28033400000003894,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient close handling"],
+          "fullName": "GatewayClient close handling clears stale token on device token mismatch close",
+          "status": "passed",
+          "title": "clears stale token on device token mismatch close",
+          "duration": 1.1607080000001133,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient close handling"],
+          "fullName": "GatewayClient close handling does not break close flow when token clear throws",
+          "status": "passed",
+          "title": "does not break close flow when token clear throws",
+          "duration": 0.4227499999999509,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient close handling"],
+          "fullName": "GatewayClient close handling does not break close flow when pairing clear rejects",
+          "status": "passed",
+          "title": "does not break close flow when pairing clear rejects",
+          "duration": 0.46391600000015387,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient close handling"],
+          "fullName": "GatewayClient close handling does not clear auth state for non-mismatch close reasons",
+          "status": "passed",
+          "title": "does not clear auth state for non-mismatch close reasons",
+          "duration": 0.17037500000014916,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient close handling"],
+          "fullName": "GatewayClient close handling does not clear persisted device auth when explicit shared token is provided",
+          "status": "passed",
+          "title": "does not clear persisted device auth when explicit shared token is provided",
+          "duration": 0.5177499999999782,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient connect auth payload"],
+          "fullName": "GatewayClient connect auth payload uses explicit shared token and does not inject stored device token",
+          "status": "passed",
+          "title": "uses explicit shared token and does not inject stored device token",
+          "duration": 24.663082999999915,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient connect auth payload"],
+          "fullName": "GatewayClient connect auth payload uses stored device token when shared token is not provided",
+          "status": "passed",
+          "title": "uses stored device token when shared token is not provided",
+          "duration": 1.8086249999998927,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient connect auth payload"],
+          "fullName": "GatewayClient connect auth payload prefers explicit deviceToken over stored device token",
+          "status": "passed",
+          "title": "prefers explicit deviceToken over stored device token",
+          "duration": 0.8026250000000346,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930579047,
+      "endTime": 1771930579099.8027,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/client.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["GatewayClient"],
+          "fullName": "GatewayClient closes on missing ticks",
+          "status": "passed",
+          "title": "closes on missing ticks",
+          "duration": 306.37687500000004,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["GatewayClient"],
+          "fullName": "GatewayClient rejects mismatched tls fingerprint",
+          "status": "passed",
+          "title": "rejects mismatched tls fingerprint",
+          "duration": 34.632499999999936,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930658902,
+      "endTime": 1771930659242.6326,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/client.watchdog.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["diffConfigPaths"],
+          "fullName": "diffConfigPaths captures nested config changes",
+          "status": "passed",
+          "title": "captures nested config changes",
+          "duration": 3.5241249999999695,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["diffConfigPaths"],
+          "fullName": "diffConfigPaths captures array changes",
+          "status": "passed",
+          "title": "captures array changes",
+          "duration": 20.141791000000012,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["diffConfigPaths"],
+          "fullName": "diffConfigPaths does not report unchanged arrays of objects as changed",
+          "status": "passed",
+          "title": "does not report unchanged arrays of objects as changed",
+          "duration": 1.2192919999999958,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["diffConfigPaths"],
+          "fullName": "diffConfigPaths reports changed arrays of objects",
+          "status": "passed",
+          "title": "reports changed arrays of objects",
+          "duration": 0.8577499999999532,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["buildGatewayReloadPlan"],
+          "fullName": "buildGatewayReloadPlan marks gateway changes as restart required",
+          "status": "passed",
+          "title": "marks gateway changes as restart required",
+          "duration": 2.448874999999987,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["buildGatewayReloadPlan"],
+          "fullName": "buildGatewayReloadPlan restarts the Gmail watcher for hooks.gmail changes",
+          "status": "passed",
+          "title": "restarts the Gmail watcher for hooks.gmail changes",
+          "duration": 0.9097909999999843,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["buildGatewayReloadPlan"],
+          "fullName": "buildGatewayReloadPlan restarts providers when provider config prefixes change",
+          "status": "passed",
+          "title": "restarts providers when provider config prefixes change",
+          "duration": 1.3500839999999812,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["buildGatewayReloadPlan"],
+          "fullName": "buildGatewayReloadPlan treats gateway.remote as no-op",
+          "status": "passed",
+          "title": "treats gateway.remote as no-op",
+          "duration": 0.17779200000001083,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["buildGatewayReloadPlan"],
+          "fullName": "buildGatewayReloadPlan defaults unknown paths to restart",
+          "status": "passed",
+          "title": "defaults unknown paths to restart",
+          "duration": 0.42412500000000364,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayReloadSettings"],
+          "fullName": "resolveGatewayReloadSettings uses defaults when unset",
+          "status": "passed",
+          "title": "uses defaults when unset",
+          "duration": 0.3558749999999691,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["startGatewayConfigReloader"],
+          "fullName": "startGatewayConfigReloader retries missing snapshots and reloads once config file reappears",
+          "status": "passed",
+          "title": "retries missing snapshots and reloads once config file reappears",
+          "duration": 3.0869579999999814,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["startGatewayConfigReloader"],
+          "fullName": "startGatewayConfigReloader caps missing-file retries and skips reload after retry budget is exhausted",
+          "status": "passed",
+          "title": "caps missing-file retries and skips reload after retry budget is exhausted",
+          "duration": 0.6939580000000092,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930639361,
+      "endTime": 1771930639398.6938,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/config-reload.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["buildControlUiCspHeader"],
+          "fullName": "buildControlUiCspHeader blocks inline scripts while allowing inline styles",
+          "status": "passed",
+          "title": "blocks inline scripts while allowing inline styles",
+          "duration": 1.041499999999985,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930764545,
+      "endTime": 1771930764546.0415,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/control-ui-csp.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest sets security headers for Control UI responses",
+          "status": "passed",
+          "title": "sets security headers for Control UI responses",
+          "duration": 25.108584000000064,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest does not inject inline scripts into index.html",
+          "status": "passed",
+          "title": "does not inject inline scripts into index.html",
+          "duration": 8.307000000000016,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest serves bootstrap config JSON",
+          "status": "passed",
+          "title": "serves bootstrap config JSON",
+          "duration": 5.535499999999956,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest serves bootstrap config JSON under basePath",
+          "status": "passed",
+          "title": "serves bootstrap config JSON under basePath",
+          "duration": 6.821833000000197,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest serves local avatar bytes through hardened avatar handler",
+          "status": "passed",
+          "title": "serves local avatar bytes through hardened avatar handler",
+          "duration": 6.352000000000089,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest rejects avatar symlink paths from resolver",
+          "status": "passed",
+          "title": "rejects avatar symlink paths from resolver",
+          "duration": 11.583667000000105,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest rejects symlinked assets that resolve outside control-ui root",
+          "status": "passed",
+          "title": "rejects symlinked assets that resolve outside control-ui root",
+          "duration": 24.434499999999844,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest allows symlinked assets that resolve inside control-ui root",
+          "status": "passed",
+          "title": "allows symlinked assets that resolve inside control-ui root",
+          "duration": 10.739667000000054,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest serves HEAD for in-root assets without writing a body",
+          "status": "passed",
+          "title": "serves HEAD for in-root assets without writing a body",
+          "duration": 5.853582999999844,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest rejects symlinked SPA fallback index.html outside control-ui root",
+          "status": "passed",
+          "title": "rejects symlinked SPA fallback index.html outside control-ui root",
+          "duration": 9.175375000000031,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest rejects absolute-path escape attempts under basePath routes",
+          "status": "passed",
+          "title": "rejects absolute-path escape attempts under basePath routes",
+          "duration": 10.875250000000051,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleControlUiHttpRequest"],
+          "fullName": "handleControlUiHttpRequest rejects symlink escape attempts under basePath routes",
+          "status": "passed",
+          "title": "rejects symlink escape attempts under basePath routes",
+          "duration": 14.378542000000152,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930560626,
+      "endTime": 1771930560765.3787,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/control-ui.http.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/credential-precedence.parity.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromConfig"],
+          "fullName": "resolveGatewayCredentialsFromConfig prefers explicit credentials over config and environment",
+          "status": "passed",
+          "title": "prefers explicit credentials over config and environment",
+          "duration": 6.420416999999816,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromConfig"],
+          "fullName": "resolveGatewayCredentialsFromConfig returns empty credentials when url override is used without explicit auth",
+          "status": "passed",
+          "title": "returns empty credentials when url override is used without explicit auth",
+          "duration": 1.870665999999801,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromConfig"],
+          "fullName": "resolveGatewayCredentialsFromConfig uses local-mode environment values before local config",
+          "status": "passed",
+          "title": "uses local-mode environment values before local config",
+          "duration": 3.73824999999988,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromConfig"],
+          "fullName": "resolveGatewayCredentialsFromConfig uses remote-mode remote credentials before env and local config",
+          "status": "passed",
+          "title": "uses remote-mode remote credentials before env and local config",
+          "duration": 0.604457999999795,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromConfig"],
+          "fullName": "resolveGatewayCredentialsFromConfig falls back to env/config when remote mode omits remote credentials",
+          "status": "passed",
+          "title": "falls back to env/config when remote mode omits remote credentials",
+          "duration": 0.3073749999998654,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromConfig"],
+          "fullName": "resolveGatewayCredentialsFromConfig supports env-first password override in remote mode for gateway call path",
+          "status": "passed",
+          "title": "supports env-first password override in remote mode for gateway call path",
+          "duration": 0.16325000000006185,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromConfig"],
+          "fullName": "resolveGatewayCredentialsFromConfig supports env-first token precedence in remote mode",
+          "status": "passed",
+          "title": "supports env-first token precedence in remote mode",
+          "duration": 0.4283330000002934,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromConfig"],
+          "fullName": "resolveGatewayCredentialsFromConfig supports remote-only password fallback for strict remote override call sites",
+          "status": "passed",
+          "title": "supports remote-only password fallback for strict remote override call sites",
+          "duration": 0.40475000000014916,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromConfig"],
+          "fullName": "resolveGatewayCredentialsFromConfig supports remote-only token fallback for strict remote override call sites",
+          "status": "passed",
+          "title": "supports remote-only token fallback for strict remote override call sites",
+          "duration": 0.34816600000021936,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromConfig"],
+          "fullName": "resolveGatewayCredentialsFromConfig can disable legacy CLAWDBOT env fallback",
+          "status": "passed",
+          "title": "can disable legacy CLAWDBOT env fallback",
+          "duration": 0.13458300000002055,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromValues"],
+          "fullName": "resolveGatewayCredentialsFromValues supports config-first precedence for token/password",
+          "status": "passed",
+          "title": "supports config-first precedence for token/password",
+          "duration": 0.09916599999996834,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayCredentialsFromValues"],
+          "fullName": "resolveGatewayCredentialsFromValues uses env-first precedence by default",
+          "status": "passed",
+          "title": "uses env-first precedence by default",
+          "duration": 0.07404099999985192,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930673451,
+      "endTime": 1771930673466.1345,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/credentials.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/gateway-misc.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/gateway.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/hooks-mapping.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/hooks.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["authorizeGatewayBearerRequestOrReply"],
+          "fullName": "authorizeGatewayBearerRequestOrReply disables tailscale header auth for HTTP bearer checks",
+          "status": "passed",
+          "title": "disables tailscale header auth for HTTP bearer checks",
+          "duration": 3.0024999999999977,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["authorizeGatewayBearerRequestOrReply"],
+          "fullName": "authorizeGatewayBearerRequestOrReply forwards bearer token and returns true on successful auth",
+          "status": "passed",
+          "title": "forwards bearer token and returns true on successful auth",
+          "duration": 0.5002499999999941,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930748680,
+      "endTime": 1771930748683.5002,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/http-auth-helpers.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["handleGatewayPostJsonEndpoint"],
+          "fullName": "handleGatewayPostJsonEndpoint returns false when path does not match",
+          "status": "passed",
+          "title": "returns false when path does not match",
+          "duration": 3.509457999999995,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleGatewayPostJsonEndpoint"],
+          "fullName": "handleGatewayPostJsonEndpoint returns undefined and replies when method is not POST",
+          "status": "passed",
+          "title": "returns undefined and replies when method is not POST",
+          "duration": 0.885208999999918,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleGatewayPostJsonEndpoint"],
+          "fullName": "handleGatewayPostJsonEndpoint returns undefined when auth fails",
+          "status": "passed",
+          "title": "returns undefined when auth fails",
+          "duration": 0.187958999999978,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["handleGatewayPostJsonEndpoint"],
+          "fullName": "handleGatewayPostJsonEndpoint returns body when auth succeeds and JSON parsing succeeds",
+          "status": "passed",
+          "title": "returns body when auth succeeds and JSON parsing succeeds",
+          "duration": 1.3715839999999844,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930747813,
+      "endTime": 1771930747819.3716,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/http-endpoint-helpers.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["live tool probe utils"],
+          "fullName": "live tool probe utils matches nonce pair when both are present",
+          "status": "passed",
+          "title": "matches nonce pair when both are present",
+          "duration": 4.463499999999954,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["live tool probe utils"],
+          "fullName": "live tool probe utils retries malformed tool output when attempts remain",
+          "status": "passed",
+          "title": "retries malformed tool output when attempts remain",
+          "duration": 1.0021249999999782,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["live tool probe utils"],
+          "fullName": "live tool probe utils does not retry once max attempts are exhausted",
+          "status": "passed",
+          "title": "does not retry once max attempts are exhausted",
+          "duration": 0.3872079999999869,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["live tool probe utils"],
+          "fullName": "live tool probe utils does not retry when nonce pair is already present",
+          "status": "passed",
+          "title": "does not retry when nonce pair is already present",
+          "duration": 0.3584160000000338,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["live tool probe utils"],
+          "fullName": "live tool probe utils retries when tool output is empty and attempts remain",
+          "status": "passed",
+          "title": "retries when tool output is empty and attempts remain",
+          "duration": 0.2307499999999436,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["live tool probe utils"],
+          "fullName": "live tool probe utils retries when output still looks like tool/function scaffolding",
+          "status": "passed",
+          "title": "retries when output still looks like tool/function scaffolding",
+          "duration": 0.18470800000000054,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["live tool probe utils"],
+          "fullName": "live tool probe utils retries mistral nonce marker echoes without parsed nonce values",
+          "status": "passed",
+          "title": "retries mistral nonce marker echoes without parsed nonce values",
+          "duration": 0.4542500000000018,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["live tool probe utils"],
+          "fullName": "live tool probe utils does not retry nonce marker echoes for non-mistral providers",
+          "status": "passed",
+          "title": "does not retry nonce marker echoes for non-mistral providers",
+          "duration": 0.36341700000002675,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930747915,
+      "endTime": 1771930747923.3635,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/live-tool-probe-utils.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/method-scopes.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["resolveHostName"],
+          "fullName": "resolveHostName normalizes IPv4/hostname and IPv6 host forms",
+          "status": "passed",
+          "title": "normalizes IPv4/hostname and IPv6 host forms",
+          "duration": 18.441291000000092,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isLocalishHost"],
+          "fullName": "isLocalishHost accepts loopback and tailscale serve/funnel host headers",
+          "status": "passed",
+          "title": "accepts loopback and tailscale serve/funnel host headers",
+          "duration": 2.431666000000064,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isLocalishHost"],
+          "fullName": "isLocalishHost rejects non-local hosts",
+          "status": "passed",
+          "title": "rejects non-local hosts",
+          "duration": 0.24712499999998272,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "exact IP matching"],
+          "fullName": "isTrustedProxyAddress exact IP matching returns true when IP matches exactly",
+          "status": "passed",
+          "title": "returns true when IP matches exactly",
+          "duration": 0.1908329999999978,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "exact IP matching"],
+          "fullName": "isTrustedProxyAddress exact IP matching returns false when IP does not match",
+          "status": "passed",
+          "title": "returns false when IP does not match",
+          "duration": 0.09912499999995816,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "exact IP matching"],
+          "fullName": "isTrustedProxyAddress exact IP matching returns true when IP matches one of multiple proxies",
+          "status": "passed",
+          "title": "returns true when IP matches one of multiple proxies",
+          "duration": 6.825874999999996,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "exact IP matching"],
+          "fullName": "isTrustedProxyAddress exact IP matching ignores surrounding whitespace in exact IP entries",
+          "status": "passed",
+          "title": "ignores surrounding whitespace in exact IP entries",
+          "duration": 0.11833400000000438,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "CIDR subnet matching"],
+          "fullName": "isTrustedProxyAddress CIDR subnet matching returns true when IP is within /24 subnet",
+          "status": "passed",
+          "title": "returns true when IP is within /24 subnet",
+          "duration": 0.9154579999999441,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "CIDR subnet matching"],
+          "fullName": "isTrustedProxyAddress CIDR subnet matching returns false when IP is outside /24 subnet",
+          "status": "passed",
+          "title": "returns false when IP is outside /24 subnet",
+          "duration": 0.5339159999999765,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "CIDR subnet matching"],
+          "fullName": "isTrustedProxyAddress CIDR subnet matching returns true when IP is within /16 subnet",
+          "status": "passed",
+          "title": "returns true when IP is within /16 subnet",
+          "duration": 0.5817919999999503,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "CIDR subnet matching"],
+          "fullName": "isTrustedProxyAddress CIDR subnet matching returns false when IP is outside /16 subnet",
+          "status": "passed",
+          "title": "returns false when IP is outside /16 subnet",
+          "duration": 0.13087500000006003,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "CIDR subnet matching"],
+          "fullName": "isTrustedProxyAddress CIDR subnet matching returns true when IP is within /32 subnet (single IP)",
+          "status": "passed",
+          "title": "returns true when IP is within /32 subnet (single IP)",
+          "duration": 0.09541699999999764,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "CIDR subnet matching"],
+          "fullName": "isTrustedProxyAddress CIDR subnet matching returns false when IP does not match /32 subnet",
+          "status": "passed",
+          "title": "returns false when IP does not match /32 subnet",
+          "duration": 0.08295799999996234,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "CIDR subnet matching"],
+          "fullName": "isTrustedProxyAddress CIDR subnet matching handles mixed exact IPs and CIDR notation",
+          "status": "passed",
+          "title": "handles mixed exact IPs and CIDR notation",
+          "duration": 8.183625000000006,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "CIDR subnet matching"],
+          "fullName": "isTrustedProxyAddress CIDR subnet matching supports IPv6 CIDR notation",
+          "status": "passed",
+          "title": "supports IPv6 CIDR notation",
+          "duration": 1.560457999999926,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "backward compatibility"],
+          "fullName": "isTrustedProxyAddress backward compatibility preserves exact IP matching behavior (no CIDR notation)",
+          "status": "passed",
+          "title": "preserves exact IP matching behavior (no CIDR notation)",
+          "duration": 0.4662500000000591,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "backward compatibility"],
+          "fullName": "isTrustedProxyAddress backward compatibility does NOT treat plain IPs as /32 CIDR (exact match only)",
+          "status": "passed",
+          "title": "does NOT treat plain IPs as /32 CIDR (exact match only)",
+          "duration": 0.32054199999993216,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "backward compatibility"],
+          "fullName": "isTrustedProxyAddress backward compatibility handles IPv4-mapped IPv6 addresses (existing normalizeIp behavior)",
+          "status": "passed",
+          "title": "handles IPv4-mapped IPv6 addresses (existing normalizeIp behavior)",
+          "duration": 0.17745899999999892,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "edge cases"],
+          "fullName": "isTrustedProxyAddress edge cases returns false when IP is undefined",
+          "status": "passed",
+          "title": "returns false when IP is undefined",
+          "duration": 0.05275000000006003,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "edge cases"],
+          "fullName": "isTrustedProxyAddress edge cases returns false when trustedProxies is undefined",
+          "status": "passed",
+          "title": "returns false when trustedProxies is undefined",
+          "duration": 0.09308399999997619,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "edge cases"],
+          "fullName": "isTrustedProxyAddress edge cases returns false when trustedProxies is empty",
+          "status": "passed",
+          "title": "returns false when trustedProxies is empty",
+          "duration": 0.0817499999999427,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "edge cases"],
+          "fullName": "isTrustedProxyAddress edge cases returns false for invalid CIDR notation",
+          "status": "passed",
+          "title": "returns false for invalid CIDR notation",
+          "duration": 8.769667000000027,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "edge cases"],
+          "fullName": "isTrustedProxyAddress edge cases ignores surrounding whitespace in CIDR entries",
+          "status": "passed",
+          "title": "ignores surrounding whitespace in CIDR entries",
+          "duration": 0.9080830000000333,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isTrustedProxyAddress", "edge cases"],
+          "fullName": "isTrustedProxyAddress edge cases ignores blank trusted proxy entries",
+          "status": "passed",
+          "title": "ignores blank trusted proxy entries",
+          "duration": 0.09483399999999165,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveClientIp"],
+          "fullName": "resolveClientIp 'returns remote IP when remote is not …'",
+          "status": "passed",
+          "title": "'returns remote IP when remote is not …'",
+          "duration": 0.11212499999999181,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveClientIp"],
+          "fullName": "resolveClientIp 'uses right-most untrusted X-Forwarded…'",
+          "status": "passed",
+          "title": "'uses right-most untrusted X-Forwarded…'",
+          "duration": 0.1749169999999367,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveClientIp"],
+          "fullName": "resolveClientIp 'fails closed when all X-Forwarded-For…'",
+          "status": "passed",
+          "title": "'fails closed when all X-Forwarded-For…'",
+          "duration": 0.7403749999999718,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveClientIp"],
+          "fullName": "resolveClientIp 'fails closed when trusted proxy omits…'",
+          "status": "passed",
+          "title": "'fails closed when trusted proxy omits…'",
+          "duration": 0.06841599999995651,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveClientIp"],
+          "fullName": "resolveClientIp 'ignores invalid X-Forwarded-For entri…'",
+          "status": "passed",
+          "title": "'ignores invalid X-Forwarded-For entri…'",
+          "duration": 0.10762499999998454,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveClientIp"],
+          "fullName": "resolveClientIp 'does not trust X-Real-IP by default'",
+          "status": "passed",
+          "title": "'does not trust X-Real-IP by default'",
+          "duration": 0.08045800000002146,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveClientIp"],
+          "fullName": "resolveClientIp 'uses X-Real-IP only when explicitly e…'",
+          "status": "passed",
+          "title": "'uses X-Real-IP only when explicitly e…'",
+          "duration": 0.1545409999999947,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveClientIp"],
+          "fullName": "resolveClientIp 'ignores invalid X-Real-IP even when f…'",
+          "status": "passed",
+          "title": "'ignores invalid X-Real-IP even when f…'",
+          "duration": 0.08087499999999181,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveGatewayListenHosts"],
+          "fullName": "resolveGatewayListenHosts resolves listen hosts for non-loopback and loopback variants",
+          "status": "passed",
+          "title": "resolves listen hosts for non-loopback and loopback variants",
+          "duration": 0.7918329999999969,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["pickPrimaryLanIPv4"],
+          "fullName": "pickPrimaryLanIPv4 prefers en0, then eth0, then any non-internal IPv4, otherwise undefined",
+          "status": "passed",
+          "title": "prefers en0, then eth0, then any non-internal IPv4, otherwise undefined",
+          "duration": 7.5632080000000315,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isPrivateOrLoopbackAddress"],
+          "fullName": "isPrivateOrLoopbackAddress accepts loopback, private, link-local, and cgnat ranges",
+          "status": "passed",
+          "title": "accepts loopback, private, link-local, and cgnat ranges",
+          "duration": 0.5436670000000277,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isPrivateOrLoopbackAddress"],
+          "fullName": "isPrivateOrLoopbackAddress rejects public addresses",
+          "status": "passed",
+          "title": "rejects public addresses",
+          "duration": 0.15445899999997437,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["isSecureWebSocketUrl"],
+          "fullName": "isSecureWebSocketUrl accepts secure websocket/loopback ws URLs and rejects unsafe inputs",
+          "status": "passed",
+          "title": "accepts secure websocket/loopback ws URLs and rejects unsafe inputs",
+          "duration": 1.8059170000000222,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930561588,
+      "endTime": 1771930561653.806,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/net.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["sanitizeSystemRunParamsForForwarding"],
+          "fullName": "sanitizeSystemRunParamsForForwarding rejects cmd.exe /c trailing-arg mismatch against rawCommand",
+          "status": "passed",
+          "title": "rejects cmd.exe /c trailing-arg mismatch against rawCommand",
+          "duration": 3.5371660000000134,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["sanitizeSystemRunParamsForForwarding"],
+          "fullName": "sanitizeSystemRunParamsForForwarding accepts matching cmd.exe /c command text for approval binding",
+          "status": "passed",
+          "title": "accepts matching cmd.exe /c command text for approval binding",
+          "duration": 0.476916000000017,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930748305,
+      "endTime": 1771930748308.537,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/node-invoke-system-run-approval.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/openai-http.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/openresponses-http.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "Schema Validation"],
+          "fullName": "OpenResponses Feature Parity Schema Validation should validate input_image with url source",
+          "status": "skipped",
+          "title": "should validate input_image with url source",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "Schema Validation"],
+          "fullName": "OpenResponses Feature Parity Schema Validation should validate input_image with base64 source",
+          "status": "skipped",
+          "title": "should validate input_image with base64 source",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "Schema Validation"],
+          "fullName": "OpenResponses Feature Parity Schema Validation should reject input_image with invalid mime type",
+          "status": "skipped",
+          "title": "should reject input_image with invalid mime type",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "Schema Validation"],
+          "fullName": "OpenResponses Feature Parity Schema Validation should validate input_file with url source",
+          "status": "skipped",
+          "title": "should validate input_file with url source",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "Schema Validation"],
+          "fullName": "OpenResponses Feature Parity Schema Validation should validate input_file with base64 source",
+          "status": "skipped",
+          "title": "should validate input_file with base64 source",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "Schema Validation"],
+          "fullName": "OpenResponses Feature Parity Schema Validation should validate tool definition",
+          "status": "skipped",
+          "title": "should validate tool definition",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "Schema Validation"],
+          "fullName": "OpenResponses Feature Parity Schema Validation should reject tool definition without name",
+          "status": "skipped",
+          "title": "should reject tool definition without name",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "CreateResponseBody Schema"],
+          "fullName": "OpenResponses Feature Parity CreateResponseBody Schema should validate request with input_image",
+          "status": "skipped",
+          "title": "should validate request with input_image",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "CreateResponseBody Schema"],
+          "fullName": "OpenResponses Feature Parity CreateResponseBody Schema should validate request with client tools",
+          "status": "skipped",
+          "title": "should validate request with client tools",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "CreateResponseBody Schema"],
+          "fullName": "OpenResponses Feature Parity CreateResponseBody Schema should validate request with function_call_output for turn-based tools",
+          "status": "skipped",
+          "title": "should validate request with function_call_output for turn-based tools",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "CreateResponseBody Schema"],
+          "fullName": "OpenResponses Feature Parity CreateResponseBody Schema should validate complete turn-based tool flow",
+          "status": "skipped",
+          "title": "should validate complete turn-based tool flow",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "Response Resource Schema"],
+          "fullName": "OpenResponses Feature Parity Response Resource Schema should validate response with function_call output",
+          "status": "skipped",
+          "title": "should validate response with function_call output",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "buildAgentPrompt"],
+          "fullName": "OpenResponses Feature Parity buildAgentPrompt should convert function_call_output to tool entry",
+          "status": "skipped",
+          "title": "should convert function_call_output to tool entry",
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["OpenResponses Feature Parity", "buildAgentPrompt"],
+          "fullName": "OpenResponses Feature Parity buildAgentPrompt should handle mixed message and function_call_output items",
+          "status": "skipped",
+          "title": "should handle mixed message and function_call_output items",
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/openresponses-parity.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["checkBrowserOrigin"],
+          "fullName": "checkBrowserOrigin accepts same-origin host matches",
+          "status": "passed",
+          "title": "accepts same-origin host matches",
+          "duration": 2.5347909999999843,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["checkBrowserOrigin"],
+          "fullName": "checkBrowserOrigin accepts loopback host mismatches for dev",
+          "status": "passed",
+          "title": "accepts loopback host mismatches for dev",
+          "duration": 4.4063750000000255,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["checkBrowserOrigin"],
+          "fullName": "checkBrowserOrigin accepts allowlisted origins",
+          "status": "passed",
+          "title": "accepts allowlisted origins",
+          "duration": 0.16370799999998553,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["checkBrowserOrigin"],
+          "fullName": "checkBrowserOrigin rejects missing origin",
+          "status": "passed",
+          "title": "rejects missing origin",
+          "duration": 0.11287499999997408,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["checkBrowserOrigin"],
+          "fullName": "checkBrowserOrigin rejects mismatched origins",
+          "status": "passed",
+          "title": "rejects mismatched origins",
+          "duration": 2.2632090000000176,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930762225,
+      "endTime": 1771930762234.2632,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/origin-check.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["probeGateway"],
+          "fullName": "probeGateway connects with operator.read scope",
+          "status": "passed",
+          "title": "connects with operator.read scope",
+          "duration": 8.955749999999853,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930763742,
+      "endTime": 1771930763750.9558,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/probe.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["gateway role policy"],
+          "fullName": "gateway role policy parses supported roles",
+          "status": "passed",
+          "title": "parses supported roles",
+          "duration": 1.1550419999999804,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway role policy"],
+          "fullName": "gateway role policy allows device-less bypass only for operator + shared auth",
+          "status": "passed",
+          "title": "allows device-less bypass only for operator + shared auth",
+          "duration": 0.16683399999999438,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway role policy"],
+          "fullName": "gateway role policy authorizes roles against node vs operator methods",
+          "status": "passed",
+          "title": "authorizes roles against node vs operator methods",
+          "duration": 0.2007499999999709,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930764094,
+      "endTime": 1771930764095.2007,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/role-policy.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["server-channels auto restart"],
+          "fullName": "server-channels auto restart caps crash-loop restarts after max attempts",
+          "status": "passed",
+          "title": "caps crash-loop restarts after max attempts",
+          "duration": 100.97966599999995,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["server-channels auto restart"],
+          "fullName": "server-channels auto restart does not auto-restart after manual stop during backoff",
+          "status": "passed",
+          "title": "does not auto-restart after manual stop during backoff",
+          "duration": 2.784582999999998,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["server-channels auto restart"],
+          "fullName": "server-channels auto restart marks enabled/configured when account descriptors omit them",
+          "status": "passed",
+          "title": "marks enabled/configured when account descriptors omit them",
+          "duration": 0.2707910000000311,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930685201,
+      "endTime": 1771930685305.2708,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-channels.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] No \"STATE_DIR\" export is defined on the \"../config/config.js\" mock. Did you forget to return it from \"vi.mock\"?\nIf you need to partially mock a module, you can use \"importOriginal\" helper inside:\n",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-chat.agent-events.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-cron.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["resolveTailnetDnsHint"],
+          "fullName": "resolveTailnetDnsHint returns env hint when disabled",
+          "status": "passed",
+          "title": "returns env hint when disabled",
+          "duration": 1.4837089999999762,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveTailnetDnsHint"],
+          "fullName": "resolveTailnetDnsHint skips tailscale lookup when disabled",
+          "status": "passed",
+          "title": "skips tailscale lookup when disabled",
+          "duration": 0.29016699999999673,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["resolveTailnetDnsHint"],
+          "fullName": "resolveTailnetDnsHint uses tailscale lookup when enabled",
+          "status": "passed",
+          "title": "uses tailscale lookup when enabled",
+          "duration": 0.2847919999999817,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930760476,
+      "endTime": 1771930760478.2903,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-discovery.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-http.hooks-request-timeout.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods.control-plane-rate-limit.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["node exec events"],
+          "fullName": "node exec events enqueues exec.started events",
+          "status": "passed",
+          "title": "enqueues exec.started events",
+          "duration": 68.63395899999887,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["node exec events"],
+          "fullName": "node exec events enqueues exec.finished events with output",
+          "status": "passed",
+          "title": "enqueues exec.finished events with output",
+          "duration": 1.8134999999892898,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["node exec events"],
+          "fullName": "node exec events suppresses noisy exec.finished success events with empty output",
+          "status": "passed",
+          "title": "suppresses noisy exec.finished success events with empty output",
+          "duration": 2.08866599999601,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["node exec events"],
+          "fullName": "node exec events truncates long exec.finished output in system events",
+          "status": "passed",
+          "title": "truncates long exec.finished output in system events",
+          "duration": 16.14999999999418,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["node exec events"],
+          "fullName": "node exec events enqueues exec.denied events with reason",
+          "status": "passed",
+          "title": "enqueues exec.denied events with reason",
+          "duration": 2.468790999992052,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["node exec events"],
+          "fullName": "node exec events suppresses exec.started when notifyOnExit is false",
+          "status": "passed",
+          "title": "suppresses exec.started when notifyOnExit is false",
+          "duration": 3.0326250000071013,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["node exec events"],
+          "fullName": "node exec events suppresses exec.finished when notifyOnExit is false",
+          "status": "passed",
+          "title": "suppresses exec.finished when notifyOnExit is false",
+          "duration": 3.9758330000040587,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["node exec events"],
+          "fullName": "node exec events suppresses exec.denied when notifyOnExit is false",
+          "status": "passed",
+          "title": "suppresses exec.denied when notifyOnExit is false",
+          "duration": 0.24479099999007303,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["voice transcript events"],
+          "fullName": "voice transcript events dedupes repeated transcript payloads for the same session",
+          "status": "passed",
+          "title": "dedupes repeated transcript payloads for the same session",
+          "duration": 14.507832999996026,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["voice transcript events"],
+          "fullName": "voice transcript events does not dedupe identical text when source event IDs differ",
+          "status": "passed",
+          "title": "does not dedupe identical text when source event IDs differ",
+          "duration": 2.13204099998984,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["voice transcript events"],
+          "fullName": "voice transcript events forwards transcript with voice provenance",
+          "status": "passed",
+          "title": "forwards transcript with voice provenance",
+          "duration": 9.385791999986395,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["voice transcript events"],
+          "fullName": "voice transcript events does not block agent dispatch when session-store touch fails",
+          "status": "passed",
+          "title": "does not block agent dispatch when session-store touch fails",
+          "duration": 19.358333999989554,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agent request events"],
+          "fullName": "agent request events disables delivery when route is unresolved instead of falling back globally",
+          "status": "passed",
+          "title": "disables delivery when route is unresolved instead of falling back globally",
+          "duration": 8.20879099999729,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agent request events"],
+          "fullName": "agent request events reuses the current session route when delivery target is omitted",
+          "status": "passed",
+          "title": "reuses the current session route when delivery target is omitted",
+          "duration": 3.375791999991634,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930627935,
+      "endTime": 1771930628092.3757,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-node-events.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["loadGatewayPlugins"],
+          "fullName": "loadGatewayPlugins logs plugin errors with details",
+          "status": "passed",
+          "title": "logs plugin errors with details",
+          "duration": 8.415791999999954,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930761212,
+      "endTime": 1771930761220.4158,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-plugins.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["gateway restart deferral"],
+          "fullName": "gateway restart deferral defers restart while reply delivery is in flight",
+          "status": "passed",
+          "title": "defers restart while reply delivery is in flight",
+          "duration": 138.00412499999948,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway restart deferral"],
+          "fullName": "gateway restart deferral keeps pending > 0 until the reply is actually enqueued",
+          "status": "passed",
+          "title": "keeps pending > 0 until the reply is actually enqueued",
+          "duration": 14.377791999999317,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway restart deferral"],
+          "fullName": "gateway restart deferral defers restart until reply dispatcher completes",
+          "status": "passed",
+          "title": "defers restart until reply dispatcher completes",
+          "duration": 8.961290999999619,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway restart deferral"],
+          "fullName": "gateway restart deferral clears dispatcher reservation when no replies were sent",
+          "status": "passed",
+          "title": "clears dispatcher reservation when no replies were sent",
+          "duration": 7.477665999998862,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930730353,
+      "endTime": 1771930730522.4778,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-restart-deferral.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-runtime-config.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["gateway startup log"],
+          "fullName": "gateway startup log warns when dangerous config flags are enabled",
+          "status": "passed",
+          "title": "warns when dangerous config flags are enabled",
+          "duration": 8.769541000000117,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway startup log"],
+          "fullName": "gateway startup log does not warn when dangerous config flags are disabled",
+          "status": "passed",
+          "title": "does not warn when dangerous config flags are disabled",
+          "duration": 0.9143749999998363,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway startup log"],
+          "fullName": "gateway startup log logs all listen endpoints on a single line",
+          "status": "passed",
+          "title": "logs all listen endpoints on a single line",
+          "duration": 0.6112080000000333,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930758972,
+      "endTime": 1771930758981.6113,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-startup-log.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["startGatewayMemoryBackend"],
+          "fullName": "startGatewayMemoryBackend skips initialization when memory backend is not qmd",
+          "status": "passed",
+          "title": "skips initialization when memory backend is not qmd",
+          "duration": 6.539167000000134,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["startGatewayMemoryBackend"],
+          "fullName": "startGatewayMemoryBackend initializes qmd backend for each configured agent",
+          "status": "passed",
+          "title": "initializes qmd backend for each configured agent",
+          "duration": 4.323624999999993,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["startGatewayMemoryBackend"],
+          "fullName": "startGatewayMemoryBackend logs a warning when qmd manager init fails and continues with other agents",
+          "status": "passed",
+          "title": "logs a warning when qmd manager init fails and continues with other agents",
+          "duration": 1.6831669999999122,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["startGatewayMemoryBackend"],
+          "fullName": "startGatewayMemoryBackend skips agents with memory search disabled",
+          "status": "passed",
+          "title": "skips agents with memory search disabled",
+          "duration": 1.5795000000000528,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930745316,
+      "endTime": 1771930745330.5796,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-startup-memory.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.agent.gateway-server-agent-a.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.agent.gateway-server-agent-b.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.auth.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.canvas-auth.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.channels.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.chat.gateway-server-chat-b.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.chat.gateway-server-chat.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.config-apply.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.config-patch.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.cron.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.health.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.hooks.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.ios-client-id.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.metrics.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.models-voicewake-misc.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.node-invoke-approval-bypass.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.plugin-http-auth.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["gateway hot reload"],
+          "fullName": "gateway hot reload applies hot reload actions and emits restart signal",
+          "status": "passed",
+          "title": "applies hot reload actions and emits restart signal",
+          "duration": 1231.2920000000013,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway agents"],
+          "fullName": "gateway agents lists configured agents via agents.list RPC",
+          "status": "passed",
+          "title": "lists configured agents via agents.list RPC",
+          "duration": 851.226125000001,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930643367,
+      "endTime": 1771930645475.226,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.reload.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.roles-allowlist-update.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.sessions-send.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.sessions.gateway-server-sessions-a.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.skills-status.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server.talk-config.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/session-utils.fs.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/session-utils.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch persists thinkingLevel=off (does not clear)",
+          "status": "passed",
+          "title": "persists thinkingLevel=off (does not clear)",
+          "duration": 6.733458000000155,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch clears thinkingLevel when patch sets null",
+          "status": "passed",
+          "title": "clears thinkingLevel when patch sets null",
+          "duration": 0.3272919999999431,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch persists elevatedLevel=off (does not clear)",
+          "status": "passed",
+          "title": "persists elevatedLevel=off (does not clear)",
+          "duration": 0.17829200000005585,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch persists elevatedLevel=on",
+          "status": "passed",
+          "title": "persists elevatedLevel=on",
+          "duration": 0.12158300000010058,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch clears elevatedLevel when patch sets null",
+          "status": "passed",
+          "title": "clears elevatedLevel when patch sets null",
+          "duration": 0.11666699999977936,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch rejects invalid elevatedLevel values",
+          "status": "passed",
+          "title": "rejects invalid elevatedLevel values",
+          "duration": 0.19383300000026793,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch clears auth overrides when model patch changes",
+          "status": "passed",
+          "title": "clears auth overrides when model patch changes",
+          "duration": 1.185291000000234,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch sets spawnDepth for subagent sessions",
+          "status": "passed",
+          "title": "sets spawnDepth for subagent sessions",
+          "duration": 0.19495899999992616,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch rejects spawnDepth on non-subagent sessions",
+          "status": "passed",
+          "title": "rejects spawnDepth on non-subagent sessions",
+          "duration": 0.12950000000000728,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch normalizes exec/send/group patches",
+          "status": "passed",
+          "title": "normalizes exec/send/group patches",
+          "duration": 0.2629589999996824,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch rejects invalid execHost values",
+          "status": "passed",
+          "title": "rejects invalid execHost values",
+          "duration": 0.09283300000015515,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch rejects invalid sendPolicy values",
+          "status": "passed",
+          "title": "rejects invalid sendPolicy values",
+          "duration": 0.08204200000000128,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch rejects invalid groupActivation values",
+          "status": "passed",
+          "title": "rejects invalid groupActivation values",
+          "duration": 0.16133300000001327,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch allows target agent own model for subagent session even when missing from global allowlist",
+          "status": "passed",
+          "title": "allows target agent own model for subagent session even when missing from global allowlist",
+          "duration": 0.9976670000000922,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch allows target agent subagents.model for subagent session even when missing from global allowlist",
+          "status": "passed",
+          "title": "allows target agent subagents.model for subagent session even when missing from global allowlist",
+          "duration": 0.5307080000002316,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway sessions patch"],
+          "fullName": "gateway sessions patch allows global defaults.subagents.model for subagent session even when missing from global allowlist",
+          "status": "passed",
+          "title": "allows global defaults.subagents.model for subagent session even when missing from global allowlist",
+          "duration": 0.23245899999983521,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930591505,
+      "endTime": 1771930591516.5308,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/sessions-patch.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/startup-auth.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["POST /tools/invoke"],
+          "fullName": "POST /tools/invoke invokes a tool and returns {ok:true,result}",
+          "status": "passed",
+          "title": "invokes a tool and returns {ok:true,result}",
+          "duration": 91.51195800000005,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["POST /tools/invoke"],
+          "fullName": "POST /tools/invoke supports tools.alsoAllow in profile and implicit modes",
+          "status": "passed",
+          "title": "supports tools.alsoAllow in profile and implicit modes",
+          "duration": 3.8189579999998386,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["POST /tools/invoke"],
+          "fullName": "POST /tools/invoke routes tools invoke before plugin HTTP handlers",
+          "status": "passed",
+          "title": "routes tools invoke before plugin HTTP handlers",
+          "duration": 36.52000000000044,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["POST /tools/invoke"],
+          "fullName": "POST /tools/invoke returns 404 when denylisted or blocked by tools.profile",
+          "status": "passed",
+          "title": "returns 404 when denylisted or blocked by tools.profile",
+          "duration": 3.2583330000006754,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["POST /tools/invoke"],
+          "fullName": "POST /tools/invoke denies sessions_spawn via HTTP even when agent policy allows",
+          "status": "passed",
+          "title": "denies sessions_spawn via HTTP even when agent policy allows",
+          "duration": 1.6557920000004742,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["POST /tools/invoke"],
+          "fullName": "POST /tools/invoke denies sessions_send via HTTP gateway",
+          "status": "passed",
+          "title": "denies sessions_send via HTTP gateway",
+          "duration": 6.027000000000044,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["POST /tools/invoke"],
+          "fullName": "POST /tools/invoke denies gateway tool via HTTP",
+          "status": "passed",
+          "title": "denies gateway tool via HTTP",
+          "duration": 5.073832999999468,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["POST /tools/invoke"],
+          "fullName": "POST /tools/invoke allows gateway tool via HTTP when explicitly enabled in gateway.tools.allow",
+          "status": "passed",
+          "title": "allows gateway tool via HTTP when explicitly enabled in gateway.tools.allow",
+          "duration": 4.801583999999821,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["POST /tools/invoke"],
+          "fullName": "POST /tools/invoke treats gateway.tools.deny as higher priority than gateway.tools.allow",
+          "status": "passed",
+          "title": "treats gateway.tools.deny as higher priority than gateway.tools.allow",
+          "duration": 2.410458999999719,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["POST /tools/invoke"],
+          "fullName": "POST /tools/invoke uses the configured main session key when sessionKey is missing or main",
+          "status": "passed",
+          "title": "uses the configured main session key when sessionKey is missing or main",
+          "duration": 6.896249999999782,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["POST /tools/invoke"],
+          "fullName": "POST /tools/invoke maps tool input/auth errors to 400/403 and unexpected execution errors to 500",
+          "status": "passed",
+          "title": "maps tool input/auth errors to 400/403 and unexpected execution errors to 500",
+          "duration": 11.359375,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930555373,
+      "endTime": 1771930555546.3594,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/tools-invoke-http.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["gateway ws log helpers"],
+          "fullName": "gateway ws log helpers shortId compacts uuids and long strings",
+          "status": "passed",
+          "title": "shortId compacts uuids and long strings",
+          "duration": 1.1850000000000023,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway ws log helpers"],
+          "fullName": "gateway ws log helpers formatForLog formats errors and messages",
+          "status": "passed",
+          "title": "formatForLog formats errors and messages",
+          "duration": 0.28645899999997937,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway ws log helpers"],
+          "fullName": "gateway ws log helpers formatForLog redacts obvious secrets",
+          "status": "passed",
+          "title": "formatForLog redacts obvious secrets",
+          "duration": 1.0291669999999726,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["gateway ws log helpers"],
+          "fullName": "gateway ws log helpers summarizeAgentEventForWsLog extracts useful fields",
+          "status": "passed",
+          "title": "summarizeAgentEventForWsLog extracts useful fields",
+          "duration": 0.8048329999999737,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930757801,
+      "endTime": 1771930757803.805,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/ws-log.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["cron protocol validators"],
+          "fullName": "cron protocol validators accepts minimal add params",
+          "status": "passed",
+          "title": "accepts minimal add params",
+          "duration": 1.9737910000000056,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["cron protocol validators"],
+          "fullName": "cron protocol validators rejects add params when required scheduling fields are missing",
+          "status": "passed",
+          "title": "rejects add params when required scheduling fields are missing",
+          "duration": 0.13583299999993415,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["cron protocol validators"],
+          "fullName": "cron protocol validators accepts update params for id and jobId selectors",
+          "status": "passed",
+          "title": "accepts update params for id and jobId selectors",
+          "duration": 2.224542000000042,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["cron protocol validators"],
+          "fullName": "cron protocol validators accepts remove params for id and jobId selectors",
+          "status": "passed",
+          "title": "accepts remove params for id and jobId selectors",
+          "duration": 0.22754199999997127,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["cron protocol validators"],
+          "fullName": "cron protocol validators accepts run params mode for id and jobId selectors",
+          "status": "passed",
+          "title": "accepts run params mode for id and jobId selectors",
+          "duration": 0.3119580000000042,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["cron protocol validators"],
+          "fullName": "cron protocol validators enforces runs limit minimum for id and jobId selectors",
+          "status": "passed",
+          "title": "enforces runs limit minimum for id and jobId selectors",
+          "duration": 0.3005000000000564,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["cron protocol validators"],
+          "fullName": "cron protocol validators rejects cron.runs path traversal ids",
+          "status": "passed",
+          "title": "rejects cron.runs path traversal ids",
+          "duration": 0.12083299999994779,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930749315,
+      "endTime": 1771930749320.3005,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/protocol/cron-validators.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["formatValidationErrors"],
+          "fullName": "formatValidationErrors returns unknown validation error when missing errors",
+          "status": "passed",
+          "title": "returns unknown validation error when missing errors",
+          "duration": 1.0684580000000778,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatValidationErrors"],
+          "fullName": "formatValidationErrors returns unknown validation error when errors list is empty",
+          "status": "passed",
+          "title": "returns unknown validation error when errors list is empty",
+          "duration": 0.11300000000005639,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatValidationErrors"],
+          "fullName": "formatValidationErrors formats additionalProperties at root",
+          "status": "passed",
+          "title": "formats additionalProperties at root",
+          "duration": 0.13066700000001674,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatValidationErrors"],
+          "fullName": "formatValidationErrors formats additionalProperties with instancePath",
+          "status": "passed",
+          "title": "formats additionalProperties with instancePath",
+          "duration": 0.0939579999999296,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatValidationErrors"],
+          "fullName": "formatValidationErrors formats message with path for other errors",
+          "status": "passed",
+          "title": "formats message with path for other errors",
+          "duration": 0.0757499999999709,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["formatValidationErrors"],
+          "fullName": "formatValidationErrors de-dupes repeated entries",
+          "status": "passed",
+          "title": "de-dupes repeated entries",
+          "duration": 0.06466699999998582,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930757441,
+      "endTime": 1771930757442.1306,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/protocol/index.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["createGatewayPluginRequestHandler"],
+          "fullName": "createGatewayPluginRequestHandler returns false when no handlers are registered",
+          "status": "passed",
+          "title": "returns false when no handlers are registered",
+          "duration": 4.845957999999996,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createGatewayPluginRequestHandler"],
+          "fullName": "createGatewayPluginRequestHandler continues until a handler reports it handled the request",
+          "status": "passed",
+          "title": "continues until a handler reports it handled the request",
+          "duration": 1.0505409999999529,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createGatewayPluginRequestHandler"],
+          "fullName": "createGatewayPluginRequestHandler handles registered http routes before generic handlers",
+          "status": "passed",
+          "title": "handles registered http routes before generic handlers",
+          "duration": 0.509083999999973,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["createGatewayPluginRequestHandler"],
+          "fullName": "createGatewayPluginRequestHandler logs and responds with 500 when a handler throws",
+          "status": "passed",
+          "title": "logs and responds with 500 when a handler throws",
+          "duration": 3.7119169999999713,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930745787,
+      "endTime": 1771930745796.712,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server/plugins-http.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["broadcastPresenceSnapshot"],
+          "fullName": "broadcastPresenceSnapshot increments version and broadcasts presence with state versions",
+          "status": "passed",
+          "title": "increments version and broadcasts presence with state versions",
+          "duration": 7.554666999999995,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930761789,
+      "endTime": 1771930761796.5547,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server/presence-events.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/agent.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["agents.create"],
+          "fullName": "agents.create creates a new agent successfully",
+          "status": "passed",
+          "title": "creates a new agent successfully",
+          "duration": 11.364916999999878,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.create"],
+          "fullName": "agents.create ensures workspace is set up before writing config",
+          "status": "passed",
+          "title": "ensures workspace is set up before writing config",
+          "duration": 0.6016669999999067,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.create"],
+          "fullName": "agents.create rejects creating an agent with reserved 'main' id",
+          "status": "passed",
+          "title": "rejects creating an agent with reserved 'main' id",
+          "duration": 0.4309589999998025,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.create"],
+          "fullName": "agents.create rejects creating a duplicate agent",
+          "status": "passed",
+          "title": "rejects creating a duplicate agent",
+          "duration": 0.3205830000001697,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.create"],
+          "fullName": "agents.create rejects invalid params (missing name)",
+          "status": "passed",
+          "title": "rejects invalid params (missing name)",
+          "duration": 0.2772920000002159,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.create"],
+          "fullName": "agents.create always writes Name to IDENTITY.md even without emoji/avatar",
+          "status": "passed",
+          "title": "always writes Name to IDENTITY.md even without emoji/avatar",
+          "duration": 1.4334170000001905,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.create"],
+          "fullName": "agents.create writes emoji and avatar to IDENTITY.md when provided",
+          "status": "passed",
+          "title": "writes emoji and avatar to IDENTITY.md when provided",
+          "duration": 3.426832999999988,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.update"],
+          "fullName": "agents.update updates an existing agent successfully",
+          "status": "passed",
+          "title": "updates an existing agent successfully",
+          "duration": 3.100082999999813,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.update"],
+          "fullName": "agents.update rejects updating a nonexistent agent",
+          "status": "passed",
+          "title": "rejects updating a nonexistent agent",
+          "duration": 1.6776660000000447,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.update"],
+          "fullName": "agents.update ensures workspace when workspace changes",
+          "status": "passed",
+          "title": "ensures workspace when workspace changes",
+          "duration": 0.23887500000000728,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.update"],
+          "fullName": "agents.update does not ensure workspace when workspace is unchanged",
+          "status": "passed",
+          "title": "does not ensure workspace when workspace is unchanged",
+          "duration": 0.5173749999999018,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.delete"],
+          "fullName": "agents.delete deletes an existing agent and trashes files by default",
+          "status": "passed",
+          "title": "deletes an existing agent and trashes files by default",
+          "duration": 3.0477499999997235,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.delete"],
+          "fullName": "agents.delete skips file deletion when deleteFiles is false",
+          "status": "passed",
+          "title": "skips file deletion when deleteFiles is false",
+          "duration": 2.613083000000188,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.delete"],
+          "fullName": "agents.delete rejects deleting the main agent",
+          "status": "passed",
+          "title": "rejects deleting the main agent",
+          "duration": 0.6553330000001552,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.delete"],
+          "fullName": "agents.delete rejects deleting a nonexistent agent",
+          "status": "passed",
+          "title": "rejects deleting a nonexistent agent",
+          "duration": 0.5022909999997864,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.delete"],
+          "fullName": "agents.delete rejects invalid params (missing agentId)",
+          "status": "passed",
+          "title": "rejects invalid params (missing agentId)",
+          "duration": 0.21387499999991633,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.files.list"],
+          "fullName": "agents.files.list includes BOOTSTRAP.md when onboarding has not completed",
+          "status": "passed",
+          "title": "includes BOOTSTRAP.md when onboarding has not completed",
+          "duration": 1.2405829999997877,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.files.list"],
+          "fullName": "agents.files.list hides BOOTSTRAP.md when workspace onboarding is complete",
+          "status": "passed",
+          "title": "hides BOOTSTRAP.md when workspace onboarding is complete",
+          "duration": 0.7625829999997222,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.files.list"],
+          "fullName": "agents.files.list falls back to showing BOOTSTRAP.md when workspace state cannot be read",
+          "status": "passed",
+          "title": "falls back to showing BOOTSTRAP.md when workspace state cannot be read",
+          "duration": 0.5427090000002863,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["agents.files.list"],
+          "fullName": "agents.files.list falls back to showing BOOTSTRAP.md when workspace state is malformed JSON",
+          "status": "passed",
+          "title": "falls back to showing BOOTSTRAP.md when workspace state is malformed JSON",
+          "duration": 0.7794579999999769,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930551128,
+      "endTime": 1771930551162.7795,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/agents-mutate.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/chat.abort-persistence.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["chat directive tag stripping for non-streaming final payloads"],
+          "fullName": "chat directive tag stripping for non-streaming final payloads chat.inject keeps message defined when directive tag is the only content",
+          "status": "passed",
+          "title": "chat.inject keeps message defined when directive tag is the only content",
+          "duration": 182.90400000000227,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["chat directive tag stripping for non-streaming final payloads"],
+          "fullName": "chat directive tag stripping for non-streaming final payloads chat.send non-streaming final keeps message defined for directive-only assistant text",
+          "status": "passed",
+          "title": "chat.send non-streaming final keeps message defined for directive-only assistant text",
+          "duration": 244.8770000000004,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["chat directive tag stripping for non-streaming final payloads"],
+          "fullName": "chat directive tag stripping for non-streaming final payloads chat.inject strips external untrusted wrapper metadata from final payload text",
+          "status": "passed",
+          "title": "chat.inject strips external untrusted wrapper metadata from final payload text",
+          "duration": 7.96875,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["chat directive tag stripping for non-streaming final payloads"],
+          "fullName": "chat directive tag stripping for non-streaming final payloads chat.send non-streaming final strips external untrusted wrapper metadata from final payload text",
+          "status": "passed",
+          "title": "chat.send non-streaming final strips external untrusted wrapper metadata from final payload text",
+          "duration": 62.52679199999693,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930677236,
+      "endTime": 1771930677734.5269,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/chat.directive-tags.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["gateway chat.inject transcript writes"],
+          "fullName": "gateway chat.inject transcript writes appends a Pi session entry that includes parentId",
+          "status": "passed",
+          "title": "appends a Pi session entry that includes parentId",
+          "duration": 7.662500000000136,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930761694,
+      "endTime": 1771930761701.6626,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/chat.inject.parentid.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["node.invoke APNs wake path"],
+          "fullName": "node.invoke APNs wake path keeps the existing not-connected response when wake path is unavailable",
+          "status": "passed",
+          "title": "keeps the existing not-connected response when wake path is unavailable",
+          "duration": 8.279749999999922,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["node.invoke APNs wake path"],
+          "fullName": "node.invoke APNs wake path wakes and retries invoke after the node reconnects",
+          "status": "passed",
+          "title": "wakes and retries invoke after the node reconnects",
+          "duration": 6.6496669999999085,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["node.invoke APNs wake path"],
+          "fullName": "node.invoke APNs wake path forces one retry wake when the first wake still fails to reconnect",
+          "status": "passed",
+          "title": "forces one retry wake when the first wake still fails to reconnect",
+          "duration": 21.350417000000107,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930664011,
+      "endTime": 1771930664047.3503,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/nodes.invoke-wake.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["push.test handler"],
+          "fullName": "push.test handler rejects invalid params",
+          "status": "passed",
+          "title": "rejects invalid params",
+          "duration": 4.664207999999917,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["push.test handler"],
+          "fullName": "push.test handler returns invalid request when node has no APNs registration",
+          "status": "passed",
+          "title": "returns invalid request when node has no APNs registration",
+          "duration": 0.33316599999989194,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["push.test handler"],
+          "fullName": "push.test handler sends push test when registration and auth are available",
+          "status": "passed",
+          "title": "sends push test when registration and auth are available",
+          "duration": 2.55333399999995,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930747232,
+      "endTime": 1771930747239.5532,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/push.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/send.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/server-methods.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["skills.update"],
+          "fullName": "skills.update strips embedded CR/LF from apiKey",
+          "status": "passed",
+          "title": "strips embedded CR/LF from apiKey",
+          "duration": 4.733750000000327,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930769935,
+      "endTime": 1771930769939.7336,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/skills.update.normalizes-api-key.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["update.run sentinel deliveryContext"],
+          "fullName": "update.run sentinel deliveryContext includes deliveryContext in sentinel payload when sessionKey is provided",
+          "status": "passed",
+          "title": "includes deliveryContext in sentinel payload when sessionKey is provided",
+          "duration": 132.63383299999987,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["update.run sentinel deliveryContext"],
+          "fullName": "update.run sentinel deliveryContext omits deliveryContext when no sessionKey is provided",
+          "status": "passed",
+          "title": "omits deliveryContext when no sessionKey is provided",
+          "duration": 0.46600000000034925,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["update.run sentinel deliveryContext"],
+          "fullName": "update.run sentinel deliveryContext includes threadId in sentinel payload for threaded sessions",
+          "status": "passed",
+          "title": "includes threadId in sentinel payload for threaded sessions",
+          "duration": 0.29720799999995506,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["update.run timeout normalization"],
+          "fullName": "update.run timeout normalization enforces a 1000ms minimum timeout for tiny values",
+          "status": "passed",
+          "title": "enforces a 1000ms minimum timeout for tiny values",
+          "duration": 9.163332999999511,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["update.run restart scheduling"],
+          "fullName": "update.run restart scheduling schedules restart when update succeeds",
+          "status": "passed",
+          "title": "schedules restart when update succeeds",
+          "duration": 0.33637499999986176,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["update.run restart scheduling"],
+          "fullName": "update.run restart scheduling skips restart when update fails",
+          "status": "passed",
+          "title": "skips restart when update fails",
+          "duration": 0.439209000000119,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930684215,
+      "endTime": 1771930684358.4392,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/update.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "[vitest] There was an error when mocking a module. If you are using \"vi.mock\" factory, make sure there are no top level variables inside, since this call is hoisted to top of the file. Read more: https://vitest.dev/api/vi.html#vi-mock",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/usage.sessions-usage.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server-methods/usage.test.ts"
+    },
+    {
+      "assertionResults": [],
+      "startTime": 1771930511550,
+      "endTime": 1771930511550,
+      "status": "failed",
+      "message": "The \"path\" argument must be of type string. Received undefined",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server/ws-connection/auth-context.test.ts"
+    },
+    {
+      "assertionResults": [
+        {
+          "ancestorTitles": ["ws connect policy"],
+          "fullName": "ws connect policy resolves control-ui auth policy",
+          "status": "passed",
+          "title": "resolves control-ui auth policy",
+          "duration": 1.2014159999999947,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["ws connect policy"],
+          "fullName": "ws connect policy evaluates missing-device decisions",
+          "status": "passed",
+          "title": "evaluates missing-device decisions",
+          "duration": 0.7622079999999869,
+          "failureMessages": [],
+          "meta": {}
+        },
+        {
+          "ancestorTitles": ["ws connect policy"],
+          "fullName": "ws connect policy pairing bypass requires control-ui bypass + shared auth",
+          "status": "passed",
+          "title": "pairing bypass requires control-ui bypass + shared auth",
+          "duration": 0.16695800000002237,
+          "failureMessages": [],
+          "meta": {}
+        }
+      ],
+      "startTime": 1771930700165,
+      "endTime": 1771930700167.167,
+      "status": "passed",
+      "message": "",
+      "name": "/Users/administrator/.openclaw/workspace/ironclaw/src/gateway/server/ws-connection/connect-policy.test.ts"
+    }
+  ]
+}

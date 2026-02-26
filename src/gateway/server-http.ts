@@ -17,6 +17,7 @@ import {
 import type { CanvasHostHandler } from "../canvas-host/server.js";
 import { loadConfig } from "../config/config.js";
 import type { createSubsystemLogger } from "../logging/subsystem.js";
+import { applySecurityMonitoringDefaults, renderMonitoringMetrics } from "../security/framework.js";
 import { safeEqualSecret } from "../security/secret-equal.js";
 import { handleSlackHttpRequest } from "../slack/http/index.js";
 import {
@@ -467,6 +468,38 @@ export function createGatewayHttpServer(opts: {
         req.url = scopedCanvas.rewrittenUrl;
       }
       const requestPath = new URL(req.url ?? "/", "http://localhost").pathname;
+      const monitoring = applySecurityMonitoringDefaults(configSnapshot).monitoring;
+      const metricsPath = monitoring?.metrics?.path?.trim() || "/metrics";
+      if (
+        monitoring?.enabled !== false &&
+        monitoring?.metrics?.enabled !== false &&
+        requestPath === metricsPath
+      ) {
+        if (req.method !== "GET" && req.method !== "HEAD") {
+          res.statusCode = 405;
+          res.setHeader("Allow", "GET, HEAD");
+          res.setHeader("Content-Type", "text/plain; charset=utf-8");
+          res.end("Method Not Allowed");
+          return;
+        }
+        const token = getBearerToken(req);
+        const authResult = await authorizeHttpGatewayConnect({
+          auth: resolvedAuth,
+          connectAuth: token ? { token, password: token } : null,
+          req,
+          trustedProxies,
+          allowRealIpFallback,
+          rateLimiter,
+        });
+        if (!authResult.ok) {
+          sendGatewayAuthFailure(res, authResult);
+          return;
+        }
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "text/plain; version=0.0.4; charset=utf-8");
+        res.end(req.method === "HEAD" ? "" : renderMonitoringMetrics(configSnapshot));
+        return;
+      }
       if (await handleHooksRequest(req, res)) {
         return;
       }
