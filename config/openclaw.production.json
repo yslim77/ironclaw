@@ -1,0 +1,182 @@
+{
+  "$schema": "https://raw.githubusercontent.com/yslim77/ironclaw/main/config/schema.json",
+  "version": "1.0",
+  "gateway": {
+    "enabled": true,
+    "port": 18789,
+    "bind": "127.0.0.1",
+    "trustedProxies": [],
+    "allowRealIpFallback": false,
+    "maxBodyBytes": 10485760,
+    "tls": {
+      "enabled": false,
+      "cert": null,
+      "key": null
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "openai/gpt-5.1-codex",
+        "fallbacks": ["openai/gpt-5.2-codex", "ollama/qwen3.5", "ollama/minimax-m2.5"],
+        "maxTokens": 272000,
+        "thinking": "off"
+      },
+      "models": {
+        "openai/gpt-5.1-codex": {
+          "alias": "GPT",
+          "provider": "openai"
+        },
+        "openai/gpt-5.2-codex": {
+          "alias": "GPT Codex Fallback",
+          "provider": "openai"
+        },
+        "ollama/qwen3.5": {
+          "alias": "Qwen3.5 (Ollama)",
+          "provider": "ollama"
+        },
+        "ollama/minimax-m2.5": {
+          "alias": "MiniMax-M2.5 (Ollama)",
+          "provider": "ollama"
+        }
+      }
+    }
+  },
+  "monitoring": {
+    "enabled": true,
+    "heartbeat": {
+      "enabled": true,
+      "intervalSeconds": 30
+    },
+    "queue": {
+      "enabled": true,
+      "warnDepth": 25
+    },
+    "resources": {
+      "enabled": true,
+      "sampleSeconds": 30,
+      "maxRssMb": 1536,
+      "maxHeapUsedMb": 1024
+    },
+    "errorTracking": {
+      "enabled": true
+    },
+    "metrics": {
+      "enabled": true,
+      "path": "/metrics"
+    },
+    "alerts": {
+      "cooldownSeconds": 300,
+      "email": {
+        "enabled": false,
+        "hookEnabled": false,
+        "hookCommand": null,
+        "to": null,
+        "from": "ironclaw@localhost",
+        "subjectPrefix": "[Ironclaw Alert]"
+      },
+      "telegram": {
+        "enabled": false,
+        "hookEnabled": false,
+        "hookCommand": null,
+        "chatId": null,
+        "botToken": null,
+        "accountId": null
+      },
+      "slack": {
+        "enabled": false,
+        "hookEnabled": false,
+        "hookCommand": null,
+        "channel": null,
+        "botToken": null,
+        "webhookUrl": null,
+        "accountId": null
+      }
+    }
+  },
+  "security": {
+    "enabled": true,
+    "auditLog": true,
+    "rateLimit": {
+      "enabled": true,
+      "windowMs": 60000,
+      "maxRequests": 100
+    },
+    "rbac": {
+      "enabled": true,
+      "defaultRole": "user",
+      "roles": {
+        "admin": {
+          "permissions": ["*"]
+        },
+        "user": {
+          "permissions": ["read", "write"]
+        },
+        "readonly": {
+          "permissions": ["read"]
+        }
+      }
+    },
+    "sandbox": {
+      "enabled": true,
+      "defaultPolicy": "allow",
+      "allowedTools": [],
+      "deniedTools": [],
+      "allowedPaths": [],
+      "deniedPaths": ["/etc", "/var/log"]
+    },
+    "secrets": {
+      "providers": {
+        "env": {
+          "enabled": true
+        },
+        "keychain": {
+          "enabled": true,
+          "service": "ironclaw",
+          "account": "default",
+          "command": "security"
+        },
+        "onePassword": {
+          "enabled": false,
+          "vault": null,
+          "account": null,
+          "command": "op"
+        }
+      },
+      "placeholders": {
+        "envPrefix": "env:",
+        "keychainPrefix": "keychain:",
+        "onePasswordPrefix": "op:"
+      }
+    }
+  },
+  "logging": {
+    "level": "info",
+    "subsystemLogs": {
+      "security/framework": "info",
+      "gateway": "info"
+    }
+  },
+  "skills": {
+    "enabled": true,
+    "autoLoad": true
+  },
+  "plugins": {
+    "enabled": true,
+    "entries": {}
+  },
+  "canvas": {
+    "enabled": true,
+    "host": {
+      "enabled": true,
+      "basePath": "/canvas"
+    }
+  },
+  "webchat": {
+    "enabled": true,
+    "ui": {
+      "enabled": true,
+      "basePath": "/"
+    }
+  }
+}
